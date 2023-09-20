@@ -26,7 +26,7 @@ How to move to In Progress: Any time a member is actively developing for an issu
  
 How to move to In Review: Any time a member feels like the issue has been resolved by their inputs they will move to IN REVIEW.
  
-How review is done: During Scrum Standups, group will review issues in IN REVIEW as well as consulting with stakeholders IE Jody Paul. If standards met, move to DONE, otherwise move back to READY
+How review is done: After Scrum Standups, group will review issues in IN REVIEW as well as consulting with stakeholders IE Jody Paul. If standards met, move to DONE, otherwise move back to READY
  
 When to move to DONE: When reviewed, tests passed, and stakeholder approved we will move to DONE.
  
