@@ -11,9 +11,12 @@ Scrum Standups: Every Mon and Wed, describe 3 things:
 * What you're working on, 
 * What's going well, 
 * What's not going well.
-* Code Review.
+
+After Every Standup, address any concerns brought up with "What's Not Going Well."
 
 Every friday, we'll do a text version of the standup.
+
+After Standups we will do code review.
 
 How to add to the KANBAN board: At any time if a member thinks of something to be worked on they will add it to the NEW section. These will include User Story based feature requests as well as bug reports. NEW issues will be labeled according to project label standards to be finalized soon.
  
