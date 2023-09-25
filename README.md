@@ -6,7 +6,7 @@ To Build: with the flutter SDK installed, clone repo into VSCode or other IDE, c
 
 Software Development Model, and How to Contribute:
 Sprint Time: 1 week.
-Sprint Deliverable: Annotated Portfolio of work done that spring.
+Sprint Deliverable: Annotated Portfolio of work done that sprint.
 Scrum Standups: Every Mon and Wed, describe 3 things: 
 * What you're working on, 
 * What's going well, 
