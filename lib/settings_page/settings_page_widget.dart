@@ -130,7 +130,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                 child: SwitchListTile.adaptive(
                   value: _model.switchListTileValue1 ??= true,
                   onChanged: (newValue) async {
-                    setState(() => _model.switchListTileValue1 = newValue!);
+                    setState(() => _model.switchListTileValue1 = newValue);
                   },
                   title: Text(
                     'Notifications',
@@ -158,8 +158,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                 child: SwitchListTile.adaptive(
                   value: _model.switchListTileValue2 ??= false,
                   onChanged: (newValue) async {
-                    setState(() => _model.switchListTileValue2 = newValue!);
-                    if (newValue!) {
+                    setState(() => _model.switchListTileValue2 = newValue);
+                    if (newValue) {
                       setDarkModeSetting(
                         context,
                         true ? ThemeMode.dark : ThemeMode.light,

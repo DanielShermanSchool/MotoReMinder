@@ -65,7 +65,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 size: 24.0,
               ),
               onPressed: () async {
-                context.pushNamed('HistoryPage');
+                context.pushNamed('SettingsPage');
               },
             ),
           ],
@@ -290,6 +290,38 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
                 Text(
                   '<Last done mileage>',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 12.0,
+                      ),
+                ),
+                Text(
+                  'Tire life',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                    child: LinearPercentIndicator(
+                      percent: 0.5,
+                      width: MediaQuery.sizeOf(context).width * 0.75,
+                      lineHeight: 30.0,
+                      animation: true,
+                      progressColor: FlutterFlowTheme.of(context).primary,
+                      backgroundColor: FlutterFlowTheme.of(context).accent4,
+                      center: Text(
+                        '50%',
+                        style: FlutterFlowTheme.of(context).headlineSmall,
+                      ),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                ),
+                Text(
+                  '<Last done mileage>',
+                  textAlign: TextAlign.start,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
                         fontSize: 12.0,

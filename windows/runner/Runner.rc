@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "motoreminder" "\0"
+            VALUE "CompanyName", "com.mycompany" "\0"
+            VALUE "FileDescription", "moto_re_minder1" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "motoreminder" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "motoreminder.exe" "\0"
-            VALUE "ProductName", "motoreminder" "\0"
+            VALUE "InternalName", "moto_re_minder1" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 com.mycompany. All rights reserved." "\0"
+            VALUE "OriginalFilename", "moto_re_minder1.exe" "\0"
+            VALUE "ProductName", "moto_re_minder1" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
