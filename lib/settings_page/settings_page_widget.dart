@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'settings_page_model.dart';
 export 'settings_page_model.dart';
 
@@ -48,7 +46,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -65,7 +63,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   fontSize: 22.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -73,7 +71,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
           top: true,
           child: Stack(
             children: [
-              Align(
+              const Align(
                 alignment: AlignmentDirectional(0.00, 0.00),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -81,7 +79,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.02, -0.69),
+                alignment: const AlignmentDirectional(0.02, -0.69),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: MediaQuery.sizeOf(context).height * 1.0,
@@ -89,7 +87,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(-0.50, -0.59),
+                    alignment: const AlignmentDirectional(-0.50, -0.59),
                     child: Icon(
                       Icons.bluetooth,
                       color: FlutterFlowTheme.of(context).secondaryText,
@@ -99,7 +97,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.06, -0.61),
+                alignment: const AlignmentDirectional(0.06, -0.61),
                 child: FFButtonWidget(
                   onPressed: () {
                     print('Button pressed ...');
@@ -108,16 +106,16 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   options: FFButtonOptions(
                     height: 40.0,
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
@@ -126,11 +124,11 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.00, -0.24),
+                alignment: const AlignmentDirectional(0.00, -0.24),
                 child: SwitchListTile.adaptive(
                   value: _model.switchListTileValue1 ??= true,
                   onChanged: (newValue) async {
-                    setState(() => _model.switchListTileValue1 = newValue!);
+                    setState(() => _model.switchListTileValue1 = newValue);
                   },
                   title: Text(
                     'Notifications',
@@ -142,11 +140,11 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   dense: false,
                   controlAffinity: ListTileControlAffinity.trailing,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 60.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 60.0, 0.0),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-0.94, -0.23),
+                alignment: const AlignmentDirectional(-0.94, -0.23),
                 child: Icon(
                   Icons.notifications,
                   color: FlutterFlowTheme.of(context).secondaryText,
@@ -154,12 +152,12 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.00, -0.45),
+                alignment: const AlignmentDirectional(0.00, -0.45),
                 child: SwitchListTile.adaptive(
                   value: _model.switchListTileValue2 ??= false,
                   onChanged: (newValue) async {
-                    setState(() => _model.switchListTileValue2 = newValue!);
-                    if (newValue!) {
+                    setState(() => _model.switchListTileValue2 = newValue);
+                    if (newValue) {
                       setDarkModeSetting(
                         context,
                         true ? ThemeMode.dark : ThemeMode.light,
@@ -181,11 +179,11 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   dense: false,
                   controlAffinity: ListTileControlAffinity.trailing,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 60.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 60.0, 0.0),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-0.94, -0.43),
+                alignment: const AlignmentDirectional(-0.94, -0.43),
                 child: Icon(
                   Icons.dark_mode,
                   color: FlutterFlowTheme.of(context).secondaryText,

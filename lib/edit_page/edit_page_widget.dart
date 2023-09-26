@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'edit_page_model.dart';
 export 'edit_page_model.dart';
 
@@ -57,7 +55,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -81,7 +79,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
               borderWidth: 1.0,
               buttonSize: 40.0,
               fillColor: FlutterFlowTheme.of(context).accent1,
-              icon: Icon(
+              icon: const Icon(
                 Icons.more_vert,
                 color: Color(0xFFF1F4F6),
                 size: 24.0,
@@ -103,11 +101,11 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-1.00, 0.00),
+                      alignment: const AlignmentDirectional(-1.00, 0.00),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: Container(
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        child: SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.5,
                           child: TextFormField(
                             controller: _model.textController1,
@@ -156,11 +154,11 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-1.00, 0.00),
+                      alignment: const AlignmentDirectional(-1.00, 0.00),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: Container(
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        child: SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.5,
                           child: TextFormField(
                             controller: _model.textController2,
@@ -209,11 +207,11 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-1.00, 0.00),
+                      alignment: const AlignmentDirectional(-1.00, 0.00),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: Container(
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        child: SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.5,
                           child: TextFormField(
                             controller: _model.textController3,
@@ -262,11 +260,11 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-1.00, 0.00),
+                      alignment: const AlignmentDirectional(-1.00, 0.00),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                        child: Container(
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        child: SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.5,
                           child: TextFormField(
                             controller: _model.textController4,
@@ -321,17 +319,17 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                     Stack(
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: const AlignmentDirectional(0.00, 0.00),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                alignment: const AlignmentDirectional(-1.00, 0.00),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.5,
                                     child: TextFormField(
@@ -390,11 +388,11 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                alignment: const AlignmentDirectional(-1.00, 0.00),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.5,
                                     child: TextFormField(
@@ -453,11 +451,11 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                alignment: const AlignmentDirectional(-1.00, 0.00),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.5,
                                     child: TextFormField(
@@ -516,11 +514,11 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                alignment: const AlignmentDirectional(-1.00, 0.00),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.5,
                                     child: TextFormField(
@@ -582,9 +580,9 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.76, -0.29),
+                          alignment: const AlignmentDirectional(0.76, -0.29),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 55.0, 0.0, 0.0),
                             child: Theme(
                               data: ThemeData(
@@ -613,9 +611,9 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.39, -0.96),
+                          alignment: const AlignmentDirectional(0.39, -0.96),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 60.0, 0.0, 0.0),
                             child: Text(
                               'Unknown',
@@ -624,9 +622,9 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.39, -0.96),
+                          alignment: const AlignmentDirectional(0.39, -0.96),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 170.0, 0.0, 0.0),
                             child: Text(
                               'Unknown',
@@ -635,9 +633,9 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.76, -0.29),
+                          alignment: const AlignmentDirectional(0.76, -0.29),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 160.0, 0.0, 0.0),
                             child: Theme(
                               data: ThemeData(
@@ -671,7 +669,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.76, -0.84),
+                alignment: const AlignmentDirectional(0.76, -0.84),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(
@@ -683,7 +681,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.83, -0.78),
+                alignment: const AlignmentDirectional(0.83, -0.78),
                 child: FFButtonWidget(
                   onPressed: () {
                     print('Button pressed ...');
@@ -692,16 +690,16 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                   options: FFButtonOptions(
                     height: 40.0,
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Readex Pro',
                           color: Colors.white,
                         ),
                     elevation: 3.0,
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
