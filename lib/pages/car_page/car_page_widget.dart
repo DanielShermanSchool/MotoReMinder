@@ -1,10 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'car_page_model.dart';
 export 'car_page_model.dart';
 
@@ -58,7 +55,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
               borderWidth: 1.0,
               buttonSize: 40.0,
               fillColor: FlutterFlowTheme.of(context).accent1,
-              icon: Icon(
+              icon: const Icon(
                 Icons.more_vert,
                 color: Color(0xFFEAEEF0),
                 size: 24.0,
@@ -80,7 +77,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                 children: [],
               ),
               Align(
-                alignment: AlignmentDirectional(0.04, -0.68),
+                alignment: const AlignmentDirectional(0.04, -0.68),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -110,22 +107,22 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-0.00, -0.69),
+                alignment: const AlignmentDirectional(-0.00, -0.69),
                 child: Text(
                   '<Car NickName>',
                   style: FlutterFlowTheme.of(context).bodyLarge.override(
                         fontFamily: 'Readex Pro',
-                        color: Color(0xFFF60E0E),
+                        color: const Color(0xFFF60E0E),
                       ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-0.01, -0.61),
+                alignment: const AlignmentDirectional(-0.01, -0.61),
                 child: Text(
                   'Make, Model, Year, Engine',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: Color(0xFFF60E0E),
+                        color: const Color(0xFFF60E0E),
                       ),
                 ),
               ),

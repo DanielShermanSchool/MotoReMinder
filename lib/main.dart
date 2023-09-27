@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -6,7 +5,6 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
@@ -16,10 +14,12 @@ void main() async {
 
   await FlutterFlowTheme.initialize();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'MotoReMinder1',
-      localizationsDelegates: [
+      localizationsDelegates: const [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -66,11 +66,11 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: const [Locale('en', '')],
       theme: ThemeData(
         brightness: Brightness.light,
-        scrollbarTheme: ScrollbarThemeData(),
+        scrollbarTheme: const ScrollbarThemeData(),
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        scrollbarTheme: ScrollbarThemeData(),
+        scrollbarTheme: const ScrollbarThemeData(),
       ),
       themeMode: _themeMode,
       routerConfig: _router,
@@ -79,7 +79,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class NavBarPage extends StatefulWidget {
-  NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
+  const NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
 
   final String? initialPage;
   final Widget? page;
@@ -103,8 +103,8 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'HomePage': HomePageWidget(),
-      'CarPage': CarPageWidget(),
+      'HomePage': const HomePageWidget(),
+      'CarPage': const CarPageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -117,12 +117,12 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: FlutterFlowTheme.of(context).primary,
-        selectedItemColor: Color(0xFFE9E8EF),
-        unselectedItemColor: Color(0x8AFAF7F7),
+        selectedItemColor: const Color(0xFFE9E8EF),
+        unselectedItemColor: const Color(0x8AFAF7F7),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
               Icons.checklist,

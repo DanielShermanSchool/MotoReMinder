@@ -1,11 +1,8 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -59,7 +56,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               borderWidth: 1.0,
               buttonSize: 40.0,
               fillColor: FlutterFlowTheme.of(context).accent1,
-              icon: Icon(
+              icon: const Icon(
                 Icons.more_vert,
                 color: Color(0xFFEEF1F3),
                 size: 24.0,
@@ -83,10 +80,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.00, 0.00),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
                     child: LinearPercentIndicator(
                       percent: 0.5,
                       width: MediaQuery.sizeOf(context).width * 0.75,
@@ -114,10 +111,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.00, 0.00),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
                     child: LinearPercentIndicator(
                       percent: 0.5,
                       width: MediaQuery.sizeOf(context).width * 0.75,
@@ -145,10 +142,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.00, 0.00),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
                     child: LinearPercentIndicator(
                       percent: 0.5,
                       width: MediaQuery.sizeOf(context).width * 0.75,
@@ -176,10 +173,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.00, 0.00),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
                     child: LinearPercentIndicator(
                       percent: 0.5,
                       width: MediaQuery.sizeOf(context).width * 0.75,
@@ -207,10 +204,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.00, 0.00),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
                     child: LinearPercentIndicator(
                       percent: 0.5,
                       width: MediaQuery.sizeOf(context).width * 0.75,
@@ -238,10 +235,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.00, 0.00),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
                     child: LinearPercentIndicator(
                       percent: 0.5,
                       width: MediaQuery.sizeOf(context).width * 0.75,
@@ -269,10 +266,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.00, 0.00),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
                     child: LinearPercentIndicator(
                       percent: 0.5,
                       width: MediaQuery.sizeOf(context).width * 0.75,
