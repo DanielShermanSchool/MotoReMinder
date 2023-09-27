@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
 
 class EditPageModel extends FlutterFlowModel {
