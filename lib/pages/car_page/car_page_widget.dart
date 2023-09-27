@@ -74,15 +74,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
             children: [
               Column(
                 mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 1.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                  ),
-                ],
+                children: [],
               ),
               Align(
                 alignment: const AlignmentDirectional(0.04, -0.68),
@@ -132,6 +124,38 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                         fontFamily: 'Readex Pro',
                         color: const Color(0xFFF60E0E),
                       ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-1.01, 1.00),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    context.pushNamed('EditPage');
+                  },
+                  text: 'Add New Car',
+                  icon: Icon(
+                    Icons.add_box,
+                    size: 15.0,
+                  ),
+                  options: FFButtonOptions(
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 40.0,
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Readex Pro',
+                          color: Colors.white,
+                        ),
+                    elevation: 3.0,
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
                 ),
               ),
             ],
