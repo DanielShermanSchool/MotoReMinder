@@ -44,3 +44,22 @@ User Story Format:
 AS A ____
 I WANT ___
 SO THAT ___
+
+
+Maintenance Intervals To Check on, Work In Progress:
+* engine oil and filter
+* tire rotation
+* brake inspection
+* engine coolant
+* air filter
+* spark plugs
+* timing belt/chain
+* water pump inspection
+* drive belt inspection
+* transmission fluid
+* brake fluid
+* cabin air filter
+* fuel filter
+* fuel pump
+* "boots" or fluid-containing rubber ends to various suspension and steering components
+* suspension inspection
