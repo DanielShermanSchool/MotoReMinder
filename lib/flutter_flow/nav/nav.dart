@@ -60,7 +60,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/editPage',
           builder: (context, params) => const EditPageWidget(),
         ),
-        
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 

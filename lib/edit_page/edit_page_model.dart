@@ -6,65 +6,65 @@ class EditPageModel extends FlutterFlowModel {
 
   final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  TextEditingController? carName;
+  String? Function(BuildContext, String?)? carNameValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
+  TextEditingController? carMake;
+  String? Function(BuildContext, String?)? carMakeValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
+  TextEditingController? carModel;
+  String? Function(BuildContext, String?)? carModelValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
+  TextEditingController? carYear;
+  String? Function(BuildContext, String?)? carYearValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
+  TextEditingController? oilChanged;
+  String? Function(BuildContext, String?)? oilChangedValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController6;
-  String? Function(BuildContext, String?)? textController6Validator;
+  TextEditingController? oilInterval;
+  String? Function(BuildContext, String?)? oilIntervalValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController7;
-  String? Function(BuildContext, String?)? textController7Validator;
+  TextEditingController? transChanged;
+  String? Function(BuildContext, String?)? transChangedValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController8;
-  String? Function(BuildContext, String?)? textController8Validator;
+  TextEditingController? transInterval;
+  String? Function(BuildContext, String?)? transIntervalValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController9;
-  String? Function(BuildContext, String?)? textController9Validator;
+  TextEditingController? beltsChanged;
+  String? Function(BuildContext, String?)? beltsChangedValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController10;
-  String? Function(BuildContext, String?)? textController10Validator;
+  TextEditingController? beltsInterval;
+  String? Function(BuildContext, String?)? beltsIntervalValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController11;
-  String? Function(BuildContext, String?)? textController11Validator;
+  TextEditingController? brakesChanged;
+  String? Function(BuildContext, String?)? brakesChangedValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController12;
-  String? Function(BuildContext, String?)? textController12Validator;
+  TextEditingController? brakesInterval;
+  String? Function(BuildContext, String?)? brakesIntervalValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController13;
-  String? Function(BuildContext, String?)? textController13Validator;
+  TextEditingController? sparksChanged;
+  String? Function(BuildContext, String?)? sparksChangedValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController14;
-  String? Function(BuildContext, String?)? textController14Validator;
+  TextEditingController? sparksInterval;
+  String? Function(BuildContext, String?)? sparksIntervalValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController15;
-  String? Function(BuildContext, String?)? textController15Validator;
+  TextEditingController? ffilterChanged;
+  String? Function(BuildContext, String?)? ffilterChangedValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController16;
-  String? Function(BuildContext, String?)? textController16Validator;
+  TextEditingController? ffilterInterval;
+  String? Function(BuildContext, String?)? ffilterIntervalValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController17;
-  String? Function(BuildContext, String?)? textController17Validator;
+  TextEditingController? afilterChanged;
+  String? Function(BuildContext, String?)? afilterChangedValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController18;
-  String? Function(BuildContext, String?)? textController18Validator;
+  TextEditingController? afilterInterval;
+  String? Function(BuildContext, String?)? afilterIntervalValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController19;
-  String? Function(BuildContext, String?)? textController19Validator;
+  TextEditingController? tiresChanged;
+  String? Function(BuildContext, String?)? tiresChangedValidator;
   // State field(s) for TextField widget.
-  TextEditingController? textController20;
-  String? Function(BuildContext, String?)? textController20Validator;
+  TextEditingController? tiresInterval;
+  String? Function(BuildContext, String?)? tiresIntervalValidator;
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -94,26 +94,26 @@ class EditPageModel extends FlutterFlowModel {
   @override
   void dispose() {
     unfocusNode.dispose();
-    textController1?.dispose();
-    textController2?.dispose();
-    textController3?.dispose();
-    textController4?.dispose();
-    textController5?.dispose();
-    textController6?.dispose();
-    textController7?.dispose();
-    textController8?.dispose();
-    textController9?.dispose();
-    textController10?.dispose();
-    textController11?.dispose();
-    textController12?.dispose();
-    textController13?.dispose();
-    textController14?.dispose();
-    textController15?.dispose();
-    textController16?.dispose();
-    textController17?.dispose();
-    textController18?.dispose();
-    textController19?.dispose();
-    textController20?.dispose();
+    carName?.dispose();
+    carMake?.dispose();
+    carModel?.dispose();
+    carYear?.dispose();
+    oilChanged?.dispose();
+    oilInterval?.dispose();
+    transChanged?.dispose();
+    transInterval?.dispose();
+    beltsChanged?.dispose();
+    beltsInterval?.dispose();
+    brakesChanged?.dispose();
+    brakesInterval?.dispose();
+    sparksChanged?.dispose();
+    sparksInterval?.dispose();
+    ffilterChanged?.dispose();
+    ffilterInterval?.dispose();
+    afilterChanged?.dispose();
+    afilterInterval?.dispose();
+    tiresChanged?.dispose();
+    tiresInterval?.dispose();
   }
 
   /// Action blocks are added here.

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -24,27 +26,51 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     super.initState();
     _model = createModel(context, () => EditPageModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textController2 ??= TextEditingController();
-    _model.textController3 ??= TextEditingController();
-    _model.textController4 ??= TextEditingController();
-    _model.textController5 ??= TextEditingController();
-    _model.textController6 ??= TextEditingController();
-    _model.textController7 ??= TextEditingController();
-    _model.textController8 ??= TextEditingController();
-    _model.textController9 ??= TextEditingController();
-    _model.textController10 ??= TextEditingController();
-    _model.textController11 ??= TextEditingController();
-    _model.textController12 ??= TextEditingController();
-    _model.textController13 ??= TextEditingController();
-    _model.textController14 ??= TextEditingController();
-    _model.textController15 ??= TextEditingController();
-    _model.textController16 ??= TextEditingController();
-    _model.textController17 ??= TextEditingController();
-    _model.textController18 ??= TextEditingController();
-    _model.textController19 ??= TextEditingController();
-    _model.textController20 ??= TextEditingController();
+    _model.carName ??= TextEditingController();
+    _model.carMake ??= TextEditingController();
+    _model.carModel ??= TextEditingController();
+    _model.carYear ??= TextEditingController();
+    _model.oilChanged ??= TextEditingController();
+    _model.oilInterval ??= TextEditingController();
+    _model.transChanged ??= TextEditingController();
+    _model.transInterval ??= TextEditingController();
+    _model.beltsChanged ??= TextEditingController();
+    _model.beltsInterval ??= TextEditingController();
+    _model.brakesChanged ??= TextEditingController();
+    _model.beltsInterval ??= TextEditingController();
+    _model.sparksChanged ??= TextEditingController();
+    _model.sparksInterval ??= TextEditingController();
+    _model.ffilterChanged ??= TextEditingController();
+    _model.ffilterInterval ??= TextEditingController();
+    _model.afilterChanged ??= TextEditingController();
+    _model.afilterInterval ??= TextEditingController();
+    _model.tiresChanged ??= TextEditingController();
+    _model.tiresInterval ??= TextEditingController();
+    
+    
   }
+    String _savedname = '';
+    String _savedmake = '';
+    String _savedmodel = '';
+    String _savedyear = '';
+    String _savedoc = '';
+    String _savedoi = '';
+    String _savedtc = '';
+    String _savedti = '';
+    String _savedbc = '';
+    String _savedbi = '';
+    String _savedbrc = '';
+    String _savedbri = '';
+    String _savedsc = '';
+    String _savedsi = '';
+    String _savedffc = '';
+    String _savedffi = '';
+    String _savedafc = '';
+    String _savedafi = '';
+    String _savedtirec = '';
+    String _savedtirei = '';
+    int _counter = 0;
+    
 
   @override
   void dispose() {
@@ -121,7 +147,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                         child: SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.5,
                           child: TextFormField(
-                            controller: _model.textController1,
+                            controller: _model.carName,
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -160,7 +186,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               ),
                             ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
-                            validator: _model.textController1Validator
+                            validator: _model.carNameValidator
                                 .asValidator(context),
                           ),
                         ),
@@ -174,7 +200,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                         child: SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.5,
                           child: TextFormField(
-                            controller: _model.textController2,
+                            controller: _model.carMake,
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -213,7 +239,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               ),
                             ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
-                            validator: _model.textController2Validator
+                            validator: _model.carMakeValidator
                                 .asValidator(context),
                           ),
                         ),
@@ -227,7 +253,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                         child: SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.5,
                           child: TextFormField(
-                            controller: _model.textController3,
+                            controller: _model.carModel,
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -266,7 +292,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               ),
                             ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
-                            validator: _model.textController3Validator
+                            validator: _model.carModelValidator
                                 .asValidator(context),
                           ),
                         ),
@@ -280,7 +306,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                         child: SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.5,
                           child: TextFormField(
-                            controller: _model.textController4,
+                            controller: _model.carYear,
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -319,7 +345,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               ),
                             ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
-                            validator: _model.textController4Validator
+                            validator: _model.carYearValidator
                                 .asValidator(context),
                           ),
                         ),
@@ -347,7 +373,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController5,
+                                        controller: _model.oilChanged,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -403,7 +429,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController5Validator
+                                            .oilChangedValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -418,7 +444,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController6,
+                                        controller: _model.oilInterval,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -475,7 +501,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController6Validator
+                                            .oilIntervalValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -490,7 +516,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController7,
+                                        controller: _model.transChanged,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -546,7 +572,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController7Validator
+                                            .transChangedValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -561,7 +587,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController8,
+                                        controller: _model.transInterval,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -618,7 +644,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController8Validator
+                                            .transIntervalValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -633,7 +659,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController9,
+                                        controller: _model.beltsChanged,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -689,7 +715,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController9Validator
+                                            .beltsChangedValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -704,7 +730,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController10,
+                                        controller: _model.beltsInterval,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -761,7 +787,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController10Validator
+                                            .beltsIntervalValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -776,7 +802,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController11,
+                                        controller: _model.brakesChanged,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -832,7 +858,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController11Validator
+                                            .brakesChangedValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -847,7 +873,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController12,
+                                        controller: _model.brakesInterval,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -904,7 +930,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController12Validator
+                                            .brakesIntervalValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -919,7 +945,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController13,
+                                        controller: _model.sparksChanged,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -975,7 +1001,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController13Validator
+                                            .sparksChangedValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -990,7 +1016,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController14,
+                                        controller: _model.sparksInterval,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1047,7 +1073,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController14Validator
+                                            .sparksIntervalValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1062,7 +1088,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController15,
+                                        controller: _model.ffilterChanged,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1118,7 +1144,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController15Validator
+                                            .ffilterChangedValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1133,7 +1159,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController16,
+                                        controller: _model.ffilterInterval,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1190,7 +1216,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController16Validator
+                                            .ffilterIntervalValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1205,7 +1231,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController17,
+                                        controller: _model.afilterChanged,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1261,7 +1287,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController17Validator
+                                            .afilterChangedValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1276,7 +1302,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController18,
+                                        controller: _model.afilterInterval,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1333,7 +1359,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController18Validator
+                                            .afilterIntervalValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1348,7 +1374,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController19,
+                                        controller: _model.tiresChanged,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1404,7 +1430,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController19Validator
+                                            .tiresChangedValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1419,7 +1445,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       child: TextFormField(
-                                        controller: _model.textController20,
+                                        controller: _model.tiresInterval,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1475,7 +1501,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         validator: _model
-                                            .textController20Validator
+                                            .transIntervalValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1562,7 +1588,51 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                   alignment: AlignmentDirectional(0.83, -0.78),
                                   child: FFButtonWidget(
                                     onPressed: () {
-                                      print('Button pressed ...');
+                                      //print('Button pressed ...');
+                                      setState(() {
+                                        _savedname = _model.carName.text;
+                                        _savedmake = _model.carMake.text;
+                                        _savedmodel = _model.carModel.text;
+                                        _savedyear = _model.carYear.text;
+                                        _savedoc = _model.oilChanged.text;
+                                        _savedoi = _model.oilInterval.text;
+                                        _savedtc = _model.transChanged.text;
+                                        _savedti = _model.transInterval.text;
+                                        _savedbc = _model.beltsChanged.text;
+                                        _savedbi = _model.beltsInterval.text;
+                                        _savedbrc = _model.brakesChanged.text;
+                                        _savedbri = _model.brakesInterval.text;
+                                        _savedsc = _model.sparksChanged.text;
+                                        _savedsi = _model.sparksInterval.text;
+                                        _savedffc = _model.ffilterChanged.text;
+                                        _savedffi = _model.ffilterInterval.text;
+                                        _savedafc = _model.afilterChanged.text;
+                                        _savedafi = _model.afilterInterval.text;
+                                        _savedtirec = _model.tiresChanged.text;
+                                        _savedtirei = _model.tiresInterval.text;
+                                        _counter ++;
+                                      });
+                                      final content = "Car Name: $_savedname\n"
+                                    "Make: $_savedmake\n"
+                                    "Model: $_savedmodel\n"
+                                    "Year: $_savedyear\n"
+                                    "Oil Changed last: $_savedoc\n"
+                                    "Oil change Interval: $_savedoi\n"
+                                    "Transmission fluids Changed last: $_savedtc\n"
+                                    "Transmission fluids change Interval: $_savedti\n"
+                                    "Timing belt changed last: $_savedbc\n"
+                                    "Timing belt change Interval: $_savedbi\n"
+                                    "Brakes fluids Changed last: $_savedbrc\n"
+                                    "Brakes fluids change Interval: $_savedbri\n"
+                                    "Spark plugs Changed last: $_savedsc\n"
+                                    "Spark plugs change Interval: $_savedsi\n"
+                                    "Fuel filter Changed last: $_savedffc\n"
+                                    "Fuel filter change Interval: $_savedffi\n"
+                                    "Air filter Changed last: $_savedafc\n"
+                                    "Air filter change Interval: $_savedafi\n"
+                                    "Tires Changed last: $_savedtirec\n"
+                                    "Tires change Interval: $_savedtirei\n";
+                                    saveToFile("carName$_counter.txt", content);
                                     },
                                     text: 'Submit',
                                     icon: Icon(
@@ -1946,4 +2016,9 @@ class _EditPageWidgetState extends State<EditPageWidget> {
       ),
     );
   }
+
+void saveToFile(String fileName, String content) {
+  final file = File(fileName);
+  file.writeAsStringSync(content);
+} 
 }
