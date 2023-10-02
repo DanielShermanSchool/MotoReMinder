@@ -1,4 +1,8 @@
+import 'dart:ui' as ui;
+import 'package:flutter/material.dart';
+
 class Car {
+  ui.Picture? picture;
   int mileage;
   int year;
   String make;
@@ -35,8 +39,10 @@ class Car {
   int intervalFuelPump;
   int lastSuspensionInspection = 0; 
   int intervalSuspensionInspection;
+  
 
 Car({
+    this.picture,
     required this.mileage,
     required this.year,
     required this.make,
@@ -74,4 +80,18 @@ Car({
     required this.lastSuspensionInspection, 
     required this.intervalSuspensionInspection
 });
+  // void setPicture(String assetName) async {
+  //     final recorder = ui.PictureRecorder();
+  //     final canvas = Canvas(recorder);
+  //     final image = await loadImage(assetName);
+  //     canvas.drawImage(image, Offset.zero, Paint());
+  //     picture = recorder.endRecording();
+  //   }
+
+  // Future<ui.Image> loadImage(String assetName) async {
+  //   final data = await rootBundle.load(assetName);
+  //   final codec = await ui.instantiateImageCodec(data.buffer.asUint8List());
+  //   final frame = await codec.getNextFrame();
+  //   return frame.image;
+  // }
 }
