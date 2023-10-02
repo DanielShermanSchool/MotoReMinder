@@ -60,11 +60,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/editPage',
           builder: (context, params) => const EditPageWidget(),
         ),
-        FFRoute(
-          name: 'HistoryPage',
-          path: '/historyPage',
-          builder: (context, params) => const HistoryPageWidget(),
-        )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 
