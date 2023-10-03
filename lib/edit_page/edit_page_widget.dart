@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:moto_re_minder1/car_object.dart';
+
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -50,6 +52,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     
   }
     String _savedname = '';
+    String _savedmileage = '';
     String _savedmake = '';
     String _savedmodel = '';
     String _savedyear = '';
@@ -152,6 +155,59 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Car Nickname',
+                              labelStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              hintStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            validator: _model.carNameValidator
+                                .asValidator(context),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(-1.00, 0.00),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        child: SizedBox(
+                          width: MediaQuery.sizeOf(context).width * 0.5,
+                          child: TextFormField(
+                            controller: _model.carName,
+                            autofocus: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Car Mileage',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               hintStyle:
@@ -1591,6 +1647,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       //print('Button pressed ...');
                                       setState(() {
                                         _savedname = _model.carName.text;
+                                        _savedmileage = _model.carMileage.text;
                                         _savedmake = _model.carMake.text;
                                         _savedmodel = _model.carModel.text;
                                         _savedyear = _model.carYear.text;
@@ -1612,27 +1669,11 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedtirei = _model.tiresInterval.text;
                                         _counter ++;
                                       });
-                                      final content = "Car Name: $_savedname\n"
-                                    "Make: $_savedmake\n"
-                                    "Model: $_savedmodel\n"
-                                    "Year: $_savedyear\n"
-                                    "Oil Changed last: $_savedoc\n"
-                                    "Oil change Interval: $_savedoi\n"
-                                    "Transmission fluids Changed last: $_savedtc\n"
-                                    "Transmission fluids change Interval: $_savedti\n"
-                                    "Timing belt changed last: $_savedbc\n"
-                                    "Timing belt change Interval: $_savedbi\n"
-                                    "Brakes fluids Changed last: $_savedbrc\n"
-                                    "Brakes fluids change Interval: $_savedbri\n"
-                                    "Spark plugs Changed last: $_savedsc\n"
-                                    "Spark plugs change Interval: $_savedsi\n"
-                                    "Fuel filter Changed last: $_savedffc\n"
-                                    "Fuel filter change Interval: $_savedffi\n"
-                                    "Air filter Changed last: $_savedafc\n"
-                                    "Air filter change Interval: $_savedafi\n"
-                                    "Tires Changed last: $_savedtirec\n"
-                                    "Tires change Interval: $_savedtirei\n";
-                                    saveToFile("carName$_counter.txt", content);
+                                      //make car object from data
+                                      Car car = new Car(
+                                        
+                                      );
+                                    saveToFile(car.nickname, car);
                                     },
                                     text: 'Submit',
                                     icon: Icon(
@@ -2017,8 +2058,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     );
   }
 
-void saveToFile(String fileName, String content) {
+void saveToFile(String fileName, Car car) {
   final file = File(fileName);
-  file.writeAsStringSync(content);
+  file.writeAsStringSync(car.toString());
 } 
 }

@@ -9,6 +9,9 @@ class EditPageModel extends FlutterFlowModel {
   TextEditingController? carName;
   String? Function(BuildContext, String?)? carNameValidator;
   // State field(s) for TextField widget.
+  TextEditingController? carMileage;
+  String? Function(BuildContext, String?)? carMileageValidator;
+  // State field(s) for TextField widget.
   TextEditingController? carMake;
   String? Function(BuildContext, String?)? carMakeValidator;
   // State field(s) for TextField widget.
