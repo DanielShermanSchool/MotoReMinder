@@ -39,6 +39,8 @@ class Car {
   late int intervalFuelPump;
   int lastSuspensionInspection = 0; 
   late int intervalSuspensionInspection;
+  int lastChangedTires = 0;
+  late int intervalTires;
   
 
  Car(Picture? picture, 
@@ -63,6 +65,7 @@ class Car {
     int intervalFuelFilter, 
     int intervalFuelPump, 
     int intervalSuspensionInspection,
+    int intervalTires,
     [int lastChangedEngineOilAndFilter = 0, 
     int lastChangedTireRotation = 0, 
     int lastChangedBrakeInspection = 0, 
@@ -77,7 +80,8 @@ class Car {
     int lastChangedCabinAirFilter = 0, 
     int lastChangedFuelFilter = 0, 
     int lastChangedFuelPump = 0, 
-    int lastSuspensionInspection = 0])
+    int lastSuspensionInspection = 0,
+    int lastChangedTires = 0])
 {
     this.picture = picture;
     this.mileage = mileage;
@@ -116,6 +120,8 @@ class Car {
     this.intervalFuelPump = intervalFuelPump;
     this.lastSuspensionInspection = lastSuspensionInspection;
     this.intervalSuspensionInspection = intervalSuspensionInspection;
+    this.lastChangedTires = lastChangedTires;
+    this.intervalTires = intervalTires;
 }
 //override toString method
   @override
