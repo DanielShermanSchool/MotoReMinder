@@ -32,6 +32,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     _model.carMake ??= TextEditingController();
     _model.carModel ??= TextEditingController();
     _model.carYear ??= TextEditingController();
+    _model.carTrim ??= TextEditingController();
+
     _model.oilChanged ??= TextEditingController();
     _model.oilInterval ??= TextEditingController();
     _model.transChanged ??= TextEditingController();
@@ -49,6 +51,24 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     _model.tiresChanged ??= TextEditingController();
     _model.tiresInterval ??= TextEditingController();
     
+    _model.tireRotationInterval ??= TextEditingController();
+    _model.coolantInterval ??= TextEditingController();
+    _model.timingBeltInterval ??= TextEditingController();
+    _model.waterPumpInterval ??= TextEditingController();
+    _model.driveBeltInterval ??= TextEditingController();
+    _model.brakeFluidInterval ??= TextEditingController();
+    _model.cabinAirFilterInterval ??= TextEditingController();
+    _model.fuelPumpInterval ??= TextEditingController();
+
+    _model.tireRotationChanged ??= TextEditingController();
+    _model.coolantChanged ??= TextEditingController();
+    _model.timingBeltChanged ??= TextEditingController();
+    _model.waterPumpChanged ??= TextEditingController();
+    _model.driveBeltChanged ??= TextEditingController();
+    _model.brakeFluidChanged ??= TextEditingController();
+    _model.cabinAirFilterChanged ??= TextEditingController();
+    _model.fuelPumpChanged ??= TextEditingController();
+    
     
   }
     String _savedname = '';
@@ -60,8 +80,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     String _savedoilinterval = '';
     String _savedtransfluidchanged = '';
     String _savedtransfluidinterval = '';
-    String _savedbeltschanged = '';
-    String _savedbeltsinterval = '';
+    //String _savedbeltschanged = '';
+    //String _savedbeltsinterval = '';
     String _savedbrakeschanged = '';
     String _savedbrakesinterval = '';
     String _savedsparkschanged = '';
@@ -91,7 +111,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     String _savedbrakefluidchanged = '';
     String _savedcabinairfilterchanged = '';
     String _savedfuelpumpchanged = '';
-        int _counter = 0;
+    //int _counter = 0;
     
 
   @override
@@ -1705,7 +1725,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedtirechanged = _model.tiresChanged.text;
 
                                         
-                                        _counter ++;
+                                        //_counter ++;
                                       });
                                       //make car object from data
                                       Car car = new Car(

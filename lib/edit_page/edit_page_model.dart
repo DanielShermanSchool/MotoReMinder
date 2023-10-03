@@ -9,6 +9,9 @@ class EditPageModel extends FlutterFlowModel {
   TextEditingController? carName;
   String? Function(BuildContext, String?)? carNameValidator;
   // State field(s) for TextField widget.
+  TextEditingController? carTrim;
+  String? Function(BuildContext, String?)? carTrimValidator;
+  // State field(s) for TextField widget.
   TextEditingController? carMileage;
   String? Function(BuildContext, String?)? carMileageValidator;
   // State field(s) for TextField widget.
@@ -68,6 +71,56 @@ class EditPageModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? tiresInterval;
   String? Function(BuildContext, String?)? tiresIntervalValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? tireRotationInterval;
+  String? Function(BuildContext, String?)? tireRotationIntervalValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? coolantInterval;
+  String? Function(BuildContext, String?)? coolantIntervalValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? timingBeltInterval;
+  String? Function(BuildContext, String?)? timingBeltIntervalValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? waterPumpInterval;
+  String? Function(BuildContext, String?)? waterPumpIntervalValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? driveBeltInterval;
+  String? Function(BuildContext, String?)? driveBeltIntervalValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? brakeFluidInterval;
+  String? Function(BuildContext, String?)? brakeFluidIntervalValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? cabinAirFilterInterval;
+  String? Function(BuildContext, String?)? cabinAirFilterIntervalValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? fuelPumpInterval;
+  String? Function(BuildContext, String?)? fuelPumpIntervalValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? tireRotationChanged;
+  String? Function(BuildContext, String?)? tireRotationChangedValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? coolantChanged;
+  String? Function(BuildContext, String?)? coolantChangedValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? timingBeltChanged;
+  String? Function(BuildContext, String?)? timingBeltChangedValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? waterPumpChanged;
+  String? Function(BuildContext, String?)? waterPumpChangedValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? driveBeltChanged;
+  String? Function(BuildContext, String?)? driveBeltChangedValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? brakeFluidChanged;
+  String? Function(BuildContext, String?)? brakeFluidChangedValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? cabinAirFilterChanged;
+  String? Function(BuildContext, String?)? cabinAirFilterChangedValidator;
+  // State field(s) for TextField widget.
+  TextEditingController? fuelPumpChanged;
+  String? Function(BuildContext, String?)? fuelPumpChangedValidator;
+
+
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
