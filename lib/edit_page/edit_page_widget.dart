@@ -72,7 +72,26 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     String _savedairfilterinterval = '';
     String _savedtirechanged = '';
     String _savedtireinterval = '';
-    int _counter = 0;
+
+    String _savedtrim = '';
+    String _savedtirerotationinterval = '';
+    String _savedcoolantinterval = '';
+    String _savedtimingbeltinterval = '';
+    String _savedwaterpumpinterval = '';
+    String _saveddrivebeltinterval = '';
+    String _savedbrakefluidinterval = '';
+    String _savedcabinairfilterinterval = '';
+    String _savedfuelpumpinterval = '';
+
+    String _savedtirerotationchanged = '';
+    String _savedcoolantchanged = '';
+    String _savedtimingbeltchanged = '';
+    String _savedwaterpumpchanged = '';
+    String _saveddrivebeltchanged = '';
+    String _savedbrakefluidchanged = '';
+    String _savedcabinairfilterchanged = '';
+    String _savedfuelpumpchanged = '';
+        int _counter = 0;
     
 
   @override
@@ -1651,6 +1670,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedmake = _model.carMake.text;
                                         _savedmodel = _model.carModel.text;
                                         _savedname = _model.carName.text;
+                                        _savedtrim = _model.carTrim.text;
 
                                         _savedoilinterval = _model.oilInterval.text;
                                         _savedtirerotationinterval = _model.tireRotationInterval.text;
@@ -1694,10 +1714,38 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedyear as int,
                                         _savedmake,
                                         _savedmodel,
+                                        _savedtrim,
                                         _savedname,
-                                        _savedoilinterval,
-                                        _savedtireroti,
-                                        
+                                        _savedoilinterval as int,
+                                        _savedtirerotationinterval as int,
+                                        _savedbrakesinterval as int,
+                                        _savedcoolantinterval as int,
+                                        _savedairfilterinterval as int,
+                                        _savedsparksinterval as int,
+                                        _savedtimingbeltinterval as int,
+                                        _savedwaterpumpinterval as int,
+                                        _saveddrivebeltinterval as int,
+                                        _savedtransfluidinterval as int,
+                                        _savedbrakefluidinterval as int,
+                                        _savedcabinairfilterinterval as int,
+                                        _savedfuelfilterinterval as int,
+                                        _savedfuelpumpinterval as int,
+                                        _savedtireinterval as int,
+                                        _savedoilchanged as int,
+                                        _savedtirerotationchanged as int,
+                                        _savedbrakeschanged as int,
+                                        _savedcoolantchanged as int,
+                                        _savedairfilterchanged as int,
+                                        _savedsparkschanged as int,
+                                        _savedtimingbeltchanged as int,
+                                        _savedwaterpumpchanged as int,
+                                        _saveddrivebeltchanged as int,
+                                        _savedtransfluidchanged as int,
+                                        _savedbrakefluidchanged as int,
+                                        _savedcabinairfilterchanged as int,
+                                        _savedfuelfilterchanged as int,
+                                        _savedfuelpumpchanged as int,
+                                        _savedtirechanged as int
                                       );
                                     saveToFile(car.nickname, car);
                                     },
