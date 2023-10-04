@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/services.dart';
 import 'package:moto_re_minder1/car_object.dart';
 
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -242,7 +243,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                         child: SizedBox(
                           width: MediaQuery.sizeOf(context).width * 0.5,
                           child: TextFormField(
-                            controller: _model.carName,
+                            controller: _model.carMileage,
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -281,8 +282,9 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               ),
                             ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
-                            validator: _model.carNameValidator
+                            validator: _model.carMileageValidator
                                 .asValidator(context),
+                                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                           ),
                         ),
                       ),
