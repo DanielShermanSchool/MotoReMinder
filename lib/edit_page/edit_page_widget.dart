@@ -502,6 +502,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                             style: FlutterFlowTheme.of(context).bodyMedium,
                             validator: _model.carYearValidator
                                 .asValidator(context),
+                                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                           ),
                         ),
                       ),
@@ -519,6 +520,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
+                                //Oil and filter changed last
                                 Align(
                                   alignment: const AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -532,7 +534,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'Engine Oil last Changed',
+                                          labelText: 'Engine Oil and filter last Changed',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -586,10 +588,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .oilChangedValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Oil and filter change interval
                                 Align(
                                   alignment: const AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -604,7 +608,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText:
-                                              'Engine Oil Change Interval',
+                                              'Engine Oil and filter Change Interval',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -658,10 +662,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .oilIntervalValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Transmission change
                                 Align(
                                   alignment: const AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -675,7 +681,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'Transmission changed at',
+                                          labelText: 'Transmission fluid changed at',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -729,10 +735,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .transChangedValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Transmission fluid change interval
                                 Align(
                                   alignment: const AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -747,7 +755,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText:
-                                              'Transmission Change Interval',
+                                              'Transmission fluid Change Interval',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -801,153 +809,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .transIntervalValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
-                                Align(
-                                  alignment: AlignmentDirectional(-1.00, 0.00),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 8.0, 0.0),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.5,
-                                      child: TextFormField(
-                                        controller: _model.beltsChanged,
-                                        autofocus: true,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          labelText: 'Timing Belt Changed last',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium,
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        validator: _model
-                                            .beltsChangedValidator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(-1.00, 0.00),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 8.0, 0.0),
-                                    child: Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.5,
-                                      child: TextFormField(
-                                        controller: _model.beltsInterval,
-                                        autofocus: true,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          labelText:
-                                              'Timing beltChange Interval',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium,
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        validator: _model
-                                            .beltsIntervalValidator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                //Brake fluid changed
                                 Align(
                                   alignment: AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -1015,10 +882,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .brakesChangedValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Brake fluid change interval
                                 Align(
                                   alignment: AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -1087,10 +956,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .brakesIntervalValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Spark plug change
                                 Align(
                                   alignment: AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -1158,10 +1029,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .sparksChangedValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Spark plug change interval
                                 Align(
                                   alignment: AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -1230,10 +1103,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .sparksIntervalValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Fuel filter change
                                 Align(
                                   alignment: AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -1301,10 +1176,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .ffilterChangedValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Fuel Filter change interval
                                 Align(
                                   alignment: AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -1373,10 +1250,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .ffilterIntervalValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Air filter Changed
                                 Align(
                                   alignment: AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -1444,10 +1323,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .afilterChangedValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Air filter change interval
                                 Align(
                                   alignment: AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -1516,10 +1397,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .afilterIntervalValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Tire changed
                                 Align(
                                   alignment: AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -1587,10 +1470,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .tiresChangedValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
+                                //Tire change interval
                                 Align(
                                   alignment: AlignmentDirectional(-1.00, 0.00),
                                   child: Padding(
@@ -1658,11 +1543,11 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         validator: _model
                                             .transIntervalValidator
                                             .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
                                     ),
                                   ),
                                 ),
-                                
                     // Tire roatation last
                     Align(
                       alignment: const AlignmentDirectional(-1.00, 0.00),
