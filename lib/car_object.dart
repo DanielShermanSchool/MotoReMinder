@@ -1,85 +1,170 @@
 import 'dart:ui' as ui;
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
 class Car {
   ui.Picture? picture;
-  int mileage;
-  int year;
-  String make;
-  String model;
-  String trim;
-  String nickname;
+  late int mileage;
+  late int year;
+  late String make;
+  late String model;
+  late String trim;
+  late String nickname;
   int lastChangedEngineOilAndFilter = 0;
-  int intervalEngineOilAndFilter;
+  late int intervalEngineOilAndFilter;
   int lastChangedTireRotation = 0;
-  int intervalTireRotation;
+  late int intervalTireRotation;
   int lastChangedBrakeInspection = 0;
-  int intervalBrakeInspection;
+  late int intervalBrakeInspection;
   int lastChangedEngineCoolant = 0;
-  int intervalEngineCoolant;
+  late int intervalEngineCoolant;
   int lastChangedAirFilter = 0;
-  int intervalAirFilter;
+  late int intervalAirFilter;
   int lastChangedSparkPlugs = 0;
-  int intervalSparkPlugs;
+  late int intervalSparkPlugs;
   int lastChangedTimingBeltChain = 0;
-  int intervalTimingBeltChain;
+  late int intervalTimingBeltChain;
   int lastChangedWaterPumpInspection = 0;
-  int intervalWaterPumpInspection;
+  late int intervalWaterPumpInspection;
   int lastChangedDriveBeltInspection = 0;
-  int intervalDriveBeltInspection;
+  late int intervalDriveBeltInspection;
   int lastChangedTransmissionFluid = 0;
-  int intervalTransmissionFluid;
+  late int intervalTransmissionFluid;
   int lastChangedBrakeFluid = 0;
-  int intervalBrakeFluid;
+  late int intervalBrakeFluid;
   int lastChangedCabinAirFilter = 0;
-  int intervalCabinAirFilter;
+  late int intervalCabinAirFilter;
   int lastChangedFuelFilter = 0;
-  int intervalFuelFilter;
+  late int intervalFuelFilter;
   int lastChangedFuelPump = 0;
-  int intervalFuelPump;
+  late int intervalFuelPump;
   int lastSuspensionInspection = 0; 
-  int intervalSuspensionInspection;
+  late int intervalSuspensionInspection;
+  int lastChangedTires = 0;
+  late int intervalTires;
   
 
-Car({
-    this.picture,
-    required this.mileage,
-    required this.year,
-    required this.make,
-    required this.model,
-    required this.trim,
-    required this.nickname,
-    required this.lastChangedEngineOilAndFilter,
-    required this.intervalEngineOilAndFilter,
-    required this.lastChangedTireRotation,
-    required this.intervalTireRotation,
-    required this.lastChangedBrakeInspection,
-    required this.intervalBrakeInspection,
-    required this.lastChangedEngineCoolant,
-    required this.intervalEngineCoolant,
-    required this.lastChangedAirFilter,
-    required this.intervalAirFilter,
-    required this.lastChangedSparkPlugs,
-    required this.intervalSparkPlugs,
-    required this.lastChangedTimingBeltChain,
-    required this.intervalTimingBeltChain,
-    required this.lastChangedWaterPumpInspection,
-    required this.intervalWaterPumpInspection,
-    required this.lastChangedDriveBeltInspection,
-    required this.intervalDriveBeltInspection,
-    required this.lastChangedTransmissionFluid,
-    required this.intervalTransmissionFluid,
-    required this.lastChangedBrakeFluid,
-    required this.intervalBrakeFluid,
-    required this.lastChangedCabinAirFilter,
-    required this.intervalCabinAirFilter,
-    required this.lastChangedFuelFilter,
-    required this.intervalFuelFilter,
-    required this.lastChangedFuelPump,
-    required this.intervalFuelPump,
-    required this.lastSuspensionInspection, 
-    required this.intervalSuspensionInspection
-});
+ Car(Picture? picture, 
+    int mileage, 
+    int year, 
+    String make, 
+    String model, 
+    String trim, 
+    String nickname, 
+    int intervalEngineOilAndFilter, 
+    int intervalTireRotation, 
+    int intervalBrakeInspection, 
+    int intervalEngineCoolant, 
+    int intervalAirFilter, 
+    int intervalSparkPlugs, 
+    int intervalTimingBeltChain, 
+    int intervalWaterPumpInspection, 
+    int intervalDriveBeltInspection, 
+    int intervalTransmissionFluid, 
+    int intervalBrakeFluid, 
+    int intervalCabinAirFilter, 
+    int intervalFuelFilter, 
+    int intervalFuelPump, 
+    int intervalSuspensionInspection,
+    int intervalTires,
+    [int lastChangedEngineOilAndFilter = 0, 
+    int lastChangedTireRotation = 0, 
+    int lastChangedBrakeInspection = 0, 
+    int lastChangedEngineCoolant = 0, 
+    int lastChangedAirFilter = 0, 
+    int lastChangedSparkPlugs = 0, 
+    int lastChangedTimingBeltChain = 0, 
+    int lastChangedWaterPumpInspection = 0, 
+    int lastChangedDriveBeltInspection = 0, 
+    int lastChangedTransmissionFluid = 0, 
+    int lastChangedBrakeFluid = 0, 
+    int lastChangedCabinAirFilter = 0, 
+    int lastChangedFuelFilter = 0, 
+    int lastChangedFuelPump = 0, 
+    int lastSuspensionInspection = 0,
+    int lastChangedTires = 0])
+{
+    this.picture = picture;
+    this.mileage = mileage;
+    this.year = year;
+    this.make = make;
+    this.model = model;
+    this.trim = trim;
+    this.nickname = nickname;
+    this.lastChangedEngineOilAndFilter = lastChangedEngineOilAndFilter;
+    this.intervalEngineOilAndFilter = intervalEngineOilAndFilter;
+    this.lastChangedTireRotation = lastChangedTireRotation;
+    this.intervalTireRotation = intervalTireRotation;
+    this.lastChangedBrakeInspection = lastChangedBrakeInspection;
+    this.intervalBrakeInspection = intervalBrakeInspection;
+    this.lastChangedEngineCoolant = lastChangedEngineCoolant;
+    this.intervalEngineCoolant = intervalEngineCoolant;
+    this.lastChangedAirFilter = lastChangedAirFilter;
+    this.intervalAirFilter = intervalAirFilter;
+    this.lastChangedSparkPlugs = lastChangedSparkPlugs;
+    this.intervalSparkPlugs = intervalSparkPlugs;
+    this.lastChangedTimingBeltChain = lastChangedTimingBeltChain;
+    this.intervalTimingBeltChain = intervalTimingBeltChain;
+    this.lastChangedWaterPumpInspection = lastChangedWaterPumpInspection;
+    this.intervalWaterPumpInspection = intervalWaterPumpInspection;
+    this.lastChangedDriveBeltInspection = lastChangedDriveBeltInspection;
+    this.intervalDriveBeltInspection = intervalDriveBeltInspection;
+    this.lastChangedTransmissionFluid = lastChangedTransmissionFluid;
+    this.intervalTransmissionFluid = intervalTransmissionFluid;
+    this.lastChangedBrakeFluid = lastChangedBrakeFluid;
+    this.intervalBrakeFluid = intervalBrakeFluid;
+    this.lastChangedCabinAirFilter = lastChangedCabinAirFilter;
+    this.intervalCabinAirFilter = intervalCabinAirFilter;
+    this.lastChangedFuelFilter = lastChangedFuelFilter;
+    this.intervalFuelFilter = intervalFuelFilter;
+    this.lastChangedFuelPump = lastChangedFuelPump;
+    this.intervalFuelPump = intervalFuelPump;
+    this.lastSuspensionInspection = lastSuspensionInspection;
+    this.intervalSuspensionInspection = intervalSuspensionInspection;
+    this.lastChangedTires = lastChangedTires;
+    this.intervalTires = intervalTires;
+}
+//override toString method
+  @override
+  //to string method
+  String toString() {
+    return    '$picture, '
+            + '$mileage, '
+            + '$year, '
+            + '$make, '
+            + '$model, '
+            + '$trim, '
+            + '$nickname, '
+            + '$lastChangedEngineOilAndFilter, '
+            + '$intervalEngineOilAndFilter, '
+            + '$lastChangedTireRotation, '
+            + '$intervalTireRotation, '
+            + '$lastChangedBrakeInspection, '
+            + '$intervalBrakeInspection, '
+            + '$lastChangedEngineCoolant, '
+            + '$intervalEngineCoolant, '
+            + '$lastChangedAirFilter, '
+            + '$intervalAirFilter, '
+            + '$lastChangedSparkPlugs, '
+            + '$intervalSparkPlugs, '
+            + '$lastChangedTimingBeltChain, '
+            + '$intervalTimingBeltChain, '
+            + '$lastChangedWaterPumpInspection, '
+            + '$intervalWaterPumpInspection, '
+            + '$lastChangedDriveBeltInspection, '
+            + '$intervalDriveBeltInspection, '
+            + '$lastChangedTransmissionFluid, '
+            + '$intervalTransmissionFluid, '
+            + '$lastChangedBrakeFluid, '
+            + '$intervalBrakeFluid, '
+            + '$lastChangedCabinAirFilter, '
+            + '$intervalCabinAirFilter, '
+            + '$lastChangedFuelFilter, '
+            + '$intervalFuelFilter, '
+            + '$lastChangedFuelPump, '
+            + '$intervalFuelPump, '
+            + '$lastSuspensionInspection, '
+            + '$intervalSuspensionInspection}';
+  }
   // void setPicture(String assetName) async {
   //     final recorder = ui.PictureRecorder();
   //     final canvas = Canvas(recorder);
