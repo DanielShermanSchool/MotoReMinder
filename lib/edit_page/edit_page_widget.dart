@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:moto_re_minder1/car_object.dart';
+
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -30,6 +32,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     _model.carMake ??= TextEditingController();
     _model.carModel ??= TextEditingController();
     _model.carYear ??= TextEditingController();
+    _model.carTrim ??= TextEditingController();
+
     _model.oilChanged ??= TextEditingController();
     _model.oilInterval ??= TextEditingController();
     _model.transChanged ??= TextEditingController();
@@ -47,29 +51,67 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     _model.tiresChanged ??= TextEditingController();
     _model.tiresInterval ??= TextEditingController();
     
+    _model.tireRotationInterval ??= TextEditingController();
+    _model.coolantInterval ??= TextEditingController();
+    _model.timingBeltInterval ??= TextEditingController();
+    _model.waterPumpInterval ??= TextEditingController();
+    _model.driveBeltInterval ??= TextEditingController();
+    _model.brakeFluidInterval ??= TextEditingController();
+    _model.cabinAirFilterInterval ??= TextEditingController();
+    _model.fuelPumpInterval ??= TextEditingController();
+
+    _model.tireRotationChanged ??= TextEditingController();
+    _model.coolantChanged ??= TextEditingController();
+    _model.timingBeltChanged ??= TextEditingController();
+    _model.waterPumpChanged ??= TextEditingController();
+    _model.driveBeltChanged ??= TextEditingController();
+    _model.brakeFluidChanged ??= TextEditingController();
+    _model.cabinAirFilterChanged ??= TextEditingController();
+    _model.fuelPumpChanged ??= TextEditingController();
+    
     
   }
     String _savedname = '';
+    String _savedmileage = '';
     String _savedmake = '';
     String _savedmodel = '';
     String _savedyear = '';
-    String _savedoc = '';
-    String _savedoi = '';
-    String _savedtc = '';
-    String _savedti = '';
-    String _savedbc = '';
-    String _savedbi = '';
-    String _savedbrc = '';
-    String _savedbri = '';
-    String _savedsc = '';
-    String _savedsi = '';
-    String _savedffc = '';
-    String _savedffi = '';
-    String _savedafc = '';
-    String _savedafi = '';
-    String _savedtirec = '';
-    String _savedtirei = '';
-    int _counter = 0;
+    String _savedoilchanged = '';
+    String _savedoilinterval = '';
+    String _savedtransfluidchanged = '';
+    String _savedtransfluidinterval = '';
+    //String _savedbeltschanged = '';
+    //String _savedbeltsinterval = '';
+    String _savedbrakeschanged = '';
+    String _savedbrakesinterval = '';
+    String _savedsparkschanged = '';
+    String _savedsparksinterval = '';
+    String _savedfuelfilterchanged = '';
+    String _savedfuelfilterinterval = '';
+    String _savedairfilterchanged = '';
+    String _savedairfilterinterval = '';
+    String _savedtirechanged = '';
+    String _savedtireinterval = '';
+
+    String _savedtrim = '';
+    String _savedtirerotationinterval = '';
+    String _savedcoolantinterval = '';
+    String _savedtimingbeltinterval = '';
+    String _savedwaterpumpinterval = '';
+    String _saveddrivebeltinterval = '';
+    String _savedbrakefluidinterval = '';
+    String _savedcabinairfilterinterval = '';
+    String _savedfuelpumpinterval = '';
+
+    String _savedtirerotationchanged = '';
+    String _savedcoolantchanged = '';
+    String _savedtimingbeltchanged = '';
+    String _savedwaterpumpchanged = '';
+    String _saveddrivebeltchanged = '';
+    String _savedbrakefluidchanged = '';
+    String _savedcabinairfilterchanged = '';
+    String _savedfuelpumpchanged = '';
+    //int _counter = 0;
     
 
   @override
@@ -152,6 +194,59 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Car Nickname',
+                              labelStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              hintStyle:
+                                  FlutterFlowTheme.of(context).labelMedium,
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 2.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            validator: _model.carNameValidator
+                                .asValidator(context),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: const AlignmentDirectional(-1.00, 0.00),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        child: SizedBox(
+                          width: MediaQuery.sizeOf(context).width * 0.5,
+                          child: TextFormField(
+                            controller: _model.carName,
+                            autofocus: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Car Mileage',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               hintStyle:
@@ -1590,49 +1685,89 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                     onPressed: () {
                                       //print('Button pressed ...');
                                       setState(() {
-                                        _savedname = _model.carName.text;
+                                        _savedmileage = _model.carMileage.text;
+                                        _savedyear = _model.carYear.text;
                                         _savedmake = _model.carMake.text;
                                         _savedmodel = _model.carModel.text;
-                                        _savedyear = _model.carYear.text;
-                                        _savedoc = _model.oilChanged.text;
-                                        _savedoi = _model.oilInterval.text;
-                                        _savedtc = _model.transChanged.text;
-                                        _savedti = _model.transInterval.text;
-                                        _savedbc = _model.beltsChanged.text;
-                                        _savedbi = _model.beltsInterval.text;
-                                        _savedbrc = _model.brakesChanged.text;
-                                        _savedbri = _model.brakesInterval.text;
-                                        _savedsc = _model.sparksChanged.text;
-                                        _savedsi = _model.sparksInterval.text;
-                                        _savedffc = _model.ffilterChanged.text;
-                                        _savedffi = _model.ffilterInterval.text;
-                                        _savedafc = _model.afilterChanged.text;
-                                        _savedafi = _model.afilterInterval.text;
-                                        _savedtirec = _model.tiresChanged.text;
-                                        _savedtirei = _model.tiresInterval.text;
-                                        _counter ++;
+                                        _savedname = _model.carName.text;
+                                        _savedtrim = _model.carTrim.text;
+
+                                        _savedoilinterval = _model.oilInterval.text;
+                                        _savedtirerotationinterval = _model.tireRotationInterval.text;
+                                        _savedbrakesinterval = _model.brakesInterval.text;
+                                        _savedcoolantinterval = _model.coolantInterval.text;
+                                        _savedairfilterinterval = _model.afilterInterval.text;
+                                        _savedsparksinterval = _model.sparksInterval.text;
+                                        _savedtimingbeltinterval = _model.timingBeltInterval.text;
+                                        _savedwaterpumpinterval = _model.waterPumpInterval.text;
+                                        _saveddrivebeltinterval = _model.driveBeltInterval.text;
+                                        _savedtransfluidinterval = _model.transInterval.text;
+                                        _savedbrakefluidinterval = _model.brakeFluidInterval.text;
+                                        _savedcabinairfilterinterval = _model.cabinAirFilterInterval.text;
+                                        _savedfuelfilterinterval = _model.ffilterInterval.text;
+                                        _savedfuelpumpinterval = _model.fuelPumpInterval.text;
+                                        _savedtireinterval = _model.tiresInterval.text;
+
+                                        _savedoilchanged = _model.oilChanged.text;
+                                        _savedtirerotationchanged = _model.tireRotationChanged.text;
+                                        _savedbrakeschanged = _model.brakesChanged.text;
+                                        _savedcoolantchanged = _model.coolantChanged.text;
+                                        _savedairfilterchanged = _model.afilterChanged.text;
+                                        _savedsparkschanged = _model.sparksChanged.text;
+                                        _savedtimingbeltchanged = _model.timingBeltChanged.text;
+                                        _savedwaterpumpchanged = _model.waterPumpChanged.text;
+                                        _saveddrivebeltchanged = _model.driveBeltChanged.text;
+                                        _savedtransfluidchanged = _model.transChanged.text;
+                                        _savedbrakefluidchanged = _model.brakeFluidChanged.text;
+                                        _savedcabinairfilterchanged = _model.cabinAirFilterChanged.text;
+                                        _savedfuelfilterchanged = _model.ffilterChanged.text;
+                                        _savedfuelpumpchanged = _model.fuelPumpChanged.text;
+                                        _savedtirechanged = _model.tiresChanged.text;
+
+                                        
+                                        //_counter ++;
                                       });
-                                      final content = "Car Name: $_savedname\n"
-                                    "Make: $_savedmake\n"
-                                    "Model: $_savedmodel\n"
-                                    "Year: $_savedyear\n"
-                                    "Oil Changed last: $_savedoc\n"
-                                    "Oil change Interval: $_savedoi\n"
-                                    "Transmission fluids Changed last: $_savedtc\n"
-                                    "Transmission fluids change Interval: $_savedti\n"
-                                    "Timing belt changed last: $_savedbc\n"
-                                    "Timing belt change Interval: $_savedbi\n"
-                                    "Brakes fluids Changed last: $_savedbrc\n"
-                                    "Brakes fluids change Interval: $_savedbri\n"
-                                    "Spark plugs Changed last: $_savedsc\n"
-                                    "Spark plugs change Interval: $_savedsi\n"
-                                    "Fuel filter Changed last: $_savedffc\n"
-                                    "Fuel filter change Interval: $_savedffi\n"
-                                    "Air filter Changed last: $_savedafc\n"
-                                    "Air filter change Interval: $_savedafi\n"
-                                    "Tires Changed last: $_savedtirec\n"
-                                    "Tires change Interval: $_savedtirei\n";
-                                    saveToFile("carName$_counter.txt", content);
+                                      //make car object from data
+                                      Car car = new Car(
+                                        null,
+                                        _savedmileage as int,
+                                        _savedyear as int,
+                                        _savedmake,
+                                        _savedmodel,
+                                        _savedtrim,
+                                        _savedname,
+                                        _savedoilinterval as int,
+                                        _savedtirerotationinterval as int,
+                                        _savedbrakesinterval as int,
+                                        _savedcoolantinterval as int,
+                                        _savedairfilterinterval as int,
+                                        _savedsparksinterval as int,
+                                        _savedtimingbeltinterval as int,
+                                        _savedwaterpumpinterval as int,
+                                        _saveddrivebeltinterval as int,
+                                        _savedtransfluidinterval as int,
+                                        _savedbrakefluidinterval as int,
+                                        _savedcabinairfilterinterval as int,
+                                        _savedfuelfilterinterval as int,
+                                        _savedfuelpumpinterval as int,
+                                        _savedtireinterval as int,
+                                        _savedoilchanged as int,
+                                        _savedtirerotationchanged as int,
+                                        _savedbrakeschanged as int,
+                                        _savedcoolantchanged as int,
+                                        _savedairfilterchanged as int,
+                                        _savedsparkschanged as int,
+                                        _savedtimingbeltchanged as int,
+                                        _savedwaterpumpchanged as int,
+                                        _saveddrivebeltchanged as int,
+                                        _savedtransfluidchanged as int,
+                                        _savedbrakefluidchanged as int,
+                                        _savedcabinairfilterchanged as int,
+                                        _savedfuelfilterchanged as int,
+                                        _savedfuelpumpchanged as int,
+                                        _savedtirechanged as int
+                                      );
+                                    saveToFile(car.nickname, car);
                                     },
                                     text: 'Submit',
                                     icon: Icon(
@@ -1681,8 +1816,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     );
   }
 
-void saveToFile(String fileName, String content) {
+void saveToFile(String fileName, Car car) {
   final file = File(fileName);
-  file.writeAsStringSync(content);
+  file.writeAsStringSync(car.toString());
 } 
 }
