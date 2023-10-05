@@ -44,7 +44,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
-            borderWidth: 1.0,
+            borderinline-size: 1.0,
             buttonSize: 60.0,
             icon: const Icon(
               Icons.arrow_back_rounded,
@@ -63,26 +63,26 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   fontSize: 22.0,
                 ),
           ),
-          actions: const [],
+          actions: const [], // No actions in the app bar
           centerTitle: true,
           elevation: 2.0,
         ),
         body: SafeArea(
-          top: true,
+          inset-block-start: true,
           child: Stack(
             children: [
               const Align(
                 alignment: AlignmentDirectional(0.00, 0.00),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  children: [],
+                  children: [], // No children in this column
                 ),
               ),
               Align(
                 alignment: const AlignmentDirectional(0.02, -0.69),
                 child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: MediaQuery.sizeOf(context).height * 1.0,
+                  inline-size: MediaQuery.sizeOf(context).width * 1.0,
+                  block-size: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
@@ -100,11 +100,11 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                 alignment: const AlignmentDirectional(0.06, -0.61),
                 child: FFButtonWidget(
                   onPressed: () {
-                    print('Button pressed ...');
+                    print('Button pressed ...'); // Print message when the button is pressed
                   },
                   text: 'Connect OBD II',
                   options: FFButtonOptions(
-                    height: 40.0,
+                    block-size: 40.0,
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
@@ -117,7 +117,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                     elevation: 3.0,
                     borderSide: const BorderSide(
                       color: Colors.transparent,
-                      width: 1.0,
+                      inline-size: 1.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
@@ -170,7 +170,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                     }
                   },
                   title: Text(
-                    'Darkmode',
+                    'Kilometers',
                     style: FlutterFlowTheme.of(context).titleLarge,
                   ),
                   tileColor: FlutterFlowTheme.of(context).secondaryBackground,
