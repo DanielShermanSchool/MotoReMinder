@@ -34,15 +34,14 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     _model.carModel ??= TextEditingController();
     _model.carYear ??= TextEditingController();
     _model.carTrim ??= TextEditingController();
+    _model.carMileage??= TextEditingController();
 
     _model.oilChanged ??= TextEditingController();
     _model.oilInterval ??= TextEditingController();
     _model.transChanged ??= TextEditingController();
     _model.transInterval ??= TextEditingController();
-    _model.beltsChanged ??= TextEditingController();
-    _model.beltsInterval ??= TextEditingController();
     _model.brakesChanged ??= TextEditingController();
-    _model.beltsInterval ??= TextEditingController();
+    _model.brakesInterval ??= TextEditingController();
     _model.sparksChanged ??= TextEditingController();
     _model.sparksInterval ??= TextEditingController();
     _model.ffilterChanged ??= TextEditingController();
@@ -73,46 +72,43 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     
   }
     String _savedname = '';
-    String _savedmileage = '';
+    double _savedmileage = 0;
     String _savedmake = '';
     String _savedmodel = '';
-    String _savedyear = '';
-    String _savedoilchanged = '';
-    String _savedoilinterval = '';
-    String _savedtransfluidchanged = '';
-    String _savedtransfluidinterval = '';
-    //String _savedbeltschanged = '';
-    //String _savedbeltsinterval = '';
-    String _savedbrakeschanged = '';
-    String _savedbrakesinterval = '';
-    String _savedsparkschanged = '';
-    String _savedsparksinterval = '';
-    String _savedfuelfilterchanged = '';
-    String _savedfuelfilterinterval = '';
-    String _savedairfilterchanged = '';
-    String _savedairfilterinterval = '';
-    String _savedtirechanged = '';
-    String _savedtireinterval = '';
+    int _savedyear = 0;
+    double _savedoilchanged = 0;
+    double _savedoilinterval = 0;
+    double _savedtransfluidchanged = 0;
+    double _savedtransfluidinterval = 0;
+    double _savedbrakeschanged = 0;
+    double _savedbrakesinterval = 0;
+    double _savedsparkschanged = 0;
+    double _savedsparksinterval = 0;
+    double _savedfuelfilterchanged = 0;
+    double _savedfuelfilterinterval = 0;
+    double _savedairfilterchanged = 0;
+    double _savedairfilterinterval = 0;
+    double _savedtirechanged = 0;
+    double _savedtireinterval = 0;
 
     String _savedtrim = '';
-    String _savedtirerotationinterval = '';
-    String _savedcoolantinterval = '';
-    String _savedtimingbeltinterval = '';
-    String _savedwaterpumpinterval = '';
-    String _saveddrivebeltinterval = '';
-    String _savedbrakefluidinterval = '';
-    String _savedcabinairfilterinterval = '';
-    String _savedfuelpumpinterval = '';
+    double _savedtirerotationinterval = 0;
+    double _savedcoolantinterval = 0;
+    double _savedtimingbeltinterval = 0;
+    double _savedwaterpumpinterval = 0;
+    double _saveddrivebeltinterval = 0;
+    double _savedbrakefluidinterval = 0;
+    double _savedcabinairfilterinterval = 0;
+    double _savedfuelpumpinterval = 0;
 
-    String _savedtirerotationchanged = '';
-    String _savedcoolantchanged = '';
-    String _savedtimingbeltchanged = '';
-    String _savedwaterpumpchanged = '';
-    String _saveddrivebeltchanged = '';
-    String _savedbrakefluidchanged = '';
-    String _savedcabinairfilterchanged = '';
-    String _savedfuelpumpchanged = '';
-    //int _counter = 0;
+    double _savedtirerotationchanged = 0;
+    double _savedcoolantchanged = 0;
+    double _savedtimingbeltchanged = 0;
+    double _savedwaterpumpchanged = 0;
+    double _saveddrivebeltchanged = 0;
+    double _savedbrakefluidchanged = 0;
+    double _savedcabinairfilterchanged = 0;
+    double _savedfuelpumpchanged = 0;
     
 
   @override
@@ -2511,44 +2507,44 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                     onPressed: () {
                                       //print('Button pressed ...');
                                       setState(() {
-                                        _savedmileage = _model.carMileage.text;
-                                        _savedyear = _model.carYear.text;
+                                        _savedmileage = double.tryParse(_model.carMileage.text) ?? 0;
+                                        _savedyear = int.tryParse(_model.carYear.text) ?? 0;
                                         _savedmake = _model.carMake.text;
                                         _savedmodel = _model.carModel.text;
                                         _savedname = _model.carName.text;
                                         _savedtrim = _model.carTrim.text;
 
-                                        _savedoilinterval = _model.oilInterval.text;
-                                        _savedtirerotationinterval = _model.tireRotationInterval.text;
-                                        _savedbrakesinterval = _model.brakesInterval.text;
-                                        _savedcoolantinterval = _model.coolantInterval.text;
-                                        _savedairfilterinterval = _model.afilterInterval.text;
-                                        _savedsparksinterval = _model.sparksInterval.text;
-                                        _savedtimingbeltinterval = _model.timingBeltInterval.text;
-                                        _savedwaterpumpinterval = _model.waterPumpInterval.text;
-                                        _saveddrivebeltinterval = _model.driveBeltInterval.text;
-                                        _savedtransfluidinterval = _model.transInterval.text;
-                                        _savedbrakefluidinterval = _model.brakeFluidInterval.text;
-                                        _savedcabinairfilterinterval = _model.cabinAirFilterInterval.text;
-                                        _savedfuelfilterinterval = _model.ffilterInterval.text;
-                                        _savedfuelpumpinterval = _model.fuelPumpInterval.text;
-                                        _savedtireinterval = _model.tiresInterval.text;
+                                        _savedoilinterval = double.tryParse(_model.oilInterval.text) ??0;
+                                        _savedtirerotationinterval = double.tryParse(_model.tireRotationInterval.text) ?? 0;
+                                        _savedbrakesinterval = double.tryParse(_model.brakesInterval.text) ?? 0;
+                                        _savedcoolantinterval = double.tryParse(_model.coolantInterval.text) ?? 0;
+                                        _savedairfilterinterval = double.tryParse(_model.afilterInterval.text) ?? 0;
+                                        _savedsparksinterval = double.tryParse(_model.sparksInterval.text) ?? 0;
+                                        _savedtimingbeltinterval = double.tryParse(_model.timingBeltInterval.text) ?? 0;
+                                        _savedwaterpumpinterval = double.tryParse(_model.waterPumpInterval.text) ?? 0;
+                                        _saveddrivebeltinterval = double.tryParse(_model.driveBeltInterval.text) ?? 0;
+                                        _savedtransfluidinterval = double.tryParse(_model.transInterval.text) ?? 0;
+                                        _savedbrakefluidinterval = double.tryParse(_model.brakeFluidInterval.text) ?? 0;
+                                        _savedcabinairfilterinterval = double.tryParse(_model.cabinAirFilterChanged.text) ?? 0;
+                                        _savedfuelfilterinterval = double.tryParse(_model.ffilterInterval.text) ?? 0;
+                                        _savedfuelpumpinterval = double.tryParse(_model.fuelPumpInterval.text) ?? 0;
+                                        _savedtireinterval = double.tryParse(_model.tiresInterval.text) ?? 0;
 
-                                        _savedoilchanged = _model.oilChanged.text;
-                                        _savedtirerotationchanged = _model.tireRotationChanged.text;
-                                        _savedbrakeschanged = _model.brakesChanged.text;
-                                        _savedcoolantchanged = _model.coolantChanged.text;
-                                        _savedairfilterchanged = _model.afilterChanged.text;
-                                        _savedsparkschanged = _model.sparksChanged.text;
-                                        _savedtimingbeltchanged = _model.timingBeltChanged.text;
-                                        _savedwaterpumpchanged = _model.waterPumpChanged.text;
-                                        _saveddrivebeltchanged = _model.driveBeltChanged.text;
-                                        _savedtransfluidchanged = _model.transChanged.text;
-                                        _savedbrakefluidchanged = _model.brakeFluidChanged.text;
-                                        _savedcabinairfilterchanged = _model.cabinAirFilterChanged.text;
-                                        _savedfuelfilterchanged = _model.ffilterChanged.text;
-                                        _savedfuelpumpchanged = _model.fuelPumpChanged.text;
-                                        _savedtirechanged = _model.tiresChanged.text;
+                                        _savedoilchanged = double.tryParse(_model.oilChanged.text) ?? 0;
+                                        _savedtirerotationchanged = double.tryParse(_model.tireRotationChanged.text) ?? 0;
+                                        _savedbrakeschanged =double.tryParse(_model.brakesChanged.text) ?? 0;
+                                        _savedcoolantchanged = double.tryParse(_model.coolantChanged.text) ?? 0;
+                                        _savedairfilterchanged = double.tryParse(_model.afilterChanged.text) ?? 0;
+                                        _savedsparkschanged = double.tryParse(_model.sparksChanged.text) ?? 0;
+                                        _savedtimingbeltchanged = double.tryParse(_model.timingBeltChanged.text) ?? 0;
+                                        _savedwaterpumpchanged = double.tryParse(_model.waterPumpChanged.text) ?? 0;
+                                        _saveddrivebeltchanged = double.tryParse(_model.driveBeltChanged.text) ?? 0;
+                                        _savedtransfluidchanged = double.tryParse(_model.transChanged.text) ?? 0;
+                                        _savedbrakefluidchanged = double.tryParse(_model.brakeFluidChanged.text) ?? 0;
+                                        _savedcabinairfilterchanged = double.tryParse(_model.cabinAirFilterChanged.text) ?? 0;
+                                        _savedfuelfilterchanged = double.tryParse(_model.ffilterChanged.text) ?? 0;
+                                        _savedfuelpumpchanged = double.tryParse(_model.fuelPumpChanged.text) ?? 0;
+                                        _savedtirechanged = double.tryParse(_model.tiresChanged.text) ?? 0;
 
                                         
                                         //_counter ++;
@@ -2556,44 +2552,47 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       //make car object from data
                                       Car car = new Car(
                                         null,
-                                        _savedmileage as int,
-                                        _savedyear as int,
+                                        _savedmileage,
+                                        _savedyear,
                                         _savedmake,
                                         _savedmodel,
                                         _savedtrim,
                                         _savedname,
-                                        _savedoilinterval as int,
-                                        _savedtirerotationinterval as int,
-                                        _savedbrakesinterval as int,
-                                        _savedcoolantinterval as int,
-                                        _savedairfilterinterval as int,
-                                        _savedsparksinterval as int,
-                                        _savedtimingbeltinterval as int,
-                                        _savedwaterpumpinterval as int,
-                                        _saveddrivebeltinterval as int,
-                                        _savedtransfluidinterval as int,
-                                        _savedbrakefluidinterval as int,
-                                        _savedcabinairfilterinterval as int,
-                                        _savedfuelfilterinterval as int,
-                                        _savedfuelpumpinterval as int,
-                                        _savedtireinterval as int,
-                                        _savedoilchanged as int,
-                                        _savedtirerotationchanged as int,
-                                        _savedbrakeschanged as int,
-                                        _savedcoolantchanged as int,
-                                        _savedairfilterchanged as int,
-                                        _savedsparkschanged as int,
-                                        _savedtimingbeltchanged as int,
-                                        _savedwaterpumpchanged as int,
-                                        _saveddrivebeltchanged as int,
-                                        _savedtransfluidchanged as int,
-                                        _savedbrakefluidchanged as int,
-                                        _savedcabinairfilterchanged as int,
-                                        _savedfuelfilterchanged as int,
-                                        _savedfuelpumpchanged as int,
-                                        _savedtirechanged as int
+                                        _savedoilinterval,
+                                        _savedtirerotationinterval,
+                                        _savedbrakesinterval,
+                                        _savedcoolantinterval,
+                                        _savedairfilterinterval,
+                                        _savedsparksinterval,
+                                        _savedtimingbeltinterval,
+                                        _savedwaterpumpinterval,
+                                        _saveddrivebeltinterval,
+                                        _savedtransfluidinterval,
+                                        _savedbrakefluidinterval,
+                                        _savedcabinairfilterinterval,
+                                        _savedfuelfilterinterval,
+                                        _savedfuelpumpinterval,
+                                        _savedtireinterval,
+                                        _savedoilchanged,
+                                        _savedtirerotationchanged,
+                                        _savedbrakeschanged,
+                                        _savedcoolantchanged,
+                                        _savedairfilterchanged,
+                                        _savedsparkschanged,
+                                        _savedtimingbeltchanged,
+                                        _savedwaterpumpchanged,
+                                        _saveddrivebeltchanged,
+                                        _savedtransfluidchanged,
+                                        _savedbrakefluidchanged,
+                                        _savedcabinairfilterchanged,
+                                        _savedfuelfilterchanged,
+                                        _savedfuelpumpchanged,
+                                        _savedtirechanged
                                       );
                                     saveToFile(car.nickname, car);
+                                    double result = 0;
+                                    result = ((_savedmileage + _savedairfilterchanged) / _savedairfilterinterval);
+                                    print(result);
                                     },
                                     text: 'Submit',
                                     icon: Icon(

@@ -3,85 +3,85 @@ import 'dart:ui';
 
 class Car {
   ui.Picture? picture;
-  late int mileage;
+  late double mileage;
   late int year;
   late String make;
   late String model;
   late String trim;
   late String nickname;
-  int lastChangedEngineOilAndFilter = 0;
-  late int intervalEngineOilAndFilter;
-  int lastChangedTireRotation = 0;
-  late int intervalTireRotation;
-  int lastChangedBrakeInspection = 0;
-  late int intervalBrakeInspection;
-  int lastChangedEngineCoolant = 0;
-  late int intervalEngineCoolant;
-  int lastChangedAirFilter = 0;
-  late int intervalAirFilter;
-  int lastChangedSparkPlugs = 0;
-  late int intervalSparkPlugs;
-  int lastChangedTimingBeltChain = 0;
-  late int intervalTimingBeltChain;
-  int lastChangedWaterPumpInspection = 0;
-  late int intervalWaterPumpInspection;
-  int lastChangedDriveBeltInspection = 0;
-  late int intervalDriveBeltInspection;
-  int lastChangedTransmissionFluid = 0;
-  late int intervalTransmissionFluid;
-  int lastChangedBrakeFluid = 0;
-  late int intervalBrakeFluid;
-  int lastChangedCabinAirFilter = 0;
-  late int intervalCabinAirFilter;
-  int lastChangedFuelFilter = 0;
-  late int intervalFuelFilter;
-  int lastChangedFuelPump = 0;
-  late int intervalFuelPump;
-  int lastSuspensionInspection = 0; 
-  late int intervalSuspensionInspection;
-  int lastChangedTires = 0;
-  late int intervalTires;
+  double lastChangedEngineOilAndFilter = 0;
+  late double intervalEngineOilAndFilter;
+  double lastChangedTireRotation = 0;
+  late double intervalTireRotation;
+  double lastChangedBrakeInspection = 0;
+  late double intervalBrakeInspection;
+  double lastChangedEngineCoolant = 0;
+  late double intervalEngineCoolant;
+  double lastChangedAirFilter = 0;
+  late double intervalAirFilter;
+  double lastChangedSparkPlugs = 0;
+  late double intervalSparkPlugs;
+  double lastChangedTimingBeltChain = 0;
+  late double intervalTimingBeltChain;
+  double lastChangedWaterPumpInspection = 0;
+  late double intervalWaterPumpInspection;
+  double lastChangedDriveBeltInspection = 0;
+  late double  intervalDriveBeltInspection;
+  double lastChangedTransmissionFluid = 0;
+  late double  intervalTransmissionFluid;
+  double lastChangedBrakeFluid = 0;
+  late double  intervalBrakeFluid;
+  double lastChangedCabinAirFilter = 0;
+  late double  intervalCabinAirFilter;
+  double lastChangedFuelFilter = 0;
+  late double intervalFuelFilter;
+  double lastChangedFuelPump = 0;
+  late double intervalFuelPump;
+  double lastSuspensionInspection = 0; 
+  late double intervalSuspensionInspection;
+  double lastChangedTires = 0;
+  late double intervalTires;
   
 
  Car(Picture? picture, 
-    int mileage, 
+     double mileage, 
     int year, 
     String make, 
     String model, 
     String trim, 
     String nickname, 
-    int intervalEngineOilAndFilter, 
-    int intervalTireRotation, 
-    int intervalBrakeInspection, 
-    int intervalEngineCoolant, 
-    int intervalAirFilter, 
-    int intervalSparkPlugs, 
-    int intervalTimingBeltChain, 
-    int intervalWaterPumpInspection, 
-    int intervalDriveBeltInspection, 
-    int intervalTransmissionFluid, 
-    int intervalBrakeFluid, 
-    int intervalCabinAirFilter, 
-    int intervalFuelFilter, 
-    int intervalFuelPump, 
-    int intervalSuspensionInspection,
-    int intervalTires,
-    [int lastChangedEngineOilAndFilter = 0, 
-    int lastChangedTireRotation = 0, 
-    int lastChangedBrakeInspection = 0, 
-    int lastChangedEngineCoolant = 0, 
-    int lastChangedAirFilter = 0, 
-    int lastChangedSparkPlugs = 0, 
-    int lastChangedTimingBeltChain = 0, 
-    int lastChangedWaterPumpInspection = 0, 
-    int lastChangedDriveBeltInspection = 0, 
-    int lastChangedTransmissionFluid = 0, 
-    int lastChangedBrakeFluid = 0, 
-    int lastChangedCabinAirFilter = 0, 
-    int lastChangedFuelFilter = 0, 
-    int lastChangedFuelPump = 0, 
-    int lastSuspensionInspection = 0,
-    int lastChangedTires = 0])
+    double intervalEngineOilAndFilter, 
+    double intervalTireRotation, 
+    double intervalBrakeInspection, 
+    double intervalEngineCoolant, 
+    double intervalAirFilter, 
+    double intervalSparkPlugs, 
+    double intervalTimingBeltChain, 
+    double intervalWaterPumpInspection, 
+    double intervalDriveBeltInspection, 
+    double intervalTransmissionFluid, 
+    double intervalBrakeFluid, 
+    double intervalCabinAirFilter, 
+    double intervalFuelFilter, 
+    double intervalFuelPump, 
+    double intervalSuspensionInspection,
+    double intervalTires,
+    [double lastChangedEngineOilAndFilter = 0, 
+    double lastChangedTireRotation = 0, 
+    double lastChangedBrakeInspection = 0, 
+    double lastChangedEngineCoolant = 0, 
+    double lastChangedAirFilter = 0, 
+    double lastChangedSparkPlugs = 0, 
+    double lastChangedTimingBeltChain = 0, 
+    double lastChangedWaterPumpInspection = 0, 
+    double lastChangedDriveBeltInspection = 0, 
+    double lastChangedTransmissionFluid = 0, 
+    double lastChangedBrakeFluid = 0, 
+    double lastChangedCabinAirFilter = 0, 
+    double lastChangedFuelFilter = 0, 
+    double lastChangedFuelPump = 0, 
+    double lastSuspensionInspection = 0,
+    double lastChangedTires = 0])
 {
     this.picture = picture;
     this.mileage = mileage;
