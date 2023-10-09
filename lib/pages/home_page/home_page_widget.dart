@@ -76,7 +76,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text(
-                  'Engine Oil life',
+                  'Engine Oil and filter life',
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
                 Align(
@@ -138,7 +138,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                 ),
                 Text(
-                  'Belt life',
+                  'Timing belt life',
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
                 Align(
@@ -169,7 +169,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                 ),
                 Text(
-                  'Brake Fluid life',
+                  'Brakes life',
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
                 Align(
@@ -294,6 +294,237 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 ),
                 Text(
                   'Tire life',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                    child: LinearPercentIndicator(
+                      percent: 0.5,
+                      width: MediaQuery.sizeOf(context).width * 0.75,
+                      lineHeight: 30.0,
+                      animation: true,
+                      progressColor: FlutterFlowTheme.of(context).primary,
+                      backgroundColor: FlutterFlowTheme.of(context).accent4,
+                      center: Text(
+                        '50%',
+                        style: FlutterFlowTheme.of(context).headlineSmall,
+                      ),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                ),
+                Text(
+                  '<Last done mileage>',
+                  textAlign: TextAlign.start,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 12.0,
+                      ),
+                ),
+                //Tire Rotation
+                Text(
+                  'Tire rotation life',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                    child: LinearPercentIndicator(
+                      percent: 0.5,
+                      width: MediaQuery.sizeOf(context).width * 0.75,
+                      lineHeight: 30.0,
+                      animation: true,
+                      progressColor: FlutterFlowTheme.of(context).primary,
+                      backgroundColor: FlutterFlowTheme.of(context).accent4,
+                      center: Text(
+                        '50%',
+                        style: FlutterFlowTheme.of(context).headlineSmall,
+                      ),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                ),
+                Text(
+                  '<Last done mileage>',
+                  textAlign: TextAlign.start,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 12.0,
+                      ),
+                ),
+                //Coolant life
+                Text(
+                  'Coolant life',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                    child: LinearPercentIndicator(
+                      percent: 0.5,
+                      width: MediaQuery.sizeOf(context).width * 0.75,
+                      lineHeight: 30.0,
+                      animation: true,
+                      progressColor: FlutterFlowTheme.of(context).primary,
+                      backgroundColor: FlutterFlowTheme.of(context).accent4,
+                      center: Text(
+                        '50%',
+                        style: FlutterFlowTheme.of(context).headlineSmall,
+                      ),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                ),
+                Text(
+                  '<Last done mileage>',
+                  textAlign: TextAlign.start,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 12.0,
+                      ),
+                ),
+                //Water Pump progress bar
+                Text(
+                  'Water pump life',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                    child: LinearPercentIndicator(
+                      percent: 0.5,
+                      width: MediaQuery.sizeOf(context).width * 0.75,
+                      lineHeight: 30.0,
+                      animation: true,
+                      progressColor: FlutterFlowTheme.of(context).primary,
+                      backgroundColor: FlutterFlowTheme.of(context).accent4,
+                      center: Text(
+                        '50%',
+                        style: FlutterFlowTheme.of(context).headlineSmall,
+                      ),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                ),
+                Text(
+                  '<Last done mileage>',
+                  textAlign: TextAlign.start,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 12.0,
+                      ),
+                ),
+                //Drive belt
+                Text(
+                  'Drive belt life',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                    child: LinearPercentIndicator(
+                      percent: 0.5,
+                      width: MediaQuery.sizeOf(context).width * 0.75,
+                      lineHeight: 30.0,
+                      animation: true,
+                      progressColor: FlutterFlowTheme.of(context).primary,
+                      backgroundColor: FlutterFlowTheme.of(context).accent4,
+                      center: Text(
+                        '50%',
+                        style: FlutterFlowTheme.of(context).headlineSmall,
+                      ),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                ),
+                Text(
+                  '<Last done mileage>',
+                  textAlign: TextAlign.start,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 12.0,
+                      ),
+                ),
+                //Brake Fluid progress bar
+                Text(
+                  'Brake fluid life',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                    child: LinearPercentIndicator(
+                      percent: 0.5,
+                      width: MediaQuery.sizeOf(context).width * 0.75,
+                      lineHeight: 30.0,
+                      animation: true,
+                      progressColor: FlutterFlowTheme.of(context).primary,
+                      backgroundColor: FlutterFlowTheme.of(context).accent4,
+                      center: Text(
+                        '50%',
+                        style: FlutterFlowTheme.of(context).headlineSmall,
+                      ),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                ),
+                Text(
+                  '<Last done mileage>',
+                  textAlign: TextAlign.start,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 12.0,
+                      ),
+                ),
+                //Cabin air Filter
+                Text(
+                  'Cabin Air filter life',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                    child: LinearPercentIndicator(
+                      percent: 0.5,
+                      width: MediaQuery.sizeOf(context).width * 0.75,
+                      lineHeight: 30.0,
+                      animation: true,
+                      progressColor: FlutterFlowTheme.of(context).primary,
+                      backgroundColor: FlutterFlowTheme.of(context).accent4,
+                      center: Text(
+                        '50%',
+                        style: FlutterFlowTheme.of(context).headlineSmall,
+                      ),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                ),
+                Text(
+                  '<Last done mileage>',
+                  textAlign: TextAlign.start,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 12.0,
+                      ),
+                ),
+                //Fuel pump progress bar
+                Text(
+                  'Fuel pump life',
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
                 Align(
