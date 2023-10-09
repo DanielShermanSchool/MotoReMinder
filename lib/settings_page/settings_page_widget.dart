@@ -44,7 +44,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
             borderRadius: 30.0,
-            borderinline-size: 1.0,
+            borderWidth: 1.0,
             buttonSize: 60.0,
             icon: const Icon(
               Icons.arrow_back_rounded,
@@ -68,7 +68,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
-          inset-block-start: true,
+          top: true,
           child: Stack(
             children: [
               const Align(
@@ -81,8 +81,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
               Align(
                 alignment: const AlignmentDirectional(0.02, -0.69),
                 child: Container(
-                  inline-size: MediaQuery.sizeOf(context).width * 1.0,
-                  block-size: MediaQuery.sizeOf(context).height * 1.0,
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
@@ -104,7 +104,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   },
                   text: 'Connect OBD II',
                   options: FFButtonOptions(
-                    block-size: 40.0,
+                    height: 40.0,
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
@@ -117,7 +117,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                     elevation: 3.0,
                     borderSide: const BorderSide(
                       color: Colors.transparent,
-                      inline-size: 1.0,
+                      width: 1.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
