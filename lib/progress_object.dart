@@ -1,23 +1,23 @@
 class progress_object {
-  int _progress;
-  int _MAINTENANCE_INTERVAL;
+  num _progress;
+  num _MAINTENANCE_INTERVAL;
 
 
-  progress_object({int progress = 0, int MAINTENANCE_INTERVAL = 5000})
+  progress_object({num progress = 0, num MAINTENANCE_INTERVAL = 5000})
       : _progress = progress,
         _MAINTENANCE_INTERVAL = MAINTENANCE_INTERVAL {
     assert(_progress >= 0 && _progress <= _MAINTENANCE_INTERVAL);
     assert(_MAINTENANCE_INTERVAL > 0);
   }
-      int get progress => _progress;
-      set progress(int value) {
+      num get progress => _progress;
+      set progress(num value) {
         _progress = value;
       }
-      set MAINTENANCE_INTERVAL(int value) {
+      set MAINTENANCE_INTERVAL(num value) {
         _MAINTENANCE_INTERVAL = value;
       }
       //progress can be as high as MAINTENANCE INTERVAL
       //progress can be as low as 0
       //return progress as a percentage
-      double get progressPercentage => _progress / _MAINTENANCE_INTERVAL;    }
+      num get progressPercentage => _progress / _MAINTENANCE_INTERVAL;    }
 
