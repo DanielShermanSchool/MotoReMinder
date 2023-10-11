@@ -2514,21 +2514,21 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedname = _model.carName.text;
                                         _savedtrim = _model.carTrim.text;
 
-                                        _savedoilinterval = num.tryParse(_model.oilInterval.text) ??0;
-                                        _savedtirerotationinterval = num.tryParse(_model.tireRotationInterval.text) ?? 0;
-                                        _savedbrakesinterval = num.tryParse(_model.brakesInterval.text) ?? 0;
-                                        _savedcoolantinterval = num.tryParse(_model.coolantInterval.text) ?? 0;
-                                        _savedairfilterinterval = num.tryParse(_model.afilterInterval.text) ?? 0;
-                                        _savedsparksinterval = num.tryParse(_model.sparksInterval.text) ?? 0;
-                                        _savedtimingbeltinterval = num.tryParse(_model.timingBeltInterval.text) ?? 0;
-                                        _savedwaterpumpinterval = num.tryParse(_model.waterPumpInterval.text) ?? 0;
-                                        _saveddrivebeltinterval = num.tryParse(_model.driveBeltInterval.text) ?? 0;
-                                        _savedtransfluidinterval = num.tryParse(_model.transInterval.text) ?? 0;
-                                        _savedbrakefluidinterval = num.tryParse(_model.brakeFluidInterval.text) ?? 0;
-                                        _savedcabinairfilterinterval = num.tryParse(_model.cabinAirFilterChanged.text) ?? 0;
-                                        _savedfuelfilterinterval = num.tryParse(_model.ffilterInterval.text) ?? 0;
-                                        _savedfuelpumpinterval = num.tryParse(_model.fuelPumpInterval.text) ?? 0;
-                                        _savedtireinterval = num.tryParse(_model.tiresInterval.text) ?? 0;
+                                        _savedoilinterval = num.tryParse(_model.oilInterval.text) ?? 5000;
+                                        _savedtirerotationinterval = num.tryParse(_model.tireRotationInterval.text) ?? 5000;
+                                        _savedbrakesinterval = num.tryParse(_model.brakesInterval.text) ?? 10000;
+                                        _savedcoolantinterval = num.tryParse(_model.coolantInterval.text) ?? 50000;
+                                        _savedairfilterinterval = num.tryParse(_model.afilterInterval.text) ?? 50000;
+                                        _savedsparksinterval = num.tryParse(_model.sparksInterval.text) ?? 100000;
+                                        _savedtimingbeltinterval = num.tryParse(_model.timingBeltInterval.text) ?? 50000;
+                                        _savedwaterpumpinterval = num.tryParse(_model.waterPumpInterval.text) ?? 50000;
+                                        _saveddrivebeltinterval = num.tryParse(_model.driveBeltInterval.text) ?? 30000;
+                                        _savedtransfluidinterval = num.tryParse(_model.transInterval.text) ?? 30000;
+                                        _savedbrakefluidinterval = num.tryParse(_model.brakeFluidInterval.text) ?? 50000;
+                                        _savedcabinairfilterinterval = num.tryParse(_model.cabinAirFilterChanged.text) ?? 100000;
+                                        _savedfuelfilterinterval = num.tryParse(_model.ffilterInterval.text) ?? 50000;
+                                        _savedfuelpumpinterval = num.tryParse(_model.fuelPumpInterval.text) ?? 50000;
+                                        _savedtireinterval = num.tryParse(_model.tiresInterval.text) ?? 30000;
 
                                         _savedoilchanged = num.tryParse(_model.oilChanged.text) ?? 0;
                                         _savedtirerotationchanged = num.tryParse(_model.tireRotationChanged.text) ?? 0;
@@ -2545,9 +2545,6 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedfuelfilterchanged = num.tryParse(_model.ffilterChanged.text) ?? 0;
                                         _savedfuelpumpchanged = num.tryParse(_model.fuelPumpChanged.text) ?? 0;
                                         _savedtirechanged = num.tryParse(_model.tiresChanged.text) ?? 0;
-
-                                        
-                                        //_counter ++;
                                       });
                                       //make car object from data
                                       Car car = new Car(
