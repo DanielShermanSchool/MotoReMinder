@@ -4,6 +4,8 @@ MotoReMinder is a universal application that will remind automobile owners when 
 
 To Build: with the flutter SDK installed, clone repo into VSCode or other IDE, choose what virtual device to build onto, and run the default build. (MORE INFORMATION TO BE GIVEN AS NEEDED)
 
+To give feedback to founding developers: email us at motoreminder@gmail.com with FEEDBACK as the first word in the subject line.
+
 Software Development Model, and How to Contribute:
 Sprint Time: 1 week.
 Sprint Deliverable: Annotated Portfolio of work done that sprint.
