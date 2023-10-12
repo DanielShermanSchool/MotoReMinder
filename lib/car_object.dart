@@ -1,8 +1,10 @@
-import 'dart:ui' as ui;
-import 'dart:ui';
+import 'dart:io';
+
+import 'package:flutter/widgets.dart';
 
 class Car {
-  ui.Picture? picture;
+
+  ImageProvider? imageProvider;
   late num mileage;
   late int year;
   late String make;
@@ -43,7 +45,7 @@ class Car {
   late num intervalTires;
   
 
- Car(Picture? picture, 
+ Car(ImageProvider imageProvider, 
      num mileage, 
     int year, 
     String make, 
@@ -83,7 +85,7 @@ class Car {
     num lastSuspensionInspection = 0,
     num lastChangedTires = 0])
 {
-    this.picture = picture;
+    this.imageProvider = imageProvider;
     this.mileage = mileage;
     this.year = year;
     this.make = make;
@@ -125,9 +127,8 @@ class Car {
 }
 //override toString method
   @override
-  //to string method
   String toString() {
-    return    '$picture, '
+    return    '${(imageProvider as FileImage).file.path}, '
             + '$mileage, '
             + '$year, '
             + '$make, '
@@ -179,4 +180,39 @@ class Car {
   //   final frame = await codec.getNextFrame();
   //   return frame.image;
   // }
+
+  //generate car object from string
+  Car parseCar(String carString) {
+  List<String> carList = carString.split(', ');
+
+  return Car(
+    FileImage(File(carList[0])),
+    num.parse(carList[1]),
+    int.parse(carList[2]),
+    carList[3],
+    carList[4],
+    carList[5],
+    carList[6],
+    num.parse(carList[7]),
+    num.parse(carList[8]),
+    num.parse(carList[9]),
+    num.parse(carList[10]),
+    num.parse(carList[11]),
+    num.parse(carList[12]),
+    num.parse(carList[13]),
+    num.parse(carList[14]),
+    num.parse(carList[15]),
+    num.parse(carList[16]),
+    num.parse(carList[17]),
+    num.parse(carList[18]),
+    num.parse(carList[19]),
+    num.parse(carList[20]),
+    num.parse(carList[21]),
+    num.parse(carList[22]),
+    num.parse(carList[23]),
+    num.parse(carList[24]),
+    num.parse(carList[25]),
+    num.parse(carList[26]),
+  );
+}
 }
