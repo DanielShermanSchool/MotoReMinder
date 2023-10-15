@@ -193,6 +193,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Car Nickname',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Name your car",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -246,6 +247,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Car Mileage',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Read your car odometer",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -301,6 +303,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Car Make',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Ex: Toyota, Tesla, Volkswagen",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -355,6 +358,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Car Model',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Ex: Avenger, Mustang, Charger",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -409,6 +413,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Car Trim',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Ex,  F-150, STX, etc.",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -464,6 +469,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Car Year',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: 'Ex: 2019, 2020, etc.',
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -534,6 +540,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
+                                          hintText: 'Miles since oil changed last',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -608,6 +615,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
+                                          hintText: 'Leave empty for recommended interval',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -755,6 +763,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
+                                          hintText: "Leave empty for recommended interval ",
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -902,6 +911,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
+                                          hintText: "Leave empty for recommended interval ",
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -1049,6 +1059,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
+                                          hintText: "Leave empty for recommended interval ",
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -1196,6 +1207,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
+                                          hintText: "Leave empty for recommended interval ",
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -1343,6 +1355,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
+                                          hintText: "Leave empty for recommended interval ",
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -1489,6 +1502,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
+                                          hintText: "Leave empty for recommended interval ",
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -1615,6 +1629,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Tire Roation interval',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Leave empty for recommended interval ",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -1725,6 +1740,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Coolant change interval',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Leave empty for recommended interval ",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -1835,6 +1851,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Timing belt change interval',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Leave empty for recommended interval ",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -1945,6 +1962,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Water pump mileage interval',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Leave empty for recommended interval ",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -2055,6 +2073,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Drive belt mileage interval',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Leave empty for recommended interval ",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -2165,6 +2184,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Brake fluid change interval',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Leave empty for recommended interval ",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -2275,6 +2295,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Cabin air filter mileage interval',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Leave empty for recommended interval ",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -2385,6 +2406,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Fuel pump interval mileage',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
+                              hintText: "Leave empty for recommended interval ",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
