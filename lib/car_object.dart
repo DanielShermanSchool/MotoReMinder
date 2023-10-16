@@ -43,7 +43,7 @@ class Car {
   late num intervalSuspensionInspection;
   num lastChangedTires = 0;
   late num intervalTires;
-  num lastTransFilter = 0;
+  num lastChangedTransmissionFilter = 0;
   late num intervalTransFilter;
   
 
@@ -130,6 +130,8 @@ class Car {
     this.intervalSuspensionInspection = intervalSuspensionInspection;
     this.lastChangedTires = lastChangedTires;
     this.intervalTires = intervalTires;
+    this.lastChangedTransmissionFilter = lastChangedTransFilter;
+    this.intervalTransFilter = intervalTransfilter;
 }
 //override toString method
   @override
@@ -153,6 +155,7 @@ class Car {
             + '$intervalWaterPumpInspection, '
             + '$intervalDriveBeltInspection, '
             + '$intervalTransmissionFluid, '
+            + '$intervalTransFilter, '
             + '$intervalBrakeFluid, '
             + '$intervalCabinAirFilter, '
             + '$intervalFuelFilter, '
@@ -169,6 +172,7 @@ class Car {
             + '$lastChangedWaterPumpInspection, '
             + '$lastChangedDriveBeltInspection, '
             + '$lastChangedTransmissionFluid, '
+            + '$lastChangedTransmissionFilter, '
             + '$lastChangedBrakeFluid, '
             + '$lastChangedCabinAirFilter, '
             + '$lastChangedFuelFilter, '
@@ -194,6 +198,7 @@ class Car {
             + '$intervalWaterPumpInspection, '
             + '$intervalDriveBeltInspection, '
             + '$intervalTransmissionFluid, '
+            + '$intervalTransFilter, '
             + '$intervalBrakeFluid, '
             + '$intervalCabinAirFilter, '
             + '$intervalFuelFilter, '
@@ -210,6 +215,7 @@ class Car {
             + '$lastChangedWaterPumpInspection, '
             + '$lastChangedDriveBeltInspection, '
             + '$lastChangedTransmissionFluid, '
+            + '$lastChangedTransmissionFilter, '
             + '$lastChangedBrakeFluid, '
             + '$lastChangedCabinAirFilter, '
             + '$lastChangedFuelFilter, '
@@ -278,6 +284,8 @@ class Car {
       num.parse(carList[36]),
       num.parse(carList[37]),
       num.parse(carList[38]),
+      num.parse(carList[39]),
+      num.parse(carList[40])
     );
   }
 }
