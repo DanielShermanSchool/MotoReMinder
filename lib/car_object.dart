@@ -43,6 +43,8 @@ class Car {
   late num intervalSuspensionInspection;
   num lastChangedTires = 0;
   late num intervalTires;
+  num lastTransFilter = 0;
+  late num intervalTransFilter;
   
 
  Car(ImageProvider? imageProvider, 
@@ -62,12 +64,14 @@ class Car {
     num intervalWaterPumpInspection, 
     num intervalDriveBeltInspection, 
     num intervalTransmissionFluid, 
+    num intervalTransfilter,
     num intervalBrakeFluid, 
     num intervalCabinAirFilter, 
     num intervalFuelFilter, 
     num intervalFuelPump, 
     num intervalSuspensionInspection,
     num intervalTires,
+    
     [num lastChangedEngineOilAndFilter = 0, 
     num lastChangedTireRotation = 0, 
     num lastChangedBrakeInspection = 0, 
@@ -78,12 +82,14 @@ class Car {
     num lastChangedWaterPumpInspection = 0, 
     num lastChangedDriveBeltInspection = 0, 
     num lastChangedTransmissionFluid = 0, 
+    num lastChangedTransFilter = 0,
     num lastChangedBrakeFluid = 0, 
     num lastChangedCabinAirFilter = 0, 
     num lastChangedFuelFilter = 0, 
     num lastChangedFuelPump = 0, 
     num lastSuspensionInspection = 0,
-    num lastChangedTires = 0])
+    num lastChangedTires = 0
+    ])
 {
     this.imageProvider = imageProvider;
     this.mileage = mileage;
