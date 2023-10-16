@@ -138,6 +138,37 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                 ),
                 Text(
+                  'Transmission filter life',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+                Align(
+                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
+                    child: LinearPercentIndicator(
+                      percent: 0.5,
+                      width: MediaQuery.sizeOf(context).width * 0.75,
+                      lineHeight: 30.0,
+                      animation: true,
+                      progressColor: FlutterFlowTheme.of(context).primary,
+                      backgroundColor: FlutterFlowTheme.of(context).accent4,
+                      center: Text(
+                        '50%',
+                        style: FlutterFlowTheme.of(context).headlineSmall,
+                      ),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                ),
+                Text(
+                  '<Last done mileage>',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Readex Pro',
+                        fontSize: 12.0,
+                      ),
+                ),
+                Text(
                   'Timing belt life',
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),

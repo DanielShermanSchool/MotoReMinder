@@ -36,11 +36,11 @@ class EditPageModel extends FlutterFlowModel {
   TextEditingController? transInterval;
   String? Function(BuildContext, String?)? transIntervalValidator;
   // State field(s) for TextField widget.
-  TextEditingController? beltsChanged;
-  String? Function(BuildContext, String?)? beltsChangedValidator;
-  // State field(s) for TextField widget.
-  TextEditingController? beltsInterval;
-  String? Function(BuildContext, String?)? beltsIntervalValidator;
+  TextEditingController? transFilterChanged;
+  String? Function(BuildContext, String?)? transFilterChangedValidator;
+  //State field(s) for tansFilterChange
+  TextEditingController? transFilterInterval;
+  String? Function(BuildContext, String?)? transFilterIntervalValidator;
   // State field(s) for TextField widget.
   TextEditingController? brakesChanged;
   String? Function(BuildContext, String?)? brakesChangedValidator;
@@ -119,30 +119,12 @@ class EditPageModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? fuelPumpChanged;
   String? Function(BuildContext, String?)? fuelPumpChangedValidator;
+  
 
 
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue1;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue2;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue3;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue4;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue5;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue6;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue7;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue8;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {}
@@ -158,8 +140,8 @@ class EditPageModel extends FlutterFlowModel {
     oilInterval?.dispose();
     transChanged?.dispose();
     transInterval?.dispose();
-    beltsChanged?.dispose();
-    beltsInterval?.dispose();
+    transFilterChanged?.dispose();
+    transFilterInterval?.dispose();
     brakesChanged?.dispose();
     brakesInterval?.dispose();
     sparksChanged?.dispose();

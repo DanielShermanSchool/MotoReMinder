@@ -40,6 +40,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     _model.oilInterval ??= TextEditingController();
     _model.transChanged ??= TextEditingController();
     _model.transInterval ??= TextEditingController();
+    _model.transFilterChanged ??= TextEditingController();
+    _model.transFilterInterval ??= TextEditingController();
     _model.brakesChanged ??= TextEditingController();
     _model.brakesInterval ??= TextEditingController();
     _model.sparksChanged ??= TextEditingController();
@@ -80,6 +82,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     num _savedoilinterval = 0;
     num _savedtransfluidchanged = 0;
     num _savedtransfluidinterval = 0;
+    num _savedtransfilterchange = 0;
+    num _savedtransfilterinterval = 0;
     num _savedbrakeschanged = 0;
     num _savedbrakesinterval = 0;
     num _savedsparkschanged = 0;
@@ -193,7 +197,6 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Car Nickname',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
-                              hintText: "Name your car",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -303,7 +306,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Car Make',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
-                              hintText: "Ex: Toyota, Tesla, Volkswagen",
+                                  hintText: "Ex: Toyota, Tesla, Volkswagen",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -358,7 +361,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Car Model',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
-                              hintText: "Ex: Avenger, Mustang, Charger",
+                                  hintText: "Ex: Avenger, Mustang, Charger",
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -469,7 +472,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Car Year',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
-                              hintText: 'Ex: 2019, 2020, etc.',
+                               hintText: 'Ex: 2019, 2020, etc.',
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -540,7 +543,6 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
-                                          hintText: 'Miles since oil changed last',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -615,7 +617,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
-                                          hintText: 'Leave empty for recommended interval',
+                                           hintText: 'Leave empty for recommended interval',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -763,7 +765,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
-                                          hintText: "Leave empty for recommended interval ",
+                                           hintText: 'Leave empty for recommended interval',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -813,6 +815,154 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                             .bodyMedium,
                                         validator: _model
                                             .transIntervalValidator
+                                            .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                //Transmission change
+                                Align(
+                                  alignment: const AlignmentDirectional(-1.00, 0.00),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 0.0, 8.0, 0.0),
+                                    child: SizedBox(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.5,
+                                      child: TextFormField(
+                                        controller: _model.transFilterChanged,
+                                        autofocus: true,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: 'Transmission filter changed at',
+                                          labelStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium,
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        validator: _model
+                                            .transFilterChangedValidator
+                                            .asValidator(context),
+                                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                //Transmission fluid change interval
+                                Align(
+                                  alignment: const AlignmentDirectional(-1.00, 0.00),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 0.0, 8.0, 0.0),
+                                    child: SizedBox(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.5,
+                                      child: TextFormField(
+                                        controller: _model.transFilterInterval,
+                                        autofocus: true,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText:
+                                              'Transmission filter Change Interval',
+                                          labelStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium,
+                                           hintText: 'Leave empty for recommended interval',
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium,
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              width: 2.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        validator: _model
+                                            .transFilterIntervalValidator
                                             .asValidator(context),
                                             inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                                       ),
@@ -911,7 +1061,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
-                                          hintText: "Leave empty for recommended interval ",
+                                           hintText: 'Leave empty for recommended interval',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -1059,7 +1209,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
-                                          hintText: "Leave empty for recommended interval ",
+                                           hintText: 'Leave empty for recommended interval',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -1207,7 +1357,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
-                                          hintText: "Leave empty for recommended interval ",
+                                           hintText: 'Leave empty for recommended interval',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -1355,7 +1505,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
-                                          hintText: "Leave empty for recommended interval ",
+                                           hintText: 'Leave empty for recommended interval',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -1502,7 +1652,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
-                                          hintText: "Leave empty for recommended interval ",
+                                           hintText: 'Leave empty for recommended interval',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelMedium,
@@ -1629,7 +1779,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Tire Roation interval',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
-                              hintText: "Leave empty for recommended interval ",
+                               hintText: 'Leave empty for recommended interval',
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -1740,7 +1890,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                               labelText: 'Coolant change interval',
                               labelStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
-                              hintText: "Leave empty for recommended interval ",
+                               hintText: 'Leave empty for recommended interval',
                               hintStyle:
                                   FlutterFlowTheme.of(context).labelMedium,
                               enabledBorder: OutlineInputBorder(
@@ -2546,6 +2696,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedwaterpumpinterval = num.tryParse(_model.waterPumpInterval.text) ?? 50000;
                                         _saveddrivebeltinterval = num.tryParse(_model.driveBeltInterval.text) ?? 30000;
                                         _savedtransfluidinterval = num.tryParse(_model.transInterval.text) ?? 30000;
+                                        _savedtransfilterinterval = num.tryParse(_model.transInterval.text) ?? 80085;
                                         _savedbrakefluidinterval = num.tryParse(_model.brakeFluidInterval.text) ?? 50000;
                                         _savedcabinairfilterinterval = num.tryParse(_model.cabinAirFilterChanged.text) ?? 100000;
                                         _savedfuelfilterinterval = num.tryParse(_model.ffilterInterval.text) ?? 50000;
@@ -2562,6 +2713,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedwaterpumpchanged = num.tryParse(_model.waterPumpChanged.text) ?? 0;
                                         _saveddrivebeltchanged = num.tryParse(_model.driveBeltChanged.text) ?? 0;
                                         _savedtransfluidchanged = num.tryParse(_model.transChanged.text) ?? 0;
+                                        _savedtransfilterchange = num.tryParse(_model.transChanged.text) ?? 0;
                                         _savedbrakefluidchanged = num.tryParse(_model.brakeFluidChanged.text) ?? 0;
                                         _savedcabinairfilterchanged = num.tryParse(_model.cabinAirFilterChanged.text) ?? 0;
                                         _savedfuelfilterchanged = num.tryParse(_model.ffilterChanged.text) ?? 0;
@@ -2587,6 +2739,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedwaterpumpinterval,
                                         _saveddrivebeltinterval,
                                         _savedtransfluidinterval,
+                                        _savedtransfilterinterval,
                                         _savedbrakefluidinterval,
                                         _savedcabinairfilterinterval,
                                         _savedfuelfilterinterval,
@@ -2602,6 +2755,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedwaterpumpchanged,
                                         _saveddrivebeltchanged,
                                         _savedtransfluidchanged,
+                                        _savedtransfilterchange,
                                         _savedbrakefluidchanged,
                                         _savedcabinairfilterchanged,
                                         _savedfuelfilterchanged,
@@ -2610,7 +2764,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       );
                                     saveToFile(car.nickname, car);
                                     num result = 0;
-                                    result = ((_savedmileage + _savedairfilterchanged) / _savedairfilterinterval);
+                                    result = (_savedairfilterchanged / (_savedmileage + _savedairfilterinterval));
                                     print(result);
                                     },
                                     text: 'Submit',
