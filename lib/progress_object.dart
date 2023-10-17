@@ -3,7 +3,7 @@ class progress_object {
   num _MAINTENANCE_INTERVAL;
 
 
-  progress_object({num progress = 0, num MAINTENANCE_INTERVAL = 5000})
+  progress_object(num progress, num MAINTENANCE_INTERVAL)
       : _progress = progress,
         _MAINTENANCE_INTERVAL = MAINTENANCE_INTERVAL {
     assert(_progress >= 0 && _progress <= _MAINTENANCE_INTERVAL);

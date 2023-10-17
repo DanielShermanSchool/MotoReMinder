@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/widgets.dart';
+import 'package:moto_re_minder1/progress_object.dart';
 
 class Car {
 
@@ -133,6 +134,31 @@ class Car {
     this.lastChangedTransmissionFilter = lastChangedTransFilter;
     this.intervalTransFilter = intervalTransfilter;
 }
+
+  // Getters for percent value
+  progress_object get oilChangeProgress{
+    progress_object oilChangeProg = new progress_object(this.mileage - this.intervalEngineOilAndFilter, this.intervalEngineOilAndFilter);
+    return oilChangeProg;
+  }
+  double get tireRotationPerc{
+    num distance = this.mileage - this.lastChangedTireRotation;
+    return distance / this.intervalTireRotation;
+  }
+  double get brakeInspectionPerc{
+    num distance = this.mileage - this.lastChangedBrakeInspection;
+    return distance / this.intervalBrakeInspection;
+  }
+  double get brakeFluidChangePerc{
+    num distance = this.mileage - this.lastChangedBrakeFluid;
+    return distance / this.intervalBrakeFluid;
+  }
+  double get engineCoolantChangePerc{
+    num distance = this.mileage - this.lastChangedEngineCoolant;
+    return distance / this.intervalEngineCoolant;
+  }
+  double get 
+
+
 //override toString method
   @override
   String toString() {
