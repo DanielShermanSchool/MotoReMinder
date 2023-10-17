@@ -1,13 +1,13 @@
 # MotoReMinder
 
-MotoReMinder is a universal application that will remind automobile owners when various maintenance intervals are passed based on mileage driven. If the user has access to a Bluetooth enabled OBD-II scanner and their car supports it, the mileage on the car will be automatically updated in the background and push-notifications will be sent to their device to remind them of the intervals coming up.
+### MotoReMinder is a universal application that will remind automobile owners when various maintenance intervals are passed based on mileage driven. If the user has access to a Bluetooth enabled OBD-II scanner and their car supports it, the mileage on the car will be automatically updated in the background and push-notifications will be sent to their device to remind them of the intervals coming up.
+
+### Have a car and want to keep track?
+* Windows: download windows release, extract to foler, run .exe file
+* Android: download APK release, install APK
+* If on anything else: we have a local web-app build available. Download the web release and run a local server within the folder downloaded. For reference: https://docs.flutter.dev/deployment/web#building-the-app-for-release
 
 To Build: with the flutter SDK installed, clone repo into VSCode or other IDE, choose what virtual device to build onto, and run the default build. (MORE INFORMATION TO BE GIVEN AS NEEDED)
-
-To Run as User: 
-* If on Windows: download windows release, extract to foler, run .exe file
-* If on android: download APK release, install APK
-* If on anything else: we have a local web-app build available. Download the web release and run a local server within the folder downloaded. For reference: https://docs.flutter.dev/deployment/web#building-the-app-for-release
 
 To give feedback to founding developers: email us at motoreminder@gmail.com with FEEDBACK as the first word in the subject line.
 
