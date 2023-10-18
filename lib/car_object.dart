@@ -137,27 +137,73 @@ class Car {
 
   // Getters for percent value
   progress_object get oilChangeProgress{
-    progress_object oilChangeProg = new progress_object(this.mileage - this.intervalEngineOilAndFilter, this.intervalEngineOilAndFilter);
+    progress_object oilChangeProg = new progress_object(this.mileage - this.lastChangedEngineOilAndFilter, this.intervalEngineOilAndFilter);
     return oilChangeProg;
   }
-  double get tireRotationPerc{
-    num distance = this.mileage - this.lastChangedTireRotation;
-    return distance / this.intervalTireRotation;
+  progress_object get tireRotationProgress{
+    progress_object tireRotationProg = new progress_object(this.mileage - this.lastChangedTireRotation, this.intervalTireRotation);
+    return tireRotationProg;
   }
-  double get brakeInspectionPerc{
-    num distance = this.mileage - this.lastChangedBrakeInspection;
-    return distance / this.intervalBrakeInspection;
+  progress_object get brakeInspectionProgress{
+    progress_object brakeInspectionProg = new progress_object(this.mileage - this.lastChangedBrakeInspection, this.intervalBrakeInspection);
+    return brakeInspectionProg;
   }
-  double get brakeFluidChangePerc{
-    num distance = this.mileage - this.lastChangedBrakeFluid;
-    return distance / this.intervalBrakeFluid;
+  progress_object get brakeFluidProgress{
+    progress_object brakeFluidProg = new progress_object(this.mileage - this.lastChangedBrakeFluid, this.intervalBrakeFluid);
+    return brakeFluidProg;
   }
-  double get engineCoolantChangePerc{
-    num distance = this.mileage - this.lastChangedEngineCoolant;
-    return distance / this.intervalEngineCoolant;
+  progress_object get engineCoolantChangeProgress{
+    progress_object engineCoolantChangeProg = new progress_object(this.mileage - this.lastChangedEngineCoolant, this.intervalEngineCoolant);
+    return engineCoolantChangeProg;
+  } 
+  progress_object get airFileterProgress{
+    progress_object airFilerProg = new progress_object(this.mileage - this.lastChangedAirFilter, this.intervalAirFilter);
+    return airFilerProg;
   }
-  double get 
-
+  progress_object get sparkPlugProgress{
+    progress_object sparkPlugProg = new progress_object(this.mileage - this.lastChangedSparkPlugs, this.intervalSparkPlugs);
+    return sparkPlugProg;
+  }
+  progress_object get timingBeltChainProgress{
+    progress_object timingBeltChainProg = new progress_object(this.mileage - this.lastChangedTimingBeltChain, this.intervalTimingBeltChain);
+    return timingBeltChainProg;
+  }
+  progress_object get waterPumpInspectionProgress{
+    progress_object waterPumpInspectionProg = new progress_object(this.mileage - this.lastChangedWaterPumpInspection, this.intervalWaterPumpInspection);
+    return waterPumpInspectionProg;
+  }
+  progress_object get driveBeltInspectionProgress{
+    progress_object driveBeltInspectionProg = new progress_object(this.mileage - this.lastChangedDriveBeltInspection, this.intervalDriveBeltInspection);
+    return driveBeltInspectionProg;
+  }
+  progress_object get transmissionFluidProgress{
+    progress_object transmissionFluidProg = new progress_object(this.mileage - this.lastChangedTransmissionFluid, this.intervalTransmissionFluid);
+    return transmissionFluidProg;
+  }
+  progress_object get transmissionFilterProgress{
+    progress_object transmissionFilterProg = new progress_object(this.mileage - this.lastChangedTransmissionFilter , this.intervalTransFilter);
+    return transmissionFilterProg;
+  }
+  progress_object get cabinAirFilterProgress{
+    progress_object cabinAirFilterProg = new progress_object(this.mileage - this.lastChangedCabinAirFilter, this.intervalCabinAirFilter);
+    return cabinAirFilterProg;
+  }
+  progress_object get fuelFilterProgress{
+    progress_object fuelFilterProg = new progress_object(this.mileage - this.lastChangedFuelFilter, this.intervalFuelFilter);
+    return fuelFilterProg;
+  }
+  progress_object get fuelPumpProgress{
+    progress_object fuelPumpProg = new progress_object(this.mileage - this.lastChangedFuelPump, this.intervalFuelPump);
+    return fuelPumpProg;
+  }
+  progress_object get suspensionInspectionProgress{
+    progress_object suspensionInspectionProg = new progress_object(this.mileage - this.lastSuspensionInspection, this.intervalSuspensionInspection);
+    return suspensionInspectionProg;
+  }
+  progress_object get changedTiresProgress{
+    progress_object changedTiresProg = new progress_object(this.mileage - this.lastChangedTires, this.intervalTires);
+    return changedTiresProg;
+  }
 
 //override toString method
   @override
