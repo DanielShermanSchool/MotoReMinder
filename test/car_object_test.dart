@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moto_re_minder1/car_object.dart';
-import 'package:moto_re_minder1/progress_object.dart';
+import 'package:moto_re_minder/car_object.dart';
+import 'package:moto_re_minder/progress_object.dart';
 
 
 final int _MILEAGE = 120000;
@@ -42,6 +42,7 @@ final int _LAST_CHANGED_TIRES = 110000;
 
 
 
+main
 
 void main() {
   testWidgets('car object ...', (tester) async {
