@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:moto_re_minder1/car_object.dart';
+import 'package:moto_re_minder/car_object.dart';
 
 void main() {
   testWidgets('car object ...', (tester) async {
