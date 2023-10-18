@@ -1,4 +1,4 @@
-import 'package:moto_re_minder1/flutter_flow/flutter_flow_widgets.dart';
+import 'package:moto_re_minder/flutter_flow/flutter_flow_widgets.dart';
 
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
