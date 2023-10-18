@@ -2766,6 +2766,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                     num result = 0;
                                     result = (_savedairfilterchanged / (_savedmileage + _savedairfilterinterval));
                                     print(result);
+                                    context.pop();
                                     },
                                     text: 'Submit',
                                     icon: Icon(
