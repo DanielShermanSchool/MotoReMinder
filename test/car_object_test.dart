@@ -41,9 +41,6 @@ final int _LAST_SUSPENSION_INSPECTION = 110000;
 final int _LAST_CHANGED_TIRES = 110000;
 
 
-
-main
-
 void main() {
   testWidgets('car object ...', (tester) async {
     //create car

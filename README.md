@@ -35,7 +35,7 @@ Certainly, I can help you simplify your installation instructions for users who 
 
   
 
-1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/0.2.1apk/app-release.apk)
+1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/android/MotoReMinderV0.3.apk)
 
 2.  Once the download is finished, tap on the APK file.
 
