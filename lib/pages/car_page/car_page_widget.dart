@@ -97,9 +97,9 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: Image.network(
-                          'https://images.unsplash.com/photo-1584936684506-c3a7086e8212?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxjYXIlMjBibGFjayUyMGFuZCUyMHdoaXRlfGVufDB8fHx8MTY5NTY1NjE3NXww&ixlib=rb-4.0.3&q=80&w=1080',
-                        ).image,
+                        image: Image.asset(
+                          'assets/images/appIcon.png',
+                          ).image,
                       ),
                       border: Border.all(
                         color: FlutterFlowTheme.of(context).primaryText,
@@ -114,7 +114,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                   '<Car NickName>',
                   style: FlutterFlowTheme.of(context).bodyLarge.override(
                         fontFamily: 'Readex Pro',
-                        color: const Color(0xFFF60E0E),
+                        color: Color.fromARGB(255, 0, 0, 0),
                       ),
                 ),
               ),
@@ -124,7 +124,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                   'Make, Model, Year, Engine',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Readex Pro',
-                        color: const Color(0xFFF60E0E),
+                        color: Color.fromARGB(255, 0, 0, 0),
                       ),
                 ),
               ),
