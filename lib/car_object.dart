@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/widgets.dart';
-import 'package:moto_re_minder1/progress_object.dart';
+import 'package:moto_re_minder/progress_object.dart';
 
 class Car {
 
