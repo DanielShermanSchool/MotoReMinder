@@ -2722,7 +2722,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       });
                                       //make car object from data
                                       Car car = new Car(
-                                        null,
+                                        null, //add picture to car
                                         _savedmileage,
                                         _savedyear,
                                         _savedmake,
@@ -2762,7 +2762,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedfuelpumpchanged,
                                         _savedtirechanged
                                       );
-                                    saveToFile(car.nickname, car);
+                                    saveToFile(car.nickname + ".mrm", car);
                                     num result = 0;
                                     result = (_savedairfilterchanged / (_savedmileage + _savedairfilterinterval));
                                     print(result);
