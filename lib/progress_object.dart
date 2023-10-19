@@ -6,12 +6,21 @@ class progress_object {
   progress_object(num progress, num MAINTENANCE_INTERVAL)
       : _progress = progress,
         _MAINTENANCE_INTERVAL = MAINTENANCE_INTERVAL {
-    assert(_progress >= 0 && _progress <= _MAINTENANCE_INTERVAL);
-    assert(_MAINTENANCE_INTERVAL > 0);
+          if(_progress >= _MAINTENANCE_INTERVAL)
+          {
+            _progress = _MAINTENANCE_INTERVAL;
+          }
   }
       num get progress => _progress;
       set progress(num value) {
-        _progress = value;
+        if(value > _MAINTENANCE_INTERVAL)
+        {
+          _progress = _MAINTENANCE_INTERVAL;
+        }
+        else
+        {
+          _progress = value;
+        }
       }
       set MAINTENANCE_INTERVAL(num value) {
         _MAINTENANCE_INTERVAL = value;
