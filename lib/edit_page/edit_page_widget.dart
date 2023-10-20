@@ -2825,5 +2825,7 @@ void saveToFile(String fileName, Car car) async {
   await file.parent.create(recursive: true);
   
   file.writeAsStringSync(car.toString());
+
+  print('Saved to ${file.path}');
 } 
 }

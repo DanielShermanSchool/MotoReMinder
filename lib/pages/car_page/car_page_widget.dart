@@ -1,3 +1,4 @@
+import 'package:moto_re_minder/edit_page/edit_page_widget.dart';
 import 'package:moto_re_minder/flutter_flow/flutter_flow_widgets.dart';
 import 'package:moto_re_minder/car_object.dart';
 import 'package:moto_re_minder/pages/home_page/home_page_widget.dart';
@@ -12,6 +13,7 @@ export 'car_page_model.dart';
 import 'package:path/path.dart' as path;
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:io';
+
 
 
 class CarPageWidget extends StatefulWidget {
@@ -80,6 +82,15 @@ class _CarPageWidgetState extends State<CarPageWidget> {
             ),
           );
         }).toList(),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => EditPageWidget()),
+          );
+        },
+        child: Icon(Icons.edit),
       ),
     );
   }
