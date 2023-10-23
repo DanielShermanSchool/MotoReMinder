@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:moto_re_minder/car_object.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -2762,7 +2763,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedfuelpumpchanged,
                                         _savedtirechanged
                                       );
-                                    saveToFile(car.nickname, car);
+                                    saveToFile(car.nickname + ".mrm", car);
                                     num result = 0;
                                     result = (_savedairfilterchanged / (_savedmileage + _savedairfilterinterval));
                                     print(result);
@@ -2815,8 +2816,16 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     );
   }
 
-void saveToFile(String fileName, Car car) {
-  final file = File(fileName);
+void saveToFile(String fileName, Car car) async {
+  final directory = await getApplicationDocumentsDirectory();
+  final path = directory.path;
+  final file = File('$path/cars/$fileName');
+  
+  // Make sure the directory exists
+  await file.parent.create(recursive: true);
+  
   file.writeAsStringSync(car.toString());
+
+  print('Saved to ${file.path}');
 } 
 }

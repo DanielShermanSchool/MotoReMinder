@@ -1,11 +1,9 @@
-import 'package:moto_re_minder/flutter_flow/flutter_flow_widgets.dart';
-
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'car_page_model.dart';
-export 'car_page_model.dart';
+import 'package:go_router/go_router.dart';
+import 'package:moto_re_minder/car_object.dart';
+import 'package:path_provider/path_provider.dart';
 
 class CarPageWidget extends StatefulWidget {
   const CarPageWidget({Key? key}) : super(key: key);
@@ -15,154 +13,114 @@ class CarPageWidget extends StatefulWidget {
 }
 
 class _CarPageWidgetState extends State<CarPageWidget> {
-  late CarPageModel _model;
-
+  List<Car> cars = [];
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CarPageModel());
+    loadCars();
   }
 
-  @override
-  void dispose() {
-    _model.dispose();
+  Future<void> loadCars() async {
+    // Get the path to the directory where the text files are located
+    final directory = await getApplicationDocumentsDirectory();
+    final path = directory.path;
+    final carsDirectory = Directory('$path/cars');
 
-    super.dispose();
+    // Get all the files in the directory
+    final files = carsDirectory.listSync();
+
+    for (final file in files) {
+      final fileContent = await File(file.path).readAsString();
+      final car = Car.parseCar(fileContent);
+      cars.add(car);
+    }
+
+    // Update the UI
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Text(
-            'My cars',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                ),
+    return Scaffold(
+      key: scaffoldKey,
+      appBar: AppBar(
+        title: Text(
+          'My cars',
+          style: TextStyle(
+            fontFamily: 'Outfit',
+            fontSize: 22.0,
           ),
-          actions: [
-            FlutterFlowIconButton(
-              borderColor: FlutterFlowTheme.of(context).primary,
-              borderRadius: 20.0,
-              borderWidth: 1.0,
-              buttonSize: 40.0,
-              fillColor: FlutterFlowTheme.of(context).accent1,
-              icon: const Icon(
-                Icons.more_vert,
-                color: Color(0xFFEAEEF0),
-                size: 24.0,
-              ),
-              onPressed: () async {
-                context.pushNamed('SettingsPage');
-              },
-            ),
-          ],
-          centerTitle: true,
-          elevation: 2.0,
         ),
-        body: SafeArea(
-          top: true,
-          child: Stack(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.more_vert,
+              size: 24.0,
+            ),
+            onPressed: () async {
+              context.pushNamed("SettingsPage");
+            },
+          ),
+        ],
+        centerTitle: true,
+        elevation: 2.0,
+      ),
+      floatingActionButton: SizedBox(
+        width: double.infinity,
+        child: ElevatedButton(
+          onPressed: () {
+            context.pushNamed('EditPage'); // Navigate to 'EditPage'
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [],
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0.04, -0.68),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onDoubleTap: () async {
-                    context.pushNamed('HomePage');
-                  },
-                  onLongPress: () async {
-                    context.pushNamed('EditPage');
-                  },
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * 0.9,
-                    height: 100.0,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: Image.asset(
-                          'assets/images/appIcon.png',
-                          ).image,
-                      ),
-                      border: Border.all(
-                        color: FlutterFlowTheme.of(context).primaryText,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(-0.00, -0.69),
-                child: Text(
-                  '<Car NickName>',
-                  style: FlutterFlowTheme.of(context).bodyLarge.override(
-                        fontFamily: 'Readex Pro',
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(-0.01, -0.61),
-                child: Text(
-                  'Make, Model, Year, Engine',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(-1.01, 1.00),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed('EditPage');
-                  },
-                  text: 'Add New Car',
-                  icon: Icon(
-                    Icons.add_box,
-                    size: 15.0,
-                  ),
-                  options: FFButtonOptions(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Readex Pro',
-                          color: Colors.white,
-                        ),
-                    elevation: 3.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-              ),
+              Icon(Icons.add),
+              SizedBox(width: 8), // Add some spacing between the icon and text
+              Text('Add Car'),
             ],
           ),
         ),
+      ),
+      body: GridView.count(
+        crossAxisCount: 2,
+        children: cars.map((car) {
+          return GestureDetector(
+            onTap: () {
+              context.pushNamed("HomePage");
+            },
+            onLongPress: () async {
+              context.pushNamed("EditPage");
+            },
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: 100.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/images/appIcon.png'),
+                ),
+                border: Border.all(
+                  color: Colors.black, // You can set your own border color here
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    car.nickname,
+                    style: TextStyle(
+                      fontFamily: 'Readex Pro',
+                      color: Color.fromARGB(255, 255, 0, 0),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        }).toList(),
       ),
     );
   }
