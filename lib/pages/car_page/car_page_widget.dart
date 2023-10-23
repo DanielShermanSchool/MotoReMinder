@@ -57,7 +57,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
         title: Text('Your Cars'),
       ),
       body: GridView.count(
-          crossAxisCount: 2,
+          crossAxisCount: 4,
           children: cars.map((car) {
             return GestureDetector(
               onTap: () {
@@ -77,7 +77,9 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                child: Center(child: Text(car.nickname, style: TextStyle(color: Colors.black, backgroundColor: Colors.white))),
+                child: Center(child: Text(car.nickname, style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255), 
+                                                                          backgroundColor: Color.fromARGB(78, 0, 0, 0),
+                                                                          fontSize: 32))),
               ),
             );
           }).toList(),
