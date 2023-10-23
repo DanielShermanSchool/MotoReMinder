@@ -34,7 +34,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const NavBarPage(),
+          builder: (context, _) => const CarPageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
