@@ -28,5 +28,9 @@ class progress_object {
       //progress can be as high as MAINTENANCE INTERVAL
       //progress can be as low as 0
       //return progress as a percentage
-      num get progressPercentage => _progress / _MAINTENANCE_INTERVAL;    }
+      num get progressPercentage {
+        num distPercent = _progress / _MAINTENANCE_INTERVAL;
+        return 1 - distPercent;
+      }   
+}
 
