@@ -54,7 +54,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Car Page'),
+        title: Text('Your Cars'),
       ),
       body: GridView.count(
           crossAxisCount: 2,
@@ -72,12 +72,12 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                   color: Colors.blueAccent,
                   borderRadius: BorderRadius.circular(10.0),
                   image: DecorationImage(
-                    //image: AssetImage('assets/images/appIcon.png'),
-                    image: car.imageProvider ?? AssetImage('assets/images/appIcon.png'), // provide a default image in case car.picture is null
+                    image: AssetImage('assets/images/appIcon.png'),
+                    //image: car.imageProvider ?? AssetImage('assets/images/appIcon.png'), // provide a default image in case car.picture is null
                     fit: BoxFit.cover,
                   ),
                 ),
-                child: Center(child: Text(car.nickname, style: TextStyle(backgroundColor: Colors.white))),
+                child: Center(child: Text(car.nickname, style: TextStyle(color: Colors.black, backgroundColor: Colors.white))),
               ),
             );
           }).toList(),
