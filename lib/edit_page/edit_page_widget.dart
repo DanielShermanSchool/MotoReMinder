@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:moto_re_minder/car_object.dart';
+import 'package:moto_re_minder/pages/car_page/car_page_widget.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -2722,7 +2724,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       });
                                       //make car object from data
                                       Car car = new Car(
-                                        null,
+                                        null, //add picture to car
                                         _savedmileage,
                                         _savedyear,
                                         _savedmake,
@@ -2762,11 +2764,15 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                         _savedfuelpumpchanged,
                                         _savedtirechanged
                                       );
-                                    saveToFile(car.nickname, car);
+                                    saveToFile(car.nickname + ".mrm", car);
                                     num result = 0;
                                     result = (_savedairfilterchanged / (_savedmileage + _savedairfilterinterval));
                                     print(result);
-                                    context.pop();
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => CarPageWidget()),
+                                      );
+                                    //context.pop();
                                     },
                                     text: 'Submit',
                                     icon: Icon(
@@ -2815,8 +2821,16 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     );
   }
 
-void saveToFile(String fileName, Car car) {
-  final file = File(fileName);
+void saveToFile(String fileName, Car car) async {
+  final directory = await getApplicationDocumentsDirectory();
+  final path = directory.path;
+  final file = File('$path/cars/$fileName');
+  
+  // Make sure the directory exists
+  await file.parent.create(recursive: true);
+  
   file.writeAsStringSync(car.toString());
+
+  print('Saved to ${file.path}');
 } 
 }
