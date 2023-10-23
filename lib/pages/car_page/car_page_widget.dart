@@ -1,17 +1,11 @@
 import 'package:moto_re_minder/edit_page/edit_page_widget.dart';
-import 'package:moto_re_minder/flutter_flow/flutter_flow_widgets.dart';
 import 'package:moto_re_minder/car_object.dart';
 import 'package:moto_re_minder/pages/home_page/home_page_widget.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'car_page_model.dart';
 export 'car_page_model.dart';
-import 'package:path/path.dart' as path;
-import 'package:flutter/services.dart' show rootBundle;
 import 'dart:io';
 
 
@@ -63,27 +57,31 @@ class _CarPageWidgetState extends State<CarPageWidget> {
         title: Text('Car Page'),
       ),
       body: GridView.count(
-        crossAxisCount: 2,
-        children: cars.map((car) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomePageWidget(car: car)),
-              );
-            },
-            child: Container(
-              margin: EdgeInsets.all(10.0),
-              decoration: BoxDecoration(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(10.0),
+          crossAxisCount: 2,
+          children: cars.map((car) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePageWidget(car: car)),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(10.0),
+                  image: DecorationImage(
+                    //image: AssetImage('assets/images/appIcon.png'),
+                    image: car.imageProvider ?? AssetImage('assets/images/appIcon.png'), // provide a default image in case car.picture is null
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: Center(child: Text(car.nickname, style: TextStyle(backgroundColor: Colors.white))),
               ),
-              child: Center(child: Text(car.nickname)),
-            ),
-          );
-        }).toList(),
-      ),
-      floatingActionButton: FloatingActionButton(
+            );
+          }).toList(),
+        ),      floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
             context,
@@ -94,15 +92,5 @@ class _CarPageWidgetState extends State<CarPageWidget> {
       ),
     );
   }
-
-}class AnotherPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Another Page'),
-      ),
-      body: Center(child: Text('You have navigated to another page')),
-    );
-  }
 }
+
