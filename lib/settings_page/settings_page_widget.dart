@@ -156,18 +156,18 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                 child: SwitchListTile.adaptive(
                   value: _model.switchListTileValue2 ??= false,
                   onChanged: (newValue) async {
-                    setState(() => _model.switchListTileValue2 = newValue);
-                    if (newValue) {
-                      setDarkModeSetting(
-                        context,
-                        true ? ThemeMode.dark : ThemeMode.light,
-                      );
-                    } else {
-                      setDarkModeSetting(
-                        context,
-                        false ? ThemeMode.dark : ThemeMode.light,
-                      );
-                    }
+                    // setState(() => _model.switchListTileValue2 = newValue);
+                    // if (newValue) {
+                    //   setDarkModeSetting(
+                    //     context,
+                    //     true ? ThemeMode.dark : ThemeMode.light,
+                    //   );
+                    // } else {
+                    //   setDarkModeSetting(
+                    //     context,
+                    //     false ? ThemeMode.dark : ThemeMode.light,
+                    //   );
+                    // }
                   },
                   title: Text(
                     'Darkmode',

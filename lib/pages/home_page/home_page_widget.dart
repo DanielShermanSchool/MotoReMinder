@@ -1,596 +1,226 @@
 import 'package:moto_re_minder/car_object.dart';
-
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
-import 'home_page_model.dart';
-export 'home_page_model.dart';
 
-class HomePageWidget extends StatefulWidget {
-  final Car? car;
-  const HomePageWidget({Key? key, this.car}) : super(key: key);
-
-  @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
-}
-
-class _HomePageWidgetState extends State<HomePageWidget> {
-  late HomePageModel _model;
-
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    super.initState();
-    _model = createModel(context, () => HomePageModel());
-  }
-
-  @override
-  void dispose() {
-    _model.dispose();
-
-    super.dispose();
-  }
+class HomePageWidget extends StatelessWidget {
+  final Car car;
+  const HomePageWidget({required this.car});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Text(
-            '<CarName> checklist',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                ),
-          ),
-          actions: [
-            FlutterFlowIconButton(
-              borderColor: FlutterFlowTheme.of(context).primary,
-              borderRadius: 20.0,
-              borderWidth: 1.0,
-              buttonSize: 40.0,
-              fillColor: FlutterFlowTheme.of(context).accent1,
-              icon: const Icon(
-                Icons.more_vert,
-                color: Color(0xFFEEF1F3),
-                size: 24.0,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('${car.nickname} Checklist!'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Text('Oil Change Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30, // Adjust this value to change the height of the progress bar
+                    child: LinearProgressIndicator(value: car.oilChangeProgress.toDouble()),
+                  ),
+                  Center(
+                    child: Text('${(car.oilChangeProgress * 100).toStringAsFixed(1)}%'),
+                  ),
+                ],
               ),
-              onPressed: () async {
-                context.pushNamed('SettingsPage');
-              },
-            ),
-          ],
-          centerTitle: true,
-          elevation: 2.0,
-        ),
-        body: SafeArea(
-          top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Text(
-                  'Engine Oil and filter life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+              Text('Tire rotation Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.tireRotationProgress.toDouble()),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                Text(
-                  'Transmission Oil life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                  Center(
+                    child: Text('${(car.tireRotationProgress * 100).toStringAsFixed(1)}%'),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                Text(
-                  'Transmission filter life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                ],
+              ),
+              Text('Brake inspection Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.brakeInspectionProgress.toDouble()),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                Text(
-                  'Timing belt life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                  Center(
+                    child: Text('${(car.brakeInspectionProgress * 100).toStringAsFixed(1)}%'),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                Text(
-                  'Brakes life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                ],
+              ),
+              Text('Brake fluid Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.brakeFluidProgress.toDouble()),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                Text(
-                  'Spark Plugs life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                  Center(
+                    child: Text('${(car.brakeFluidProgress * 100).toStringAsFixed(1)}%'),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                Text(
-                  'Fuel Filter life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                ],
+              ),
+              Text('Engine coolant Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.engineCoolantChangeProgress.toDouble()),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                Text(
-                  'Air Filter life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                  Center(
+                    child: Text('${(car.engineCoolantChangeProgress * 100).toStringAsFixed(1)}%'),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                Text(
-                  'Tire life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                ],
+              ),
+              Text('Air Filter Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.airFilterProgress.toDouble()),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                //Tire Rotation
-                Text(
-                  'Tire rotation life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                  Center(
+                    child: Text('${(car.airFilterProgress * 100).toStringAsFixed(1)}%'),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                //Coolant life
-                Text(
-                  'Coolant life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                ],
+              ),
+              Text('Spark Plug Life', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.sparkPlugProgress.toDouble()),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                //Water Pump progress bar
-                Text(
-                  'Water pump life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                  Center(
+                    child: Text('${(car.sparkPlugProgress * 100).toStringAsFixed(1)}%'),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                //Drive belt
-                Text(
-                  'Drive belt life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                ],
+              ),
+              Text('Timing belt/chain Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.timingBeltChainProgress.toDouble()),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                //Brake Fluid progress bar
-                Text(
-                  'Brake fluid life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                  Center(
+                    child: Text('${(car.timingBeltChainProgress * 100).toStringAsFixed(1)}%'),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                //Cabin air Filter
-                Text(
-                  'Cabin Air filter life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                ],
+              ),
+              Text('Water Pump Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.waterPumpInspectionProgress.toDouble()),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-                //Fuel pump progress bar
-                Text(
-                  'Fuel pump life',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
-                    child: LinearPercentIndicator(
-                      percent: 0.5,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      lineHeight: 30.0,
-                      animation: true,
-                      progressColor: FlutterFlowTheme.of(context).primary,
-                      backgroundColor: FlutterFlowTheme.of(context).accent4,
-                      center: Text(
-                        '50%',
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
+                  Center(
+                    child: Text('${(car.waterPumpInspectionProgress * 100).toStringAsFixed(1)}%'),
                   ),
-                ),
-                Text(
-                  '<Last done mileage>',
-                  textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
-                        fontSize: 12.0,
-                      ),
-                ),
-              ],
-            ),
+                ],
+              ),
+              Text('Drive Belt Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.driveBeltInspectionProgress.toDouble()),
+                  ),
+                  Center(
+                    child: Text('${(car.driveBeltInspectionProgress * 100).toStringAsFixed(1)}%'),
+                  ),
+                ],
+              ),
+              Text('Transmission Fluid Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.transmissionFluidProgress.toDouble()),
+                  ),
+                  Center(
+                    child: Text('${(car.transmissionFluidProgress * 100).toStringAsFixed(1)}%'),
+                  ),
+                ],
+              ),
+              Text('Transmission filter Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.transmissionFilterProgress.toDouble()),
+                  ),
+                  Center(
+                    child: Text('${(car.transmissionFilterProgress * 100).toStringAsFixed(1)}%'),
+                  ),
+                ],
+              ),
+              Text('Cabin air filter Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.cabinAirFilterProgress.toDouble()),
+                  ),
+                  Center(
+                    child: Text('${(car.cabinAirFilterProgress * 100).toStringAsFixed(1)}%'),
+                  ),
+                ],
+              ),
+              Text('Fuel Filter Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.fuelFilterProgress.toDouble()),
+                  ),
+                  Center(
+                    child: Text('${(car.fuelFilterProgress * 100).toStringAsFixed(1)}%'),
+                  ),
+                ],
+              ),
+              Text('Fuel Pump Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.fuelPumpProgress.toDouble()),
+                  ),
+                  Center(
+                    child: Text('${(car.fuelPumpProgress * 100).toStringAsFixed(1)}%'),
+                  ),
+                ],
+              ),
+              Text('Suspension inspection Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.suspensionInspectionProgress.toDouble()),
+                  ),
+                  Center(
+                    child: Text('${(car.suspensionInspectionProgress * 100).toStringAsFixed(1)}%'),
+                  ),
+                ],
+              ),
+              Text('Changed Tires Progress', style: TextStyle(fontSize: 24)),
+              Stack(
+                children: <Widget>[
+                  SizedBox(
+                    height: 30,
+                    child: LinearProgressIndicator(value: car.changedTiresProgress.toDouble()),
+                  ),
+                  Center(
+                    child: Text('${(car.changedTiresProgress * 100).toStringAsFixed(1)}%'),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:moto_re_minder/car_object.dart';
+import 'package:moto_re_minder/edit_page/edit_page_widget.dart';
+import 'package:moto_re_minder/pages/home_page/home_page_widget.dart';
 import 'package:path_provider/path_provider.dart';
 
 class CarPageWidget extends StatefulWidget {
@@ -71,7 +73,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
         width: double.infinity,
         child: ElevatedButton(
           onPressed: () {
-            context.pushNamed('EditPage'); // Navigate to 'EditPage'
+            Navigator.push(context,  MaterialPageRoute(builder: (context) => EditPageWidget())); // Navigate to 'EditPage'
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +90,9 @@ class _CarPageWidgetState extends State<CarPageWidget> {
         children: cars.map((car) {
           return GestureDetector(
             onTap: () {
-              context.pushNamed("HomePage");
+             Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomePageWidget(car: car))
+                  );
             },
             onLongPress: () async {
               context.pushNamed("EditPage");

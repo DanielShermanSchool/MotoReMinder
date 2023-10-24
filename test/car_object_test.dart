@@ -138,7 +138,7 @@ void main() {
                         _LAST_CHANGED_TIRES);
     
     //test car
-    progress_object myProgress = myCar.oilChangeProgress;
+    progress_object myProgress = myCar.oilChangeProgress as progress_object;
     expect(myProgress.progressPercentage, 0.5);
   });
 
@@ -187,7 +187,7 @@ void main() {
                         _LAST_CHANGED_TIRES);
     
     //test car
-    progress_object myProgress = myCar.oilChangeProgress;
+    progress_object myProgress = myCar.oilChangeProgress as progress_object;
     expect(myProgress.progressPercentage, 1);
   });
 
@@ -237,7 +237,7 @@ void main() {
                         _LAST_CHANGED_TIRES);
     
     //test car
-    progress_object myProgress = myCar.tireRotationProgress;
+    progress_object myProgress = myCar.tireRotationProgress as progress_object;
     expect(myProgress.progressPercentage, 0.5);
   });
 
@@ -286,7 +286,7 @@ void main() {
                         _LAST_CHANGED_TIRES);
     
     //test car
-    progress_object myProgress = myCar.tireRotationProgress;
+    progress_object myProgress = myCar.tireRotationProgress as progress_object;
     expect(myProgress.progressPercentage, 1);
   });
 
@@ -336,7 +336,7 @@ void main() {
                         _LAST_CHANGED_TIRES);
     
     //test car
-    progress_object myProgress = myCar.brakeInspectionProgress;
+    progress_object myProgress = myCar.brakeInspectionProgress as progress_object;
     expect(myProgress.progressPercentage, 0.5);
   });
 
@@ -385,7 +385,7 @@ void main() {
                         _LAST_CHANGED_TIRES);
     
     //test car
-    progress_object myProgress = myCar.brakeInspectionProgress;
+    progress_object myProgress = myCar.brakeInspectionProgress as progress_object;
     expect(myProgress.progressPercentage, 1);
   });
 

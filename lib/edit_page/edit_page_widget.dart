@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:moto_re_minder/car_object.dart';
+import 'package:moto_re_minder/index.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -2767,7 +2768,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                     num result = 0;
                                     result = (_savedairfilterchanged / (_savedmileage + _savedairfilterinterval));
                                     print(result);
-                                    context.pop();
+                                    Navigator.push(context,MaterialPageRoute(builder: (context) => CarPageWidget())).then((value) { setState(() {});
+                                    });
                                     },
                                     text: 'Submit',
                                     icon: Icon(
