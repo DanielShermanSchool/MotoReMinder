@@ -1,3 +1,5 @@
+import 'package:moto_re_minder/car_object.dart';
+
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,7 +9,8 @@ import 'home_page_model.dart';
 export 'home_page_model.dart';
 
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+  final Car? car;
+  const HomePageWidget({Key? key, this.car}) : super(key: key);
 
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
