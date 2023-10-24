@@ -1,6 +1,6 @@
 import 'package:moto_re_minder/edit_page/edit_page_widget.dart';
 import 'package:moto_re_minder/car_object.dart';
-import 'package:moto_re_minder/pages/home_page/home_page_widget.dart';
+import 'package:moto_re_minder/pages/checklist_page/checklist_page.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:flutter/material.dart';
@@ -63,7 +63,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePageWidget(car: car)),
+                  MaterialPageRoute(builder: (context) => ChecklistPage(car: car)),
                 );
               },
               child: Container(

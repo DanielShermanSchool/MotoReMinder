@@ -3,10 +3,10 @@ import 'package:moto_re_minder/car_object.dart';
 import 'package:flutter/material.dart';
 export 'home_page_model.dart';
 
-class HomePageWidget extends StatelessWidget {
+class ChecklistPage extends StatelessWidget {
   final Car car;
 
-  const HomePageWidget({required this.car});
+  const ChecklistPage({required this.car});
 
   @override
   Widget build(BuildContext context) {
