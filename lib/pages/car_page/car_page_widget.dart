@@ -26,7 +26,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
   List<Car> cars = [];
 
   @override
-  void initState() {
+  void initState() { //runs when the page is first loaded
     super.initState();
     loadCars();
   }
@@ -40,6 +40,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
     // Get all the files in the directory
     final files = carsDirectory.listSync();
 
+    //for each car file, read the file and parse the contents into a car object
     for (final file in files) {
       final fileContent = await File(file.path).readAsString();
       final car = Car.parseCar(fileContent);
@@ -53,12 +54,13 @@ class _CarPageWidgetState extends State<CarPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar( //title at the top
         title: Text('Your Cars'),
       ),
-      body: GridView.count(
-          crossAxisCount: 4,
-          children: cars.map((car) {
+      body: GridView.count( //grid of cars
+          crossAxisCount: 4, //number of cars per row
+          children: cars.map((car) { //for each car in the list of cars, make a button that can be clicked and navigates
+          //to the checklist page, passing through the car you clicked on as an object to the checklist page
             return GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -84,7 +86,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
             );
           }).toList(),
         ),      floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () { //button in the corner that takes you to the car editor page
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => EditPageWidget()),

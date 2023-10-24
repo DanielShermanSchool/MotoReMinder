@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:moto_re_minder/progress_object.dart';
 
-class Car {
+class Car { //start of car class, class scope variables (car attributes)
   ImageProvider? imageProvider;
   late num mileage;
   late int year;
@@ -46,7 +46,7 @@ class Car {
   num lastChangedTransmissionFilter = 0;
   late num intervalTransFilter;
 
-  Car(
+  Car( //constructor for car object
       ImageProvider? imageProvider,
       num mileage,
       int year,
@@ -88,6 +88,7 @@ class Car {
       num lastChangedFuelPump = 0,
       num lastSuspensionInspection = 0,
       num lastChangedTires = 0]) {
+        //end of parameters for constructor, start what it actually does
     this.imageProvider = imageProvider;
     this.mileage = mileage;
     this.year = year;
@@ -262,7 +263,8 @@ class Car {
     return progress;
   }
 
-//override toString method
+//override toString method, shows attributes instead of memory address
+//2 versions: if imageProvider is null or not
   @override
   String toString() {
     if (imageProvider == null) {
