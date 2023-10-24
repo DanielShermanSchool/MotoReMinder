@@ -97,6 +97,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
               padding: const EdgeInsets.all(10.0),
               child: TextFormField(
                 decoration: InputDecoration(labelText: 'Year', hintText: '2010, 2015, etc.'),
+                keyboardType: TextInputType.number,
                 style: TextStyle(fontSize: 18.0),
                 onSaved: (value) {
                   _year = value!;
@@ -110,6 +111,17 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                 style: TextStyle(fontSize: 18.0),
                 onSaved: (value) {
                   _trim = value!;
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: TextFormField(
+                decoration: InputDecoration(labelText: 'Last Changed Engine Oil and Filter', hintText: 'Leave blank for 0.'),
+                keyboardType: TextInputType.number,
+                style: TextStyle(fontSize: 18.0),
+                onSaved: (value) {
+                  _year = value!;
                 },
               ),
             ),
@@ -131,16 +143,16 @@ class _EditPageWidgetState extends State<EditPageWidget> {
       ),
     );
   }
-  void saveToFile(String fileName, Car car) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final path = directory.path;
-    final file = File('$path/cars/$fileName');
+  // void saveToFile(String fileName, Car car) async {
+  //   final directory = await getApplicationDocumentsDirectory();
+  //   final path = directory.path;
+  //   final file = File('$path/cars/$fileName');
     
-    // Make sure the directory exists
-    await file.parent.create(recursive: true);
+  //   // Make sure the directory exists
+  //   await file.parent.create(recursive: true);
     
-    file.writeAsStringSync(car.toString());
+  //   file.writeAsStringSync(car.toString());
 
-    print('Saved to ${file.path}');
-  }
+  //   print('Saved to ${file.path}');
+  // }
 }
