@@ -2,8 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:moto_re_minder/car_object.dart';
 
 class EditPageWidget extends StatefulWidget {
+
+  final Car? car; //optional car object if you're editing a car
+
+  EditPageWidget({this.car});
+
   @override
   _EditPageWidgetState createState() => _EditPageWidgetState();
 }
@@ -71,6 +77,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
             //when the submit button is pressed, the text in this field is saved to the _nickname variable
               padding: const EdgeInsets.all(10.0), //size of the padding
               child: TextFormField( //the actual text form field
+                initialValue: widget.car?.nickname, //if editing, autofill params
                 decoration: InputDecoration(labelText: 'Nickname', hintText: 'MyCar, TheBeast, etc.'), //the text that appears when the field is empty
                 style: TextStyle(fontSize: 18.0), //the size of the text
                 onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable

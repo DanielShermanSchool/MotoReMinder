@@ -68,6 +68,11 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                   MaterialPageRoute(builder: (context) => ChecklistPage(car: car)),
                 );
               },
+              onLongPress: () { //hold to edit car
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => EditPageWidget(car: car)),
+                  );      },
               child: Container(
                 margin: EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
