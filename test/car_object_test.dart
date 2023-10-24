@@ -86,6 +86,49 @@ Car myCar = new Car(
     _LAST_SUSPENSION_INSPECTION,
     _LAST_CHANGED_TIRES);
 
+Car myCarToParse = new Car(
+    null,
+    1,
+    2,
+    'this',
+    'is',
+    'a',
+    'test',
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36);
+
 Car myCarMoreMileage = new Car(
     null,
     _MILEAGE + 30000,
@@ -135,6 +178,51 @@ void main() {
     Car myCar2 = Car.parseCar(myString);
     String myString2 = myCar2.toString();
     expect(myString, myString2);
+  });
+
+  testWidgets('parseCar method accuracy', (tester) async {
+    String testCar = myCarToParse.toString();
+    Car parsedCar = Car.parseCar(testCar);
+    expect(parsedCar.mileage, 1);
+    expect(parsedCar.year, 2);
+    expect(parsedCar.make, 'this');
+    expect(parsedCar.model, 'is');
+    expect(parsedCar.trim, 'a');
+    expect(parsedCar.nickname, 'test');
+    expect(parsedCar.intervalEngineOilAndFilter, 3);
+    expect(parsedCar.intervalTireRotation, 4);
+    expect(parsedCar.intervalBrakeInspection, 5);
+    expect(parsedCar.intervalEngineCoolant, 6);
+    expect(parsedCar.intervalAirFilter, 7);
+    expect(parsedCar.intervalSparkPlugs, 8);
+    expect(parsedCar.intervalTimingBeltChain, 9);
+    expect(parsedCar.intervalWaterPumpInspection, 10);
+    expect(parsedCar.intervalDriveBeltInspection, 11);
+    expect(parsedCar.intervalTransmissionFluid, 12);
+    expect(parsedCar.intervalTransFilter, 13);
+    expect(parsedCar.intervalBrakeFluid, 14);
+    expect(parsedCar.intervalCabinAirFilter, 15);
+    expect(parsedCar.intervalFuelFilter, 16);
+    expect(parsedCar.intervalFuelPump, 17);
+    expect(parsedCar.intervalSuspensionInspection, 18);
+    expect(parsedCar.intervalTires, 19);
+    expect(parsedCar.lastChangedEngineOilAndFilter, 20);
+    expect(parsedCar.lastChangedTireRotation, 21);
+    expect(parsedCar.lastChangedBrakeInspection, 22);
+    expect(parsedCar.lastChangedEngineCoolant, 23);
+    expect(parsedCar.lastChangedAirFilter, 24);
+    expect(parsedCar.lastChangedSparkPlugs, 25);
+    expect(parsedCar.lastChangedTimingBeltChain, 26);
+    expect(parsedCar.lastChangedWaterPumpInspection, 27);
+    expect(parsedCar.lastChangedDriveBeltInspection, 28);
+    expect(parsedCar.lastChangedTransmissionFluid, 29);
+    expect(parsedCar.lastChangedTransmissionFilter, 30);
+    expect(parsedCar.lastChangedBrakeFluid, 31);
+    expect(parsedCar.lastChangedCabinAirFilter, 32);
+    expect(parsedCar.lastChangedFuelFilter, 33);
+    expect(parsedCar.lastChangedFuelPump, 34);
+    expect(parsedCar.lastSuspensionInspection, 35);
+    expect(parsedCar.lastChangedTires, 36);
   });
 
   //test progress bars within car object
@@ -208,7 +296,8 @@ void main() {
   testWidgets('car object progress bars engine coolant OVER 100%',
       (tester) async {
     num numProgress = myCarMoreMileage.engineCoolantChangeProgress;
-    double doubleProgress = myCarMoreMileage.engineCoolantChangeProgress.toDouble();
+    double doubleProgress =
+        myCarMoreMileage.engineCoolantChangeProgress.toDouble();
     expect(numProgress, 0);
     expect(doubleProgress, 0.0);
   });
@@ -266,7 +355,8 @@ void main() {
   testWidgets('car object progress bars water pump inspection OVER 100%',
       (tester) async {
     num numProgress = myCarMoreMileage.waterPumpInspectionProgress;
-    double doubleProgress = myCarMoreMileage.waterPumpInspectionProgress.toDouble();
+    double doubleProgress =
+        myCarMoreMileage.waterPumpInspectionProgress.toDouble();
     expect(numProgress, 0);
     expect(doubleProgress, 0.0);
   });
@@ -280,7 +370,8 @@ void main() {
 
   testWidgets('car object progress bars drive belt OVER 100%', (tester) async {
     num numProgress = myCarMoreMileage.driveBeltInspectionProgress;
-    double doubleProgress = myCarMoreMileage.driveBeltInspectionProgress.toDouble();
+    double doubleProgress =
+        myCarMoreMileage.driveBeltInspectionProgress.toDouble();
     expect(numProgress, 0);
     expect(doubleProgress, 0.0);
   });
@@ -295,7 +386,8 @@ void main() {
   testWidgets('car object progress bars transmission fluid OVER 100%',
       (tester) async {
     num numProgress = myCarMoreMileage.transmissionFluidProgress;
-    double doubleProgress = myCarMoreMileage.transmissionFluidProgress.toDouble();
+    double doubleProgress =
+        myCarMoreMileage.transmissionFluidProgress.toDouble();
     expect(numProgress, 0);
     expect(doubleProgress, 0.0);
   });
@@ -310,7 +402,8 @@ void main() {
   testWidgets('car object progress bars transmission filter OVER 100%',
       (tester) async {
     num numProgress = myCarMoreMileage.transmissionFilterProgress;
-    double doubleProgress = myCarMoreMileage.transmissionFilterProgress.toDouble();
+    double doubleProgress =
+        myCarMoreMileage.transmissionFilterProgress.toDouble();
     expect(numProgress, 0);
     expect(doubleProgress, 0.0);
   });
@@ -368,7 +461,8 @@ void main() {
   testWidgets('car object progress bars suspension inspection OVER 100%',
       (tester) async {
     num numProgress = myCarMoreMileage.suspensionInspectionProgress;
-    double doubleProgress = myCarMoreMileage.suspensionInspectionProgress.toDouble();
+    double doubleProgress =
+        myCarMoreMileage.suspensionInspectionProgress.toDouble();
     expect(numProgress, 0);
     expect(doubleProgress, 0.0);
   });
