@@ -91,7 +91,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(60.0, 0.0, 0.0, 0.0),
                     child: LinearPercentIndicator(
-                      percent: 0.5,
+                      percent: widget.car?.oilChangeProgress.toDouble() ?? 0,
+                      //percent: 0.5,
                       width: MediaQuery.sizeOf(context).width * 0.75,
                       lineHeight: 30.0,
                       animation: true,

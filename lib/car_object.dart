@@ -132,11 +132,12 @@ class Car {
   }
 
   // Getters for percent value
-  progress_object get oilChangeProgress {
+  num get oilChangeProgress {
     progress_object oilChangeProg = new progress_object(
         this.mileage - this.lastChangedEngineOilAndFilter,
         this.intervalEngineOilAndFilter);
-    return oilChangeProg;
+        num progress = oilChangeProg.progressPercentage;
+    return progress;
   }
 
   progress_object get tireRotationProgress {
