@@ -95,7 +95,9 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                   );
             },
             onLongPress: () async {
-              context.pushNamed("EditPage");
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => EditPageWidget(car: car))
+                  );
             },
             child: Container(
               width: MediaQuery.of(context).size.width * 0.9,
