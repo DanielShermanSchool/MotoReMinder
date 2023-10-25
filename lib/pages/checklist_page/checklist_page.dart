@@ -27,7 +27,7 @@ class ChecklistPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
-            Text('Oil Change Progress', style: TextStyle(fontSize: 24)),
+            Text('Oil', style: TextStyle(fontSize: 24)),
             Stack(
               children: <Widget>[
                 SizedBox(
@@ -35,11 +35,11 @@ class ChecklistPage extends StatelessWidget {
                   child: LinearProgressIndicator(value: car.oilChangeProgress.toDouble()),
                 ),
                 Center(
-                  child: Text('${(car.oilChangeProgress * 100).toStringAsFixed(1)}%'), // This will display the progress as a percentage
+                  child: Text('<MileRemainder> / <Interval>  miles remaining'), // This will display the progress as a percentage
                 ),
               ],
             ),
-            Text('Tire Rotation Progress', style: TextStyle(fontSize: 24)),
+            Text('Tire Rotation', style: TextStyle(fontSize: 24)),
             Stack(
               children: <Widget>[
                 SizedBox(

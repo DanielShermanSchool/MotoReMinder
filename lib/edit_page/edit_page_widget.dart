@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:moto_re_minder/car_object.dart';
 
@@ -111,6 +112,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
               child: TextFormField(
                 decoration: InputDecoration(labelText: 'Year', hintText: '2010, 2015, etc.'),
                 keyboardType: TextInputType.number,
+                //inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                 style: TextStyle(fontSize: 18.0),
                 onSaved: (value) {
                   _year = value!;

@@ -55,42 +55,57 @@ class _CarPageWidgetState extends State<CarPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar( //title at the top
-        title: Text('Your Cars'),
+        //center text
+        centerTitle: true,
+        title: Text('Welcome to MotoReMinder!'),
       ),
-      body: GridView.count( //grid of cars
-          crossAxisCount: 4, //number of cars per row
-          children: cars.map((car) { //for each car in the list of cars, make a button that can be clicked and navigates
-          //to the checklist page, passing through the car you clicked on as an object to the checklist page
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ChecklistPage(car: car)),
-                );
-              },
-              onLongPress: () { //hold to edit car
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/appIcon.png'),
+            colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.25), // You can adjust the opacity here
+              BlendMode.dstATop,
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: GridView.count( //grid of cars
+            crossAxisCount: 4, //number of cars per row
+            children: cars.map((car) { //for each car in the list of cars, make a button that can be clicked and navigates
+            //to the checklist page, passing through the car you clicked on as an object to the checklist page
+              return GestureDetector(
+                onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => EditPageWidget(car: car)),
-                  );      },
-              child: Container(
-                margin: EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(10.0),
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/appIcon.png'),
-                    //image: car.imageProvider ?? AssetImage('assets/images/appIcon.png'), // provide a default image in case car.picture is null
-                    fit: BoxFit.cover,
+                    MaterialPageRoute(builder: (context) => ChecklistPage(car: car)),
+                  );
+                },
+                onLongPress: () { //hold to edit car
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => EditPageWidget(car: car)),
+                    );      },
+                child: Container(
+                  margin: EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    color: Colors.blueAccent,
+                    borderRadius: BorderRadius.circular(10.0),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/appIcon.png'),
+                      //image: car.imageProvider ?? AssetImage('assets/images/appIcon.png'), // provide a default image in case car.picture is null
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                child: Center(child: Text(car.nickname, style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255), 
+                  child: Center(child: Text(car.nickname, style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255), 
                                                                           backgroundColor: Color.fromARGB(78, 0, 0, 0),
                                                                           fontSize: 32))),
-              ),
-            );
-          }).toList(),
-        ),      floatingActionButton: FloatingActionButton(
+                ),
+              );
+            }).toList(),
+          ),      
+        ),
+        floatingActionButton: FloatingActionButton(
         onPressed: () { //button in the corner that takes you to the car editor page
           Navigator.push(
             context,
