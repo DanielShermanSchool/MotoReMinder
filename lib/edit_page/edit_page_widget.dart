@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:moto_re_minder/car_object.dart';
 import 'package:moto_re_minder/index.dart';
 import 'package:path_provider/path_provider.dart';
@@ -9,7 +10,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'edit_page_model.dart';
 export 'edit_page_model.dart';
@@ -25,7 +25,31 @@ class _EditPageWidgetState extends State<EditPageWidget> {
   late EditPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  Future<void> _saveSelectedMedia(BuildContext context) async {
+  final imagePicker = ImagePicker();
+  final selectedMedia = await imagePicker.pickImage(source: ImageSource.gallery);
 
+  if (selectedMedia == null) {
+    // User canceled image selection
+    return;
+  }
+
+  // Get the directory path for saving the image
+  final directory = await getApplicationDocumentsDirectory();
+  final imagePath = '${directory.path}/pictures/${DateTime.now().millisecondsSinceEpoch}.jpg';
+
+  // Save the selected image to the specified path
+  final File savedImage = File(imagePath);
+  await savedImage.writeAsBytes(await selectedMedia.readAsBytes());
+
+  // Now, you can use imagePath as a URI to reference the saved image in a different page
+  print('Image saved to: $imagePath');
+
+  // Set the state or perform any other action you need
+  setState(() {
+    // You can use imagePath in the state to pass it to a different page, for example.
+  });
+}
   @override
   void initState() {
     super.initState();
@@ -2600,79 +2624,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                     ),
                                 Align(
                                   alignment: AlignmentDirectional(0.83, -0.78),
-                                  child: FFButtonWidget(
+                                  widthFactor: double.infinity,
+                                  child: ElevatedButton(
                                     onPressed: () async {
-                                      final selectedMedia =
-                                          await selectMediaWithSourceBottomSheet(
-                                        context: context,
-                                        allowPhoto: true,
-                                      );
-                                      if (selectedMedia != null &&
-                                          selectedMedia.every((m) =>
-                                              validateFileFormat(
-                                                  m.storagePath, context))) {
-                                        setState(() =>
-                                            _model.isDataUploading = true);
-                                        var selectedUploadedFiles =
-                                            <FFUploadedFile>[];
-
-                                        try {
-                                          selectedUploadedFiles = selectedMedia
-                                              .map((m) => FFUploadedFile(
-                                                    name: m.storagePath
-                                                        .split('/')
-                                                        .last,
-                                                    bytes: m.bytes,
-                                                    height:
-                                                        m.dimensions?.height,
-                                                    width: m.dimensions?.width,
-                                                    blurHash: m.blurHash,
-                                                  ))
-                                              .toList();
-                                        } finally {
-                                          _model.isDataUploading = false;
-                                        }
-                                        if (selectedUploadedFiles.length ==
-                                            selectedMedia.length) {
-                                          setState(() {
-                                            _model.uploadedLocalFile =
-                                                selectedUploadedFiles.first;
-                                          });
-                                        } else {
-                                          setState(() {});
-                                          return;
-                                        }
-                                      }
+                                      await _saveSelectedMedia(context);
                                     },
-                                    text: 'Add Picture',
-                                    icon: Icon(
-                                      Icons.add_box,
-                                      size: 15.0,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 24.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            color: Colors.white,
-                                          ),
-                                      elevation: 3.0,
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
+                                    child: Text("Select and Save Image"),
                                   ),
                                 ),
                                 Align(
@@ -2724,7 +2681,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                                       });
                                       //make car object from data
                                       Car car = new Car(
-                                        null,
+                                        _saveSelectedMedia as ImageProvider<Object>?,
                                         _savedmileage,
                                         _savedyear,
                                         _savedmake,
