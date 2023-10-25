@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:moto_re_minder/progress_object.dart';
 
-class Car {
+class Car { //start of car class, class scope variables (car attributes)
   ImageProvider? imageProvider;
   late num mileage;
   late int year;
@@ -46,7 +46,7 @@ class Car {
   num lastChangedTransmissionFilter = 0;
   late num intervalTransFilter;
 
-  Car(
+  Car( //constructor for car object
       ImageProvider? imageProvider,
       num mileage,
       int year,
@@ -88,6 +88,7 @@ class Car {
       num lastChangedFuelPump = 0,
       num lastSuspensionInspection = 0,
       num lastChangedTires = 0]) {
+        //end of parameters for constructor, start what it actually does
     this.imageProvider = imageProvider;
     this.mileage = mileage;
     this.year = year;
@@ -132,119 +133,138 @@ class Car {
   }
 
   // Getters for percent value
-  progress_object get oilChangeProgress {
+  num get oilChangeProgress {
     progress_object oilChangeProg = new progress_object(
         this.mileage - this.lastChangedEngineOilAndFilter,
         this.intervalEngineOilAndFilter);
-    return oilChangeProg;
+        num progress = oilChangeProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get tireRotationProgress {
+  num get tireRotationProgress {
     progress_object tireRotationProg = new progress_object(
-        this.mileage - this.lastChangedTireRotation, this.intervalTireRotation);
-    return tireRotationProg;
+        this.mileage - this.lastChangedTireRotation, 
+        this.intervalTireRotation);
+        num progress = tireRotationProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get brakeInspectionProgress {
+  num get brakeInspectionProgress {
     progress_object brakeInspectionProg = new progress_object(
         this.mileage - this.lastChangedBrakeInspection,
         this.intervalBrakeInspection);
-    return brakeInspectionProg;
+        num progress = brakeInspectionProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get brakeFluidProgress {
+  num get brakeFluidProgress {
     progress_object brakeFluidProg = new progress_object(
         this.mileage - this.lastChangedBrakeFluid, this.intervalBrakeFluid);
-    return brakeFluidProg;
+        num progress = brakeFluidProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get engineCoolantChangeProgress {
+  num get engineCoolantChangeProgress {
     progress_object engineCoolantChangeProg = new progress_object(
         this.mileage - this.lastChangedEngineCoolant,
         this.intervalEngineCoolant);
-    return engineCoolantChangeProg;
+        num progress = engineCoolantChangeProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get airFilterProgress {
+  num get airFilterProgress {
     progress_object airFilerProg = new progress_object(
         this.mileage - this.lastChangedAirFilter, this.intervalAirFilter);
-    return airFilerProg;
+        num progress = airFilerProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get sparkPlugProgress {
+  num get sparkPlugProgress {
     progress_object sparkPlugProg = new progress_object(
         this.mileage - this.lastChangedSparkPlugs, this.intervalSparkPlugs);
-    return sparkPlugProg;
+        num progress = sparkPlugProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get timingBeltChainProgress {
+  num get timingBeltChainProgress {
     progress_object timingBeltChainProg = new progress_object(
         this.mileage - this.lastChangedTimingBeltChain,
         this.intervalTimingBeltChain);
-    return timingBeltChainProg;
+        num progress = timingBeltChainProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get waterPumpInspectionProgress {
+  num get waterPumpInspectionProgress {
     progress_object waterPumpInspectionProg = new progress_object(
         this.mileage - this.lastChangedWaterPumpInspection,
         this.intervalWaterPumpInspection);
-    return waterPumpInspectionProg;
+        num progress = waterPumpInspectionProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get driveBeltInspectionProgress {
+  num get driveBeltInspectionProgress {
     progress_object driveBeltInspectionProg = new progress_object(
         this.mileage - this.lastChangedDriveBeltInspection,
         this.intervalDriveBeltInspection);
-    return driveBeltInspectionProg;
+        num progress = driveBeltInspectionProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get transmissionFluidProgress {
+  num get transmissionFluidProgress {
     progress_object transmissionFluidProg = new progress_object(
         this.mileage - this.lastChangedTransmissionFluid,
         this.intervalTransmissionFluid);
-    return transmissionFluidProg;
+        num progress = transmissionFluidProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get transmissionFilterProgress {
+  num get transmissionFilterProgress {
     progress_object transmissionFilterProg = new progress_object(
         this.mileage - this.lastChangedTransmissionFilter,
         this.intervalTransFilter);
-    return transmissionFilterProg;
+        num progress = transmissionFilterProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get cabinAirFilterProgress {
+  num get cabinAirFilterProgress {
     progress_object cabinAirFilterProg = new progress_object(
         this.mileage - this.lastChangedCabinAirFilter,
         this.intervalCabinAirFilter);
-    return cabinAirFilterProg;
+        num progress = cabinAirFilterProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get fuelFilterProgress {
+  num get fuelFilterProgress {
     progress_object fuelFilterProg = new progress_object(
         this.mileage - this.lastChangedFuelFilter, this.intervalFuelFilter);
-    return fuelFilterProg;
+        num progress = fuelFilterProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get fuelPumpProgress {
+  num get fuelPumpProgress {
     progress_object fuelPumpProg = new progress_object(
         this.mileage - this.lastChangedFuelPump, this.intervalFuelPump);
-    return fuelPumpProg;
+        num progress = fuelPumpProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get suspensionInspectionProgress {
+  num get suspensionInspectionProgress {
     progress_object suspensionInspectionProg = new progress_object(
         this.mileage - this.lastSuspensionInspection,
         this.intervalSuspensionInspection);
-    return suspensionInspectionProg;
+        num progress = suspensionInspectionProg.progressPercentage;
+    return progress;
   }
 
-  progress_object get changedTiresProgress {
+  num get changedTiresProgress {
     progress_object changedTiresProg = new progress_object(
         this.mileage - this.lastChangedTires, this.intervalTires);
-    return changedTiresProg;
+        num progress = changedTiresProg.progressPercentage;
+    return progress;
   }
 
-//override toString method
+//override toString method, shows attributes instead of memory address
+//2 versions: if imageProvider is null or not
   @override
   String toString() {
     if (imageProvider == null) {

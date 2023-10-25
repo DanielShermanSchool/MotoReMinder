@@ -25,43 +25,43 @@ class AppStateNotifier extends ChangeNotifier {
   }
 }
 
-GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
-      initialLocation: '/',
-      debugLogDiagnostics: true,
-      refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const NavBarPage(),
-      routes: [
-        FFRoute(
-          name: '_initialize',
-          path: '/',
-          builder: (context, _) => const CarPageWidget(),
-        ),
-        FFRoute(
-          name: 'HomePage',
-          path: '/homePage',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'HomePage')
-              : const HomePageWidget(),
-        ),
-        FFRoute(
-          name: 'CarPage',
-          path: '/carPage',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'CarPage')
-              : const CarPageWidget(),
-        ),
-        FFRoute(
-          name: 'SettingsPage',
-          path: '/settingsPage',
-          builder: (context, params) => const SettingsPageWidget(),
-        ),
-        FFRoute(
-          name: 'EditPage',
-          path: '/editPage',
-          builder: (context, params) => const EditPageWidget(),
-        ),
-      ].map((r) => r.toRoute(appStateNotifier)).toList(),
-    );
+// GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
+//       initialLocation: '/',
+//       debugLogDiagnostics: true,
+//       refreshListenable: appStateNotifier,
+//       errorBuilder: (context, state) => const NavBarPage(),
+//       routes: [
+//         FFRoute(
+//           name: '_initialize',
+//           path: '/',
+//           builder: (context, _) => const CarPageWidget(),
+//         ),
+//         FFRoute(
+//           name: 'HomePage',
+//           path: '/homePage',
+//           builder: (context, params) => params.isEmpty
+//               ? const NavBarPage(initialPage: 'HomePage')
+//               : const HomePageWidget(),
+//         ),
+//         FFRoute(
+//           name: 'CarPage',
+//           path: '/carPage',
+//           builder: (context, params) => params.isEmpty
+//               ? const NavBarPage(initialPage: 'CarPage')
+//               : const CarPageWidget(),
+//         ),
+//         FFRoute(
+//           name: 'SettingsPage',
+//           path: '/settingsPage',
+//           builder: (context, params) => const SettingsPageWidget(),
+//         ),
+//         FFRoute(
+//           name: 'EditPage',
+//           path: '/editPage',
+//           builder: (context, params) => const EditPageWidget(),
+//         ),
+//       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+//     );
 
 extension NavParamExtensions on Map<String, String?> {
   Map<String, String> get withoutNulls => Map.fromEntries(
