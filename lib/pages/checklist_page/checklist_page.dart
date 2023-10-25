@@ -39,7 +39,20 @@ class ChecklistPage extends StatelessWidget {
                 ),
               ],
             ),
+            Text('Tire Rotation Progress', style: TextStyle(fontSize: 24)),
+            Stack(
+              children: <Widget>[
+                SizedBox(
+                  height: 30, // Adjust this value to change the height of the progress bar
+                  child: LinearProgressIndicator(value: car.tireRotationProgress.toDouble()),
+                ),
+                Center(
+                  child: Text('${(car.tireRotationProgress * 100).toStringAsFixed(1)}%'), // This will display the progress as a percentage
+                ),
+              ],
+            ),
           ],
+          
         ),
       ),
     );
