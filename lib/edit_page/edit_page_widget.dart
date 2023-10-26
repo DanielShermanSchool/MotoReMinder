@@ -1,11 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:moto_re_minder/car_object.dart';
 import 'package:moto_re_minder/index.dart';
 import 'package:path_provider/path_provider.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'edit_page_model.dart';
 export 'edit_page_model.dart';
@@ -30,7 +28,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     num _savedmileage = 0;
     String _savedmake = '';
     String _savedmodel = '';
-    num _savedyear = 0;
+    int _savedyear = 0;
     num _savedoilchanged = 0;
     num _savedoilinterval = 0;
     num _savedtransfluidchanged = 0;
@@ -170,12 +168,24 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                 style: TextStyle(fontSize: 18.0), //the size of the text
                 inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
                 onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
-                  _savedyear = value! as num;}
+                  _savedyear = value! as int;}
                   ,)
                 ),
               ),
               Text("Please consult your odometer and manual for the following:",
               style: TextStyle(fontSize: 16)
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.mileage.toString(),
+                    decoration: InputDecoration(labelText: 'Mileage on odometer'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedmileage = value! as num;}
+                  ,)
+                ),
               ),
               Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
                 child: SizedBox(
@@ -201,10 +211,344 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                   ,)
                 ),
               ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedTransmissionFluid.toString(),
+                    decoration: InputDecoration(labelText: 'Transmission fluid changed last'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtransfluidchanged = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalTransmissionFluid.toString(),
+                    decoration: InputDecoration(labelText: 'Transmission fluid change interval', hintText: 'Leave empty for default of 30000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtransfluidinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedTransmissionFilter.toString(),
+                    decoration: InputDecoration(labelText: 'Transmission filter last changed'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtransfilterchange = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalTransFilter.toString(),
+                    decoration: InputDecoration(labelText: 'Transmission filter change interval', hintText: 'Leave empty for default of 30000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtransfilterinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedBrakeFluid.toString(),
+                    decoration: InputDecoration(labelText: 'Brake fluid last changed'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedbrakefluidchanged = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalBrakeFluid.toString(),
+                    decoration: InputDecoration(labelText: 'Brake fluid change interval', hintText: 'Leave empty for default of 50000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedbrakefluidinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedBrakeInspection.toString(),
+                    decoration: InputDecoration(labelText: 'Brake inspection last happened'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedbrakeschanged = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalBrakeInspection.toString(),
+                    decoration: InputDecoration(labelText: 'Brake inspection interval', hintText: 'Leave empty for default of 50000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedbrakesinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedSparkPlugs.toString(),
+                    decoration: InputDecoration(labelText: 'Spark Plugs last changed'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedsparkschanged = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalSparkPlugs.toString(),
+                    decoration: InputDecoration(labelText: 'Spark plugs change interval', hintText: 'Leave empty for default of 100000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtransfilterinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedFuelFilter.toString(),
+                    decoration: InputDecoration(labelText: 'Fuel filter last changed'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedfuelfilterchanged = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalFuelFilter.toString(),
+                    decoration: InputDecoration(labelText: 'Fuel filter change interval', hintText: 'Leave empty for default of 50000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtransfilterinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedAirFilter.toString(),
+                    decoration: InputDecoration(labelText: 'Air filter last changed'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedairfilterchanged = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalAirFilter.toString(),
+                    decoration: InputDecoration(labelText: 'Air filter change interval', hintText: 'Leave empty for default of 50000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedairfilterinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedCabinAirFilter.toString(),
+                    decoration: InputDecoration(labelText: 'Cabin air filter last changed'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedcabinairfilterchanged = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalCabinAirFilter.toString(),
+                    decoration: InputDecoration(labelText: 'Cabin air filter change interval', hintText: 'Leave empty for default of 100000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtransfilterinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedTimingBeltChain.toString(),
+                    decoration: InputDecoration(labelText: 'Timing belt/chain last changed'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtimingbeltchanged = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalCabinAirFilter.toString(),
+                    decoration: InputDecoration(labelText: 'Cabin air filter change interval', hintText: 'Leave empty for default of 100000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtransfilterinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedTimingBeltChain.toString(),
+                    decoration: InputDecoration(labelText: 'Timing belt/chain last changed'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtimingbeltchanged = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalTimingBeltChain.toString(),
+                    decoration: InputDecoration(labelText: 'Timing belt/chain change interval', hintText: 'Leave empty for default of 50000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtimingbeltinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedWaterPumpInspection.toString(),
+                    decoration: InputDecoration(labelText: 'Water pump last inspected'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedwaterpumpchanged = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalWaterPumpInspection.toString(),
+                    decoration: InputDecoration(labelText: 'Water pump inspection interval', hintText: 'Leave empty for default of 50000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedwaterpumpinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedFuelPump.toString(),
+                    decoration: InputDecoration(labelText: 'Fuel pump last changed'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedfuelpumpchanged = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalFuelPump.toString(),
+                    decoration: InputDecoration(labelText: 'Fuel pump change interval', hintText: 'Leave empty for default of 50000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtransfilterinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.lastChangedTires.toString(),
+                    decoration: InputDecoration(labelText: 'Tires last changed'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtirechanged = value! as num;}
+                  ,)
+                ),
+              ),
+               Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car?.intervalTires.toString(),
+                    decoration: InputDecoration(labelText: 'Tire change interval', hintText: "Leave empty for default of 30000"), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],
+                onSaved: (value) { //when the submit button is pressed, the text in this field is saved to the _nickname variable
+                  _savedtireinterval = value! as num;}
+                  ,)
+                ),
+              ),
+              Container( //allows the submit button to change size
+              width: double.infinity, //makes the button the width of the screen
+              child: ElevatedButton( //the actual submit button
+                child: Text('Submit'),
+                onPressed: () { //this is the stuff that happens when the button is pressed
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState?.save();
+                  }
+                },
+              ),
+            ),
             ],
+            
           ),
         ),
+        
       ),
       );
   }
+ void saveToFile(String fileName, Car car) async {
+final directory = await getApplicationDocumentsDirectory();
+final path = directory.path;
+final file = File('$path/cars/$fileName');
+// Make sure the directory exists
+await file.parent.create(recursive: true);
+file.writeAsStringSync(car.toString());
+print('Saved to ${file.path}');
+} 
 }
