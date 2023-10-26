@@ -481,4 +481,5 @@ void main() {
     expect(numProgress, 0);
     expect(doubleProgress, 0.0);
   });
+
 }

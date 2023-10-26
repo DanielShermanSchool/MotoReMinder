@@ -1,13 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/services.dart';
-import 'package:moto_re_minder/car_object.dart';
 import 'package:moto_re_minder/flutter_flow/flutter_flow_util.dart';
 import 'package:moto_re_minder/index.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
-import 'edit_page_model.dart';
-export 'edit_page_model.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:moto_re_minder/car_object.dart';
 
 class EditPageWidget extends StatefulWidget {
   final Car? car; //optional car object if you're editing a car
@@ -19,6 +17,7 @@ class EditPageWidget extends StatefulWidget {
 }
 
 class _EditPageWidgetState extends State<EditPageWidget> {
+
    late EditPageModel _model;
 
   @override
@@ -657,3 +656,4 @@ saveToFile(car.nickname + ".mrm", car);
   print('Saved to ${file.path}');
 } 
 }
+

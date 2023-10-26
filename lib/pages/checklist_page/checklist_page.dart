@@ -1,12 +1,17 @@
 import 'package:moto_re_minder/car_object.dart';
+
+
 import 'package:flutter/material.dart';
+export 'home_page_model.dart';
 
 class ChecklistPage extends StatelessWidget {
   final Car car;
+
   const ChecklistPage({required this.car});
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text('${car.nickname} Checklist!'),
@@ -222,6 +227,7 @@ class ChecklistPage extends StatelessWidget {
               ),
             ],
           ),
+
         ),
       ),
     );
