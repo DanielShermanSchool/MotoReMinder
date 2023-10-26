@@ -3,8 +3,7 @@ import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:moto_re_minder/progress_object.dart';
 
-class Car {
-
+class Car { //start of car class, class scope variables (car attributes)
   ImageProvider? imageProvider;
   late num mileage;
   late int year;
@@ -29,69 +28,67 @@ class Car {
   num lastChangedWaterPumpInspection = 0;
   late num intervalWaterPumpInspection;
   num lastChangedDriveBeltInspection = 0;
-  late num  intervalDriveBeltInspection;
+  late num intervalDriveBeltInspection;
   num lastChangedTransmissionFluid = 0;
-  late num  intervalTransmissionFluid;
+  late num intervalTransmissionFluid;
   num lastChangedBrakeFluid = 0;
-  late num  intervalBrakeFluid;
+  late num intervalBrakeFluid;
   num lastChangedCabinAirFilter = 0;
-  late num  intervalCabinAirFilter;
+  late num intervalCabinAirFilter;
   num lastChangedFuelFilter = 0;
   late num intervalFuelFilter;
   num lastChangedFuelPump = 0;
   late num intervalFuelPump;
-  num lastSuspensionInspection = 0; 
+  num lastSuspensionInspection = 0;
   late num intervalSuspensionInspection;
   num lastChangedTires = 0;
   late num intervalTires;
   num lastChangedTransmissionFilter = 0;
   late num intervalTransFilter;
-  
 
- Car(ImageProvider? imageProvider, 
-     num mileage, 
-    int year, 
-    String make, 
-    String model, 
-    String trim, 
-    String nickname, 
-    num intervalEngineOilAndFilter, 
-    num intervalTireRotation, 
-    num intervalBrakeInspection, 
-    num intervalEngineCoolant, 
-    num intervalAirFilter, 
-    num intervalSparkPlugs, 
-    num intervalTimingBeltChain, 
-    num intervalWaterPumpInspection, 
-    num intervalDriveBeltInspection, 
-    num intervalTransmissionFluid, 
-    num intervalTransfilter,
-    num intervalBrakeFluid, 
-    num intervalCabinAirFilter, 
-    num intervalFuelFilter, 
-    num intervalFuelPump, 
-    num intervalSuspensionInspection,
-    num intervalTires,
-    
-    [num lastChangedEngineOilAndFilter = 0, 
-    num lastChangedTireRotation = 0, 
-    num lastChangedBrakeInspection = 0, 
-    num lastChangedEngineCoolant = 0, 
-    num lastChangedAirFilter = 0, 
-    num lastChangedSparkPlugs = 0, 
-    num lastChangedTimingBeltChain = 0, 
-    num lastChangedWaterPumpInspection = 0, 
-    num lastChangedDriveBeltInspection = 0, 
-    num lastChangedTransmissionFluid = 0, 
-    num lastChangedTransFilter = 0,
-    num lastChangedBrakeFluid = 0, 
-    num lastChangedCabinAirFilter = 0, 
-    num lastChangedFuelFilter = 0, 
-    num lastChangedFuelPump = 0, 
-    num lastSuspensionInspection = 0,
-    num lastChangedTires = 0
-    ])
-{
+  Car( //constructor for car object
+      ImageProvider? imageProvider,
+      num mileage,
+      int year,
+      String make,
+      String model,
+      String trim,
+      String nickname,
+      num intervalEngineOilAndFilter,
+      num intervalTireRotation,
+      num intervalBrakeInspection,
+      num intervalEngineCoolant,
+      num intervalAirFilter,
+      num intervalSparkPlugs,
+      num intervalTimingBeltChain,
+      num intervalWaterPumpInspection,
+      num intervalDriveBeltInspection,
+      num intervalTransmissionFluid,
+      num intervalTransfilter,
+      num intervalBrakeFluid,
+      num intervalCabinAirFilter,
+      num intervalFuelFilter,
+      num intervalFuelPump,
+      num intervalSuspensionInspection,
+      num intervalTires,
+      [num lastChangedEngineOilAndFilter = 0,
+      num lastChangedTireRotation = 0,
+      num lastChangedBrakeInspection = 0,
+      num lastChangedEngineCoolant = 0,
+      num lastChangedAirFilter = 0,
+      num lastChangedSparkPlugs = 0,
+      num lastChangedTimingBeltChain = 0,
+      num lastChangedWaterPumpInspection = 0,
+      num lastChangedDriveBeltInspection = 0,
+      num lastChangedTransmissionFluid = 0,
+      num lastChangedTransFilter = 0,
+      num lastChangedBrakeFluid = 0,
+      num lastChangedCabinAirFilter = 0,
+      num lastChangedFuelFilter = 0,
+      num lastChangedFuelPump = 0,
+      num lastSuspensionInspection = 0,
+      num lastChangedTires = 0]) {
+        //end of parameters for constructor, start what it actually does
     this.imageProvider = imageProvider;
     this.mileage = mileage;
     this.year = year;
@@ -133,7 +130,7 @@ class Car {
     this.intervalTires = intervalTires;
     this.lastChangedTransmissionFilter = lastChangedTransFilter;
     this.intervalTransFilter = intervalTransfilter;
-}
+  }
 
   // Getters for percent value
   num get oilChangeProgress {
@@ -266,95 +263,94 @@ class Car {
     return progress;
   }
 
-//override toString method
+//override toString method, shows attributes instead of memory address
+//2 versions: if imageProvider is null or not
   @override
   String toString() {
-    if(imageProvider == null)
-    {
-      return    'null, '
-            + '$mileage, '
-            + '$year, '
-            + '$make, '
-            + '$model, '
-            + '$trim, '
-            + '$nickname, '
-            + '$intervalEngineOilAndFilter, '
-            + '$intervalTireRotation, '
-            + '$intervalBrakeInspection, '
-            + '$intervalEngineCoolant, '
-            + '$intervalAirFilter, '
-            + '$intervalSparkPlugs, '
-            + '$intervalTimingBeltChain, '
-            + '$intervalWaterPumpInspection, '
-            + '$intervalDriveBeltInspection, '
-            + '$intervalTransmissionFluid, '
-            + '$intervalTransFilter, '
-            + '$intervalBrakeFluid, '
-            + '$intervalCabinAirFilter, '
-            + '$intervalFuelFilter, '
-            + '$intervalFuelPump, '
-            + '$intervalSuspensionInspection, '
-            + '$intervalTires, '
-            + '$lastChangedEngineOilAndFilter, '
-            + '$lastChangedTireRotation, '
-            + '$lastChangedBrakeInspection, '
-            + '$lastChangedEngineCoolant, '
-            + '$lastChangedAirFilter, '
-            + '$lastChangedSparkPlugs, '
-            + '$lastChangedTimingBeltChain, '
-            + '$lastChangedWaterPumpInspection, '
-            + '$lastChangedDriveBeltInspection, '
-            + '$lastChangedTransmissionFluid, '
-            + '$lastChangedTransmissionFilter, '
-            + '$lastChangedBrakeFluid, '
-            + '$lastChangedCabinAirFilter, '
-            + '$lastChangedFuelFilter, '
-            + '$lastChangedFuelPump, '
-            + '$lastSuspensionInspection, '
-            + '$lastChangedTires';
-    }
-    else{
-      return    '${(imageProvider as FileImage).file.path}, '
-            + '$mileage, '
-            + '$year, '
-            + '$make, '
-            + '$model, '
-            + '$trim, '
-            + '$nickname, '
-            + '$intervalEngineOilAndFilter, '
-            + '$intervalTireRotation, '
-            + '$intervalBrakeInspection, '
-            + '$intervalEngineCoolant, '
-            + '$intervalAirFilter, '
-            + '$intervalSparkPlugs, '
-            + '$intervalTimingBeltChain, '
-            + '$intervalWaterPumpInspection, '
-            + '$intervalDriveBeltInspection, '
-            + '$intervalTransmissionFluid, '
-            + '$intervalTransFilter, '
-            + '$intervalBrakeFluid, '
-            + '$intervalCabinAirFilter, '
-            + '$intervalFuelFilter, '
-            + '$intervalFuelPump, '
-            + '$intervalSuspensionInspection, '
-            + '$intervalTires, '
-            + '$lastChangedEngineOilAndFilter, '
-            + '$lastChangedTireRotation, '
-            + '$lastChangedBrakeInspection, '
-            + '$lastChangedEngineCoolant, '
-            + '$lastChangedAirFilter, '
-            + '$lastChangedSparkPlugs, '
-            + '$lastChangedTimingBeltChain, '
-            + '$lastChangedWaterPumpInspection, '
-            + '$lastChangedDriveBeltInspection, '
-            + '$lastChangedTransmissionFluid, '
-            + '$lastChangedTransmissionFilter, '
-            + '$lastChangedBrakeFluid, '
-            + '$lastChangedCabinAirFilter, '
-            + '$lastChangedFuelFilter, '
-            + '$lastChangedFuelPump, '
-            + '$lastSuspensionInspection, '
-            + '$lastChangedTires';
+    if (imageProvider == null) {
+      return 'null, ' +
+          '$mileage, ' +
+          '$year, ' +
+          '$make, ' +
+          '$model, ' +
+          '$trim, ' +
+          '$nickname, ' +
+          '$intervalEngineOilAndFilter, ' +
+          '$intervalTireRotation, ' +
+          '$intervalBrakeInspection, ' +
+          '$intervalEngineCoolant, ' +
+          '$intervalAirFilter, ' +
+          '$intervalSparkPlugs, ' +
+          '$intervalTimingBeltChain, ' +
+          '$intervalWaterPumpInspection, ' +
+          '$intervalDriveBeltInspection, ' +
+          '$intervalTransmissionFluid, ' +
+          '$intervalTransFilter, ' +
+          '$intervalBrakeFluid, ' +
+          '$intervalCabinAirFilter, ' +
+          '$intervalFuelFilter, ' +
+          '$intervalFuelPump, ' +
+          '$intervalSuspensionInspection, ' +
+          '$intervalTires, ' +
+          '$lastChangedEngineOilAndFilter, ' +
+          '$lastChangedTireRotation, ' +
+          '$lastChangedBrakeInspection, ' +
+          '$lastChangedEngineCoolant, ' +
+          '$lastChangedAirFilter, ' +
+          '$lastChangedSparkPlugs, ' +
+          '$lastChangedTimingBeltChain, ' +
+          '$lastChangedWaterPumpInspection, ' +
+          '$lastChangedDriveBeltInspection, ' +
+          '$lastChangedTransmissionFluid, ' +
+          '$lastChangedTransmissionFilter, ' +
+          '$lastChangedBrakeFluid, ' +
+          '$lastChangedCabinAirFilter, ' +
+          '$lastChangedFuelFilter, ' +
+          '$lastChangedFuelPump, ' +
+          '$lastSuspensionInspection, ' +
+          '$lastChangedTires';
+    } else {
+      return '${(imageProvider as FileImage).file.path}, ' +
+          '$mileage, ' +
+          '$year, ' +
+          '$make, ' +
+          '$model, ' +
+          '$trim, ' +
+          '$nickname, ' +
+          '$intervalEngineOilAndFilter, ' +
+          '$intervalTireRotation, ' +
+          '$intervalBrakeInspection, ' +
+          '$intervalEngineCoolant, ' +
+          '$intervalAirFilter, ' +
+          '$intervalSparkPlugs, ' +
+          '$intervalTimingBeltChain, ' +
+          '$intervalWaterPumpInspection, ' +
+          '$intervalDriveBeltInspection, ' +
+          '$intervalTransmissionFluid, ' +
+          '$intervalTransFilter, ' +
+          '$intervalBrakeFluid, ' +
+          '$intervalCabinAirFilter, ' +
+          '$intervalFuelFilter, ' +
+          '$intervalFuelPump, ' +
+          '$intervalSuspensionInspection, ' +
+          '$intervalTires, ' +
+          '$lastChangedEngineOilAndFilter, ' +
+          '$lastChangedTireRotation, ' +
+          '$lastChangedBrakeInspection, ' +
+          '$lastChangedEngineCoolant, ' +
+          '$lastChangedAirFilter, ' +
+          '$lastChangedSparkPlugs, ' +
+          '$lastChangedTimingBeltChain, ' +
+          '$lastChangedWaterPumpInspection, ' +
+          '$lastChangedDriveBeltInspection, ' +
+          '$lastChangedTransmissionFluid, ' +
+          '$lastChangedTransmissionFilter, ' +
+          '$lastChangedBrakeFluid, ' +
+          '$lastChangedCabinAirFilter, ' +
+          '$lastChangedFuelFilter, ' +
+          '$lastChangedFuelPump, ' +
+          '$lastSuspensionInspection, ' +
+          '$lastChangedTires';
     }
   }
   // void setPicture(String assetName) async {
@@ -376,49 +372,47 @@ class Car {
   static Car parseCar(String carString) {
     List<String> carList = carString.split(', ');
 
-
     return Car(
-      carList[0] != null ? FileImage(File(carList[0])) : null,
-      num.parse(carList[1]),
-      int.parse(carList[2]),
-      carList[3],
-      carList[4],
-      carList[5],
-      carList[6],
-      num.parse(carList[7]),
-      num.parse(carList[8]),
-      num.parse(carList[9]),
-      num.parse(carList[10]),
-      num.parse(carList[11]),
-      num.parse(carList[12]),
-      num.parse(carList[13]),
-      num.parse(carList[14]),
-      num.parse(carList[15]),
-      num.parse(carList[16]),
-      num.parse(carList[17]),
-      num.parse(carList[18]),
-      num.parse(carList[19]),
-      num.parse(carList[20]),
-      num.parse(carList[21]),
-      num.parse(carList[22]),
-      num.parse(carList[23]),
-      num.parse(carList[24]),
-      num.parse(carList[25]),
-      num.parse(carList[26]),
-      num.parse(carList[27]),
-      num.parse(carList[28]),
-      num.parse(carList[29]),
-      num.parse(carList[30]),
-      num.parse(carList[31]),
-      num.parse(carList[32]),
-      num.parse(carList[33]),
-      num.parse(carList[34]),
-      num.parse(carList[35]),
-      num.parse(carList[36]),
-      num.parse(carList[37]),
-      num.parse(carList[38]),
-      num.parse(carList[39]),
-      num.parse(carList[40])
-    );
+        carList[0] != null ? FileImage(File(carList[0])) : null,
+        num.parse(carList[1]),
+        int.parse(carList[2]),
+        carList[3],
+        carList[4],
+        carList[5],
+        carList[6],
+        num.parse(carList[7]),
+        num.parse(carList[8]),
+        num.parse(carList[9]),
+        num.parse(carList[10]),
+        num.parse(carList[11]),
+        num.parse(carList[12]),
+        num.parse(carList[13]),
+        num.parse(carList[14]),
+        num.parse(carList[15]),
+        num.parse(carList[16]),
+        num.parse(carList[17]),
+        num.parse(carList[18]),
+        num.parse(carList[19]),
+        num.parse(carList[20]),
+        num.parse(carList[21]),
+        num.parse(carList[22]),
+        num.parse(carList[23]),
+        num.parse(carList[24]),
+        num.parse(carList[25]),
+        num.parse(carList[26]),
+        num.parse(carList[27]),
+        num.parse(carList[28]),
+        num.parse(carList[29]),
+        num.parse(carList[30]),
+        num.parse(carList[31]),
+        num.parse(carList[32]),
+        num.parse(carList[33]),
+        num.parse(carList[34]),
+        num.parse(carList[35]),
+        num.parse(carList[36]),
+        num.parse(carList[37]),
+        num.parse(carList[38]),
+        num.parse(carList[39]),
+        num.parse(carList[40]));
   }
 }

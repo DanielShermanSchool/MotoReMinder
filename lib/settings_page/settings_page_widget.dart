@@ -151,37 +151,37 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   size: 24.0,
                 ),
               ),
-              Align(
-                alignment: const AlignmentDirectional(0.00, -0.45),
-                child: SwitchListTile.adaptive(
-                  value: _model.switchListTileValue2 ??= false,
-                  onChanged: (newValue) async {
-                    // setState(() => _model.switchListTileValue2 = newValue);
-                    // if (newValue) {
-                    //   setDarkModeSetting(
-                    //     context,
-                    //     true ? ThemeMode.dark : ThemeMode.light,
-                    //   );
-                    // } else {
-                    //   setDarkModeSetting(
-                    //     context,
-                    //     false ? ThemeMode.dark : ThemeMode.light,
-                    //   );
-                    // }
-                  },
-                  title: Text(
-                    'Darkmode',
-                    style: FlutterFlowTheme.of(context).titleLarge,
-                  ),
-                  tileColor: FlutterFlowTheme.of(context).secondaryBackground,
-                  activeColor: FlutterFlowTheme.of(context).primary,
-                  activeTrackColor: FlutterFlowTheme.of(context).accent1,
-                  dense: false,
-                  controlAffinity: ListTileControlAffinity.trailing,
-                  contentPadding:
-                      const EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 60.0, 0.0),
-                ),
-              ),
+              // Align(
+              //   alignment: const AlignmentDirectional(0.00, -0.45),
+              //   child: SwitchListTile.adaptive(
+              //     value: _model.switchListTileValue2 ??= false,
+              //     onChanged: (newValue) async {
+              //       setState(() => _model.switchListTileValue2 = newValue);
+              //       if (newValue) {
+              //         setDarkModeSetting(
+              //           context,
+              //           true ? ThemeMode.dark : ThemeMode.light,
+              //         );
+              //       } else {
+              //         setDarkModeSetting(
+              //           context,
+              //           false ? ThemeMode.dark : ThemeMode.light,
+              //         );
+              //       }
+              //     },
+              //     title: Text(
+              //       'Darkmode',
+              //       style: FlutterFlowTheme.of(context).titleLarge,
+              //     ),
+              //     tileColor: FlutterFlowTheme.of(context).secondaryBackground,
+              //     activeColor: FlutterFlowTheme.of(context).primary,
+              //     activeTrackColor: FlutterFlowTheme.of(context).accent1,
+              //     dense: false,
+              //     controlAffinity: ListTileControlAffinity.trailing,
+              //     contentPadding:
+              //         const EdgeInsetsDirectional.fromSTEB(70.0, 0.0, 60.0, 0.0),
+              //   ),
+              // ),
               Align(
                 alignment: const AlignmentDirectional(-0.94, -0.43),
                 child: Icon(
