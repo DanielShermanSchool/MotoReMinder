@@ -18,6 +18,7 @@ class ChecklistPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
+
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -227,7 +228,6 @@ class ChecklistPage extends StatelessWidget {
               ),
             ],
           ),
-
         ),
       ),
     );
