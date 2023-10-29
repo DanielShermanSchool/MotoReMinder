@@ -67,6 +67,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     _model.brakeFluidChanged ??= TextEditingController();
     _model.cabinAirFilterChanged ??= TextEditingController();
     _model.fuelPumpChanged ??= TextEditingController();
+    _model.lastSuspensionInspection ??= TextEditingController(); 
+    _model.suspensionInspectionInterval ??= TextEditingController(); 
   }
     String _savedname = '';
     num _savedmileage = 0;
@@ -99,6 +101,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     num _savedbrakefluidinterval = 0;
     num _savedcabinairfilterinterval = 0;
     num _savedfuelpumpinterval = 0;
+    num _savedSuspensionInspectionInterval = 0;
 
     num _savedtirerotationchanged = 0;
     num _savedcoolantchanged = 0;
@@ -108,6 +111,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     num _savedbrakefluidchanged = 0;
     num _savedcabinairfilterchanged = 0;
     num _savedfuelpumpchanged = 0;
+    num _savedSuspensionInspection = 0;
     
 
   @override
@@ -472,6 +476,28 @@ Navigator.of(context).pushReplacement(
               Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
                 child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car != null ? widget.car?.lastChangedDriveBeltInspection.toString() : null,
+      controller: widget.car != null ? null : _model.driveBeltChanged,//Load bearing code for each of the inputs; this allows either the initial input or the controller to be used first. Both are needed
+                    decoration: InputDecoration(labelText: 'Drive belt last inspected'), //Hint can be changed to "leave empty for zero" But that felt like a no-brainer
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],//Keeping numbers only numbers
+                  )
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car != null ? widget.car?.intervalDriveBeltInspection.toString() : null,
+      controller: widget.car != null ? null : _model.driveBeltInterval,//Load bearing code for each of the inputs; this allows either the initial input or the controller to be used first. Both are needed
+                    decoration: InputDecoration(labelText: 'Drive Belt inspection interval', hintText: 'Leave empty for default of 50000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))]
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
                     child: TextFormField(initialValue: widget.car != null ? widget.car?.lastChangedWaterPumpInspection.toString() : null,
       controller: widget.car != null ? null : _model.waterPumpChanged,//Load bearing code for each of the inputs; this allows either the initial input or the controller to be used first. Both are needed
                     decoration: InputDecoration(labelText: 'Water pump last inspected'),//Hint can be changed to "leave empty for zero" But that felt like a no-brainer
@@ -508,6 +534,72 @@ Navigator.of(context).pushReplacement(
                     child: TextFormField(initialValue: widget.car != null ? widget.car?.intervalFuelPump.toString() : null,
       controller: widget.car != null ? null : _model.fuelPumpInterval,//Load bearing code for each of the inputs; this allows either the initial input or the controller to be used first. Both are needed
                     decoration: InputDecoration(labelText: 'Fuel pump change interval', hintText: 'Leave empty for default of 50000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))]
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car != null ? widget.car?.lastChangedEngineCoolant.toString() : null,
+      controller: widget.car != null ? null : _model.coolantChanged,//Load bearing code for each of the inputs; this allows either the initial input or the controller to be used first. Both are needed
+                    decoration: InputDecoration(labelText: 'Engine coolant Changed last'), //Hint can be changed to "leave empty for zero" But that felt like a no-brainer
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],//Keeping numbers only numbers
+                  )
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car != null ? widget.car?.intervalEngineCoolant.toString() : null,
+      controller: widget.car != null ? null : _model.coolantInterval,//Load bearing code for each of the inputs; this allows either the initial input or the controller to be used first. Both are needed
+                    decoration: InputDecoration(labelText: 'Engine coolant change interval', hintText: 'Leave empty for default of 50000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))]
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car != null ? widget.car?.lastSuspensionInspection.toString() : null,
+      controller: widget.car != null ? null : _model.lastSuspensionInspection,//Load bearing code for each of the inputs; this allows either the initial input or the controller to be used first. Both are needed
+                    decoration: InputDecoration(labelText: 'Suspension inspection happened last'), //Hint can be changed to "leave empty for zero" But that felt like a no-brainer
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],//Keeping numbers only numbers
+                  )
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car != null ? widget.car?.intervalSuspensionInspection.toString() : null,
+      controller: widget.car != null ? null : _model.suspensionInspectionInterval,//Load bearing code for each of the inputs; this allows either the initial input or the controller to be used first. Both are needed
+                    decoration: InputDecoration(labelText: 'Suspension inspection interval', hintText: 'Leave empty for default of 50000 miles'), //the text that appears when the field is empty
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))]
+                  ,)
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car != null ? widget.car?.lastChangedTireRotation.toString() : null,
+      controller: widget.car != null ? null : _model.tireRotationChanged,//Load bearing code for each of the inputs; this allows either the initial input or the controller to be used first. Both are needed
+                    decoration: InputDecoration(labelText: 'Tire rotation happened last'), //Hint can be changed to "leave empty for zero" But that felt like a no-brainer
+                style: TextStyle(fontSize: 18.0), //the size of the text
+                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))],//Keeping numbers only numbers
+                  )
+                ),
+              ),
+              Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: TextFormField(initialValue: widget.car != null ? widget.car?.intervalTireRotation.toString() : null,
+      controller: widget.car != null ? null : _model.tireRotationInterval,//Load bearing code for each of the inputs; this allows either the initial input or the controller to be used first. Both are needed
+                    decoration: InputDecoration(labelText: 'Tire rotation happening interval', hintText: 'Leave empty for default of 5000 miles'), //the text that appears when the field is empty
                 style: TextStyle(fontSize: 18.0), //the size of the text
                 inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))]
                   ,)
@@ -564,6 +656,7 @@ Navigator.of(context).pushReplacement(
   _savedfuelfilterinterval = num.tryParse(_model.ffilterInterval!.text) ?? 50000;
   _savedfuelpumpinterval = num.tryParse(_model.fuelPumpInterval!.text) ?? 50000;
   _savedtireinterval = num.tryParse(_model.tiresInterval!.text) ?? 30000;
+  _savedSuspensionInspectionInterval = num.tryParse(_model.suspensionInspectionInterval!.text) ?? 50000;
 
   _savedoilchanged = num.tryParse(_model.oilChanged!.text) ?? 0;
   _savedtirerotationchanged = num.tryParse(_model.tireRotationChanged!.text) ?? 0;
@@ -581,6 +674,7 @@ Navigator.of(context).pushReplacement(
   _savedfuelfilterchanged = num.tryParse(_model.ffilterChanged!.text) ?? 0;
   _savedfuelpumpchanged = num.tryParse(_model.fuelPumpChanged!.text) ?? 0;
   _savedtirechanged = num.tryParse(_model.tiresChanged!.text) ?? 0;
+  _savedSuspensionInspection = num.tryParse(_model.lastSuspensionInspection!.text) ?? 0;
 });
 //Declaration of the car object, which allows this to actuall work.
 Car car = Car(
@@ -623,14 +717,17 @@ Car car = Car(
   _savedfuelfilterchanged,
   _savedfuelpumpchanged,
   _savedtirechanged,
+  _savedSuspensionInspection,
+  _savedSuspensionInspectionInterval
 );
 
 saveToFile(car.nickname + ".mrm", car);
 
       //This in theory should automatically switch to car with the new car; but something seems off.
-      await Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => CarPageWidget(car:car,)),
+      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+        return CarPageWidget();
+        }
+      )
       );
     },
     child: Text(
