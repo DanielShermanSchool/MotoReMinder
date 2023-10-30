@@ -25,6 +25,21 @@ class _CarPageWidgetState extends State<CarPageWidget> {
   // List of cars
   List<Car> cars = [];
 
+    int _currentIndex = 0; // Index of the selected bottom navigation item
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+      if (_currentIndex == 1) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => EditPageWidget()),
+        );
+      }
+      // Handle other index values if needed
+    });
+  }
+
   @override
   void initState() { //runs when the page is first loaded
     super.initState();
@@ -103,16 +118,22 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                 ),
               );
             }).toList(),
-          ),      
+          ),
         ),
-        floatingActionButton: FloatingActionButton(
-        onPressed: () { //button in the corner that takes you to the car editor page
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => EditPageWidget()),
-          );
-        },
-        child: Icon(Icons.edit),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _onItemTapped,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.question_mark),
+            label: 'Help',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.car_repair),
+            label: 'New Car',
+          ),
+          // Add more BottomNavigationBarItems as needed
+        ],
       ),
     );
   }
