@@ -21,7 +21,7 @@ class ChecklistPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Text('Oil Change Progress', style: TextStyle(fontSize: 24)),
+              Text('Engine Oil and Filter Change', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -33,7 +33,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Tire rotation Progress', style: TextStyle(fontSize: 24)),
+              Text('Tire Rotation', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -45,7 +45,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Brake inspection Progress', style: TextStyle(fontSize: 24)),
+              Text('Brake Inspection', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -57,7 +57,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Brake fluid Progress', style: TextStyle(fontSize: 24)),
+              Text('Brake Fluid', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -69,7 +69,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Engine coolant Progress', style: TextStyle(fontSize: 24)),
+              Text('Engine Coolant', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -81,7 +81,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Air Filter Progress', style: TextStyle(fontSize: 24)),
+              Text('Air Filter', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -93,7 +93,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Spark Plug Life', style: TextStyle(fontSize: 24)),
+              Text('Spark Plug', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -105,7 +105,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Timing belt/chain Progress', style: TextStyle(fontSize: 24)),
+              Text('Timing Belt/Chain', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -117,7 +117,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Water Pump Progress', style: TextStyle(fontSize: 24)),
+              Text('Water Pump', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -129,7 +129,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Drive Belt Progress', style: TextStyle(fontSize: 24)),
+              Text('Drive Belt', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -141,7 +141,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Transmission Fluid Progress', style: TextStyle(fontSize: 24)),
+              Text('Transmission Fluid', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -153,7 +153,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Transmission filter Progress', style: TextStyle(fontSize: 24)),
+              Text('Transmission Filter', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -165,7 +165,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Cabin air filter Progress', style: TextStyle(fontSize: 24)),
+              Text('Cabin Air Filter', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -177,7 +177,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Fuel Filter Progress', style: TextStyle(fontSize: 24)),
+              Text('Fuel Filter', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -189,7 +189,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Fuel Pump Progress', style: TextStyle(fontSize: 24)),
+              Text('Fuel Pump', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -201,7 +201,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Suspension inspection Progress', style: TextStyle(fontSize: 24)),
+              Text('Suspension Inspection', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -213,7 +213,7 @@ class ChecklistPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Changed Tires Progress', style: TextStyle(fontSize: 24)),
+              Text('Changed Tires', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
