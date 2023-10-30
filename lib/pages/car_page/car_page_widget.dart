@@ -11,8 +11,8 @@ import 'dart:io';
 
 
 class CarPageWidget extends StatefulWidget {
-
-  const CarPageWidget({Key? key}) : super(key: key);
+  final Car? car;
+  CarPageWidget({this.car});
 
   @override
   _CarPageWidgetState createState() => _CarPageWidgetState();

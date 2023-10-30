@@ -119,6 +119,10 @@ class EditPageModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? fuelPumpChanged;
   String? Function(BuildContext, String?)? fuelPumpChangedValidator;
+  TextEditingController? lastSuspensionInspection;
+  String? Function(BuildContext, String?)? lastSuspensionInspectionValidator;
+  TextEditingController? suspensionInspectionInterval;
+  String? Function(BuildContext, String?)? suspensionInspectionIntervalValidator;
   
 
 
@@ -152,6 +156,8 @@ class EditPageModel extends FlutterFlowModel {
     afilterInterval?.dispose();
     tiresChanged?.dispose();
     tiresInterval?.dispose();
+    suspensionInspectionInterval?.dispose();
+    lastSuspensionInspection?.dispose();
   }
 
   /// Action blocks are added here.
