@@ -700,6 +700,7 @@ Car car = Car(
   _savedcabinairfilterinterval,
   _savedfuelfilterinterval,
   _savedfuelpumpinterval,
+  _savedSuspensionInspectionInterval,
   _savedtireinterval,
   _savedoilchanged,
   _savedtirerotationchanged,
@@ -718,7 +719,7 @@ Car car = Car(
   _savedfuelpumpchanged,
   _savedtirechanged,
   _savedSuspensionInspection,
-  _savedSuspensionInspectionInterval
+
 );
 
 saveToFile(car.nickname + ".mrm", car);
