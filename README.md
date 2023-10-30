@@ -23,7 +23,7 @@ Certainly, I can help you simplify your installation instructions for users who 
 
   
 
-1.  Click on "Download" for the Windows version of our app.
+1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/0.9windows/MotoReMinderV0.9Windows.zip)
 
 2.  After the download is complete, open the folder where the file was saved.
 
@@ -37,7 +37,7 @@ Certainly, I can help you simplify your installation instructions for users who 
 
   
 
-1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/android/MotoReMinderV0.3.apk)
+1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/0.9Android/MotoReMinderV0.9.apk)
 
 2.  Once the download is finished, tap on the APK file.
 
