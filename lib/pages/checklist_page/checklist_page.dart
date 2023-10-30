@@ -1,6 +1,5 @@
 import 'package:moto_re_minder/car_object.dart';
-
-
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 export 'home_page_model.dart';
 
@@ -22,7 +21,7 @@ class ChecklistPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Text('Oil Change Progress', style: TextStyle(fontSize: 24)),
+              Text('Engine Oil and Filter Change', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -30,11 +29,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.oilChangeProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.oilChangeProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalEngineOilAndFilter)-(car.mileage - car.lastChangedEngineOilAndFilter))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Tire rotation Progress', style: TextStyle(fontSize: 24)),
+              Text('Tire Rotation', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -42,11 +41,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.tireRotationProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.tireRotationProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalTireRotation)-(car.mileage - car.lastChangedTireRotation))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Brake inspection Progress', style: TextStyle(fontSize: 24)),
+              Text('Brake Inspection', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -54,11 +53,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.brakeInspectionProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.brakeInspectionProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalBrakeInspection)-(car.mileage - car.lastChangedBrakeInspection))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Brake fluid Progress', style: TextStyle(fontSize: 24)),
+              Text('Brake Fluid', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -66,11 +65,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.brakeFluidProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.brakeFluidProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalBrakeFluid)-(car.mileage - car.lastChangedBrakeFluid))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Engine coolant Progress', style: TextStyle(fontSize: 24)),
+              Text('Engine Coolant', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -78,11 +77,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.engineCoolantChangeProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.engineCoolantChangeProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalEngineCoolant)-(car.mileage - car.lastChangedEngineCoolant))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Air Filter Progress', style: TextStyle(fontSize: 24)),
+              Text('Air Filter', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -90,11 +89,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.airFilterProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.airFilterProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalAirFilter)-(car.mileage - car.lastChangedAirFilter))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Spark Plug Life', style: TextStyle(fontSize: 24)),
+              Text('Spark Plug', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -102,11 +101,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.sparkPlugProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.sparkPlugProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalSparkPlugs)-(car.mileage - car.lastChangedSparkPlugs))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Timing belt/chain Progress', style: TextStyle(fontSize: 24)),
+              Text('Timing Belt/Chain', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -114,11 +113,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.timingBeltChainProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.timingBeltChainProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalTimingBeltChain)-(car.mileage - car.lastChangedTimingBeltChain))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Water Pump Progress', style: TextStyle(fontSize: 24)),
+              Text('Water Pump', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -126,11 +125,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.waterPumpInspectionProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.waterPumpInspectionProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalWaterPumpInspection)-(car.mileage - car.lastChangedWaterPumpInspection))} Miles Left' ),
                   ),
                 ],
               ),
-              Text('Drive Belt Progress', style: TextStyle(fontSize: 24)),
+              Text('Drive Belt', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -138,11 +137,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.driveBeltInspectionProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.driveBeltInspectionProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalDriveBeltInspection)-(car.mileage - car.lastChangedDriveBeltInspection))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Transmission Fluid Progress', style: TextStyle(fontSize: 24)),
+              Text('Transmission Fluid', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -150,11 +149,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.transmissionFluidProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.transmissionFluidProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalTransmissionFluid)-(car.mileage - car.lastChangedTransmissionFluid))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Transmission filter Progress', style: TextStyle(fontSize: 24)),
+              Text('Transmission Filter', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -162,11 +161,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.transmissionFilterProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.transmissionFilterProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalTransFilter)-(car.mileage - car.lastChangedTransmissionFilter))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Cabin air filter Progress', style: TextStyle(fontSize: 24)),
+              Text('Cabin Air Filter', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -174,11 +173,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.cabinAirFilterProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.cabinAirFilterProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalCabinAirFilter)-(car.mileage - car.lastChangedCabinAirFilter))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Fuel Filter Progress', style: TextStyle(fontSize: 24)),
+              Text('Fuel Filter', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -186,11 +185,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.fuelFilterProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.fuelFilterProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalFuelFilter)-(car.mileage - car.lastChangedFuelFilter))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Fuel Pump Progress', style: TextStyle(fontSize: 24)),
+              Text('Fuel Pump', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -198,11 +197,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.fuelPumpProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.fuelPumpProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalFuelPump)-(car.mileage - car.lastChangedFuelPump))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Suspension inspection Progress', style: TextStyle(fontSize: 24)),
+              Text('Suspension Inspection', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -210,11 +209,11 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.suspensionInspectionProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.suspensionInspectionProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalSuspensionInspection)-(car.mileage - car.lastSuspensionInspection))} Miles Left'),
                   ),
                 ],
               ),
-              Text('Changed Tires Progress', style: TextStyle(fontSize: 24)),
+              Text('Changed Tires', style: TextStyle(fontSize: 24)),
               Stack(
                 children: <Widget>[
                   SizedBox(
@@ -222,7 +221,7 @@ class ChecklistPage extends StatelessWidget {
                     child: LinearProgressIndicator(value: car.changedTiresProgress.toDouble()),
                   ),
                   Center(
-                    child: Text('${(car.changedTiresProgress * 100).toStringAsFixed(1)}%'),
+                    child: Text('${math.max(0, (car.intervalTires)-(car.mileage - car.lastChangedTires))} Miles Left'),
                   ),
                 ],
               ),
