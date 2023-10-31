@@ -654,7 +654,7 @@ Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
   _savedwaterpumpinterval = num.tryParse(_model.waterPumpInterval!.text) ?? 50000;
   _saveddrivebeltinterval = num.tryParse(_model.driveBeltInterval!.text) ?? 30000;
   _savedtransfluidinterval = num.tryParse(_model.transInterval!.text) ?? 30000;
-  _savedtransfilterinterval = num.tryParse(_model.transFilterInterval!.text) ?? 80085;
+  _savedtransfilterinterval = num.tryParse(_model.transFilterInterval!.text) ?? 30000;
   _savedbrakefluidinterval = num.tryParse(_model.brakeFluidInterval!.text) ?? 50000;
   _savedcabinairfilterinterval = num.tryParse(_model.cabinAirFilterInterval!.text) ?? 100000;
   _savedfuelfilterinterval = num.tryParse(_model.ffilterInterval!.text) ?? 50000;
@@ -722,8 +722,7 @@ Car car = Car(
   _savedfuelfilterchanged,
   _savedfuelpumpchanged,
   _savedtirechanged,
-  _savedSuspensionInspection,
-
+  _savedSuspensionInspection
 );
 
 saveToFile(car.nickname + ".mrm", car);
