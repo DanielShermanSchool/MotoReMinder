@@ -1,6 +1,7 @@
 import 'package:moto_re_minder/edit_page/edit_page_widget.dart';
 import 'package:moto_re_minder/car_object.dart';
 import 'package:moto_re_minder/pages/checklist_page/checklist_page.dart';
+import 'package:moto_re_minder/pages/help_page/help_page.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:flutter/material.dart';
@@ -30,6 +31,13 @@ class _CarPageWidgetState extends State<CarPageWidget> {
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
+      if (_currentIndex == 0) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HelpPage()),
+        );
+      }
+      // Handle other index values if needed
       if (_currentIndex == 1) {
         Navigator.push(
           context,
