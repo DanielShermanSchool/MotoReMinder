@@ -107,7 +107,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                     color: Colors.blueAccent,
                     borderRadius: BorderRadius.circular(10.0),
                     image: DecorationImage(
-                      image: AssetImage('assets/images/appIcon.png'),
+                      image: AssetImage('assets/images/anCar.png'),
                       //image: car.imageProvider ?? AssetImage('assets/images/appIcon.png'), // provide a default image in case car.picture is null
                       fit: BoxFit.cover,
                     ),
