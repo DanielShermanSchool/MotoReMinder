@@ -1,6 +1,7 @@
 import 'package:moto_re_minder/car_object.dart';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:moto_re_minder/settings_page/settings_page_widget.dart';
 export 'home_page_model.dart';
 
 class ChecklistPage extends StatelessWidget {
@@ -14,6 +15,17 @@ class ChecklistPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('${car.nickname} Checklist!'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.more_vert), // Vertical dots icon
+            onPressed: () {
+              // Navigate to the Settings Page
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => SettingsPageWidget(),
+              ));
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
