@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/services.dart';
 import 'package:moto_re_minder/car_object.dart';
@@ -182,12 +183,9 @@ Navigator.of(context).pushReplacement(
       controller: widget.car != null ? null : _model.carName,
       decoration: InputDecoration(
         labelText: 'Nickname',
-        hintText: 'MyCar, TheBeast, etc.'
+        hintText: 'MyCar, TheBeast, or will give random number'
       ),
       style: TextStyle(fontSize: 18.0),
-      onSaved: (value) {
-        _savedname = value!;
-      },
     ),
   ),
 ),
@@ -642,7 +640,9 @@ Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
   _savedmake = _model.carMake!.text;
   _savedmodel = _model.carModel!.text;
   _savedtrim = _model.carTrim!.text;
-  _savedname = _model.carName!.text;
+  //This adjusts to allow a blank and still make a name so it changes the icon so you do not overwrite ones
+  String carName = _model.carName!.text;
+  _savedname = carName.isNotEmpty ? carName : generateRandomNumber();
 
   _savedoilinterval = num.tryParse(_model.oilInterval!.text) ?? 5000;
   _savedtirerotationinterval = num.tryParse(_model.tireRotationInterval!.text) ?? 5000;
@@ -721,8 +721,8 @@ Car car = Car(
   _savedcabinairfilterchanged,
   _savedfuelfilterchanged,
   _savedfuelpumpchanged,
-  _savedtirechanged,
-  _savedSuspensionInspection
+  _savedSuspensionInspection,
+  _savedtirechanged
 );
 
 saveToFile(car.nickname + ".mrm", car);
@@ -760,6 +760,15 @@ saveToFile(car.nickname + ".mrm", car);
   file.writeAsStringSync(car.toString());
 
   print('Saved to ${file.path}');
-} 
+
 }
+//This helps the car generation for those who don't want to make a nickname
+ String generateRandomNumber() {
+  final random = Random();
+  final randomNumber = random.nextInt(91000000); // Adjust the range as needed
+  return 'My car $randomNumber';
+}
+
+}
+
 

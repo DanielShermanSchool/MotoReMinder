@@ -1,6 +1,7 @@
 import 'package:moto_re_minder/edit_page/edit_page_widget.dart';
 import 'package:moto_re_minder/car_object.dart';
 import 'package:moto_re_minder/pages/checklist_page/checklist_page.dart';
+import 'package:moto_re_minder/settings_page/settings_page_widget.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:flutter/material.dart';
@@ -56,6 +57,17 @@ class _CarPageWidgetState extends State<CarPageWidget> {
     return Scaffold(
       appBar: AppBar( //title at the top
         title: Text('Your Cars'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.more_vert), // Vertical dots icon
+            onPressed: () {
+              // Navigate to the Settings Page
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => SettingsPageWidget(),
+              ));
+            },
+          ),
+        ],
       ),
       body: GridView.count( //grid of cars
           crossAxisCount: 4, //number of cars per row
