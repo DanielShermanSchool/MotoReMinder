@@ -23,7 +23,7 @@ Certainly, I can help you simplify your installation instructions for users who 
 
   
 
-1.  Click on "Download" for the Windows version of our app.
+1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/0.9windows/MotoReMinderV0.9Windows.zip)
 
 2.  After the download is complete, open the folder where the file was saved.
 
@@ -37,7 +37,7 @@ Certainly, I can help you simplify your installation instructions for users who 
 
   
 
-1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/android/MotoReMinderV0.3.apk)
+1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/0.9Android/MotoReMinderV0.9.apk)
 
 2.  Once the download is finished, tap on the APK file.
 
@@ -45,25 +45,6 @@ Certainly, I can help you simplify your installation instructions for users who 
 
   
 
-**For Other Devices:**
-
-  
-
-If you're using a device that's not Windows or Android, we have a special version of our app that works in a web browser. Here's how to get it:
-
-  
-
-1.  Go to [Flutter Web Instructions](https://docs.flutter.dev/deployment/web#building-the-app-for-release).
-
-3.  Download the web version of our app to your device.
-
-4.  Open the folder where the download is saved.
-
-5.  Inside the folder, you'll find a file that you can use to start the app on your web browser. If you're not sure how to do this, you can follow the instructions on the link provided.
-
-  
-
-These simplified steps should make it easier for non-tech-savvy users to install your application.
 
 ## For Developers
 
