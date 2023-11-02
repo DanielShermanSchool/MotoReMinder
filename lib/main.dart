@@ -1,23 +1,47 @@
 import 'package:flutter/material.dart';
+//import 'settings_page_widget.dart';
 
-import 'index.dart';
-
-void main() async {
- runApp(MyApp());
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MotoReMinder',
+      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.teal,
       ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Main'),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: const Icon(Icons.more_vert),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: const Icon(Icons.settings),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SettingsPageWidget()),
+                );
+              },
+            ),
+          ],
+        ),
+        body: const Center(
+          child: Text('Welcome to MotoReminder!'),
+        ),
       ),
-      home: CarPageWidget(),
     );
   }
 }
