@@ -159,18 +159,19 @@ Navigator.of(context).push(
     size: 24.0,
   ),
   onPressed: () async {
-    print('IconButton pressed ...');
+    //Sets the nickname to look for
     String nickname = widget.car!.nickname;
-
+    //Directory to look for in the delete 
     final directory = await getApplicationDocumentsDirectory();
     final path = directory.path;
     final carsDirectory = Directory('$path/cars');
 
     // Create the directory if it doesn't exist.
+    //For whatever reason this is needed despite already being made long ago.
     if (!(await carsDirectory.exists())) {
       carsDirectory.createSync(recursive: true);
     }
-
+    //Finds the file using the directory path and the name given
     File fileToDelete = File('${carsDirectory.path}/$nickname.mrm');
 
     // Debug: Print the file path.
@@ -188,7 +189,7 @@ Navigator.of(context).push(
           return CarPageWidget();
         },
       ),
-    ); // Replace '/car_page' with your actual route name.
+    );
 
       } catch (e) {
         print('Error deleting file: $e');
