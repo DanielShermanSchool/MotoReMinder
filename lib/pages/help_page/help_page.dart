@@ -131,6 +131,57 @@ class HelpPage extends StatelessWidget {
               leading: Icon(Icons.list),
               title: Text(
                   'Once you have added your car, you will see it displayed on the car page with the nickname you have given it. If you do not see your newly added car, restart the applicaiton.'),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[ 
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 0,
+                          child: Text('\u2022', textAlign: TextAlign.right),
+                        ),
+                        SizedBox(
+                            width:
+                                8.0), // You can adjust this value as per your preference
+                        Expanded(
+                          flex: 9,
+                          child: Text(
+                            'Taping the icon of your car will show you the progress bars detailing how many miles are left until you need to perform a maintenance task.',
+                            style: TextStyle(
+                              color: Colors.white, // Change this to your desired color
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                        height:
+                            8.0),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 0,
+                          child: Text('\u2022', textAlign: TextAlign.right),
+                        ),
+                        SizedBox(
+                            width:
+                                8.0), // You can adjust this value as per your preference
+                        Expanded(
+                          flex: 9,
+                          child: Text(
+                            'Double taping the icon of your car will allow you to edit the intevrals and last changed mileage of your car.',
+                            style: TextStyle(
+                              color: Colors.white, // Change this to your desired color
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+            ),
             ),
           ],
         ),
