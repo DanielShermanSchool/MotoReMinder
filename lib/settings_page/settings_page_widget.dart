@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:settings_ui/settings_ui.dart';
 
 class SettingsPageWidget extends StatefulWidget {
   @override
@@ -7,37 +6,58 @@ class SettingsPageWidget extends StatefulWidget {
 }
 
 class _SettingsPageWidgetState extends State<SettingsPageWidget> {
-  //TODO: shared preferences for settings for persistence
-  //TODO: make dark mode actually work
   bool _notificationsEnabled = true;
   bool _darkModeEnabled = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    body: Column(
-      children: [
-        SwitchListTile(
-          title: const Text('Notifications'),
-          value: _notificationsEnabled,
-          onChanged: (bool value) {
-            setState(() {
-                _notificationsEnabled = value;
-              });
-            },
-            secondary: const Icon(Icons.lightbulb_outline),
+      appBar: AppBar(
+        backgroundColor: Colors.teal,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30.0,
           ),
-          SwitchListTile(
-          title: const Text('DarkMode'),
-          value: _darkModeEnabled,
-          onChanged: (bool value) {
-            setState(() {
-                _darkModeEnabled = value;
-              });
-            },
-            secondary: const Icon(Icons.lightbulb_outline),
-          ),
-        ],
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            SwitchListTile(
+              title: const Text('Notifications'),
+              value: _notificationsEnabled,
+              onChanged: (bool value) {
+                setState(() {
+                  _notificationsEnabled = value;
+                });
+              },
+              secondary: const Icon(Icons.lightbulb_outline),
+            ),
+            SwitchListTile(
+              title: const Text('Dark Mode'),
+              value: _darkModeEnabled,
+              onChanged: (bool value) {
+                setState(() {
+                  _darkModeEnabled = value;
+               if (_darkModeEnabled) {
+  // Enable dark mode
+  Theme.of(context).copyWith(brightness: Brightness.dark);
+} else {
+  // Enable light mode
+  Theme.of(context).copyWith(brightness: Brightness.light);
+
+                  }
+                });
+              },
+              secondary: const Icon(Icons.lightbulb_outline),
+            ),
+          ],
+        ),
       ),
     );
   }
