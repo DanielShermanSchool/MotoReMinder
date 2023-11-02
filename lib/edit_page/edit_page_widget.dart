@@ -6,7 +6,6 @@ import 'package:moto_re_minder/edit_page/edit_page_model.dart';
 
 import 'package:moto_re_minder/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
 class EditPageWidget extends StatefulWidget {
@@ -135,7 +134,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
           onPressed: () async {
             //This changes how the back button works, instead of popping the old screen out, it replaces it
             //With a newer version of the car page. Going to test this with the submit button after pushing
-Navigator.of(context).pushReplacement(
+Navigator.of(context).push(
   MaterialPageRoute(
     builder: (BuildContext context) {
       return CarPageWidget();
@@ -154,16 +153,57 @@ Navigator.of(context).pushReplacement(
         ),
         actions: [
           IconButton(
-            icon: Icon(
-              Icons.delete,
-              color: Color(0xFFF1F4F6),
-              size: 24.0,
-            ),
-            //In theory, this'll be a delete button. Need to look into this more.
-            onPressed: () {
-              print('IconButton pressed ...');
-            },
-          ),
+  icon: Icon(
+    Icons.delete,
+    color: Color(0xFFF1F4F6),
+    size: 24.0,
+  ),
+  onPressed: () async {
+    print('IconButton pressed ...');
+    String nickname = widget.car!.nickname;
+
+    final directory = await getApplicationDocumentsDirectory();
+    final path = directory.path;
+    final carsDirectory = Directory('$path/cars');
+
+    // Create the directory if it doesn't exist.
+    if (!(await carsDirectory.exists())) {
+      carsDirectory.createSync(recursive: true);
+    }
+
+    File fileToDelete = File('${carsDirectory.path}/$nickname.mrm');
+
+    // Debug: Print the file path.
+    print('File path: ${fileToDelete.path}');
+
+    if (await fileToDelete.exists()) {
+      try {
+        await fileToDelete.delete();
+        print('File deleted successfully.');
+        
+        // Navigate back to the CarPageWidget when the file is deleted.
+       Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) {
+          return CarPageWidget();
+        },
+      ),
+    ); // Replace '/car_page' with your actual route name.
+
+      } catch (e) {
+        print('Error deleting file: $e');
+      }
+    } else {
+      // Debug: List files in the directory.
+      final files = carsDirectory.listSync();
+      files.forEach((file) {
+        print('File found: ${file.path}');
+      });
+
+      print('File not found.');
+    }
+  },
+)
         ],
         centerTitle: true,
         elevation: 2.0,
@@ -728,7 +768,7 @@ Car car = Car(
 saveToFile(car.nickname + ".mrm", car);
 
       //This in theory should automatically switch to car with the new car; but something seems off.
-      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context){
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context){
         return CarPageWidget();
         }
       )
