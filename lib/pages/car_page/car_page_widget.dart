@@ -74,18 +74,34 @@ class _CarPageWidgetState extends State<CarPageWidget> {
         //center text
         centerTitle: true,
         title: Text('Welcome to MotoReMinder!'),
-        //settings button in right corner
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SettingsPageWidget()),
-              );
-            },
-          ),
-        ],
+         actions: <Widget>[
+            PopupMenuButton<int>(
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  value: 1,
+                  child: Text("Help Page"),
+                ),
+                PopupMenuItem(
+                  value: 2,
+                  child: Text("Settings Page"),
+                ),
+              ],
+              onSelected: (value) {
+                // if (value == 1) {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(builder: (context) => HelpPage()),
+                //   );
+                //} else 
+                if (value == 2) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SettingsPageWidget()),
+                  );
+                }
+              },
+    ),
+  ],
       ),
       body: Container(
         decoration: BoxDecoration(
