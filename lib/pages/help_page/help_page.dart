@@ -21,9 +21,9 @@ class HelpPage extends StatelessWidget {
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
             ), 
              ListTile(
-              leading: Icon(Icons.list),
+              leading: Icon(Icons.info_outline),
               title: Text(
-                  'Once you have added your car, you will see it displayed on the car page with the nickname you have given it. If you do not see your newly added car, restart the applicaiton.'),
+                  'The goal of MotoReMinder is to keep you on top of your car\'s maintenance with the use of progress bars! Here on this page you can find general instuctions on how to use this application.'),
             ),
             ListTile(
               leading: Icon(Icons.car_repair),
@@ -92,7 +92,30 @@ class HelpPage extends StatelessWidget {
                         Expanded(
                           flex: 9,
                           child: Text(
-                            "While filling out your car's maintenance, be sure to refer to your car's owners manual for the correct maintenance intervals.",
+                            "While filling out your car's maintenance intervals, be sure to refer to your car's owners manual for the correct maintenance intervals.",
+                            style: TextStyle(
+                              color: Colors.white, // Change this to your desired color
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                        height:
+                            8.0), // Add some space between the bullet points
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 0,
+                          child: Text('\u2022', textAlign: TextAlign.right),
+                        ),
+                        SizedBox(
+                            width:
+                                8.0), // You can adjust this value as per your preference
+                        Expanded(
+                          flex: 9,
+                          child: Text(
+                            "If you are unsure or have no record of the last mileage at which you performed a certain maintenance, you can leave a zero in that box. You will be able to edit this later once your certain of the last changed mileage.",
                             style: TextStyle(
                               color: Colors.white, // Change this to your desired color
                             ),
