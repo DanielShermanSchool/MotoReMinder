@@ -1,5 +1,6 @@
 import 'package:moto_re_minder/edit_page/edit_page_widget.dart';
 import 'package:moto_re_minder/car_object.dart';
+import 'package:moto_re_minder/index.dart';
 import 'package:moto_re_minder/pages/checklist_page/checklist_page.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -73,6 +74,18 @@ class _CarPageWidgetState extends State<CarPageWidget> {
         //center text
         centerTitle: true,
         title: Text('Welcome to MotoReMinder!'),
+        //settings button in right corner
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsPageWidget()),
+              );
+            },
+          ),
+        ],
       ),
       body: Container(
         decoration: BoxDecoration(

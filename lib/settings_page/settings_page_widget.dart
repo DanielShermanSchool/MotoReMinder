@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPageWidget extends StatefulWidget {
   @override
-  _SettingsPageState createState() => _SettingsPageState();
+  _SettingsPageWidgetState createState() => _SettingsPageWidgetState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class _SettingsPageWidgetState extends State<SettingsPageWidget> {
   bool _notificationsEnabled = true;
   bool _darkModeEnabled = false;
 
