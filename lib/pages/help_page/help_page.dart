@@ -5,50 +5,109 @@ class HelpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Help'),
+        title: Text('About MotoReMinder'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ListTile(
-              title: Text('\t\t\t\t\t\t\t\t\tWelcome to MotoReMinder!', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
+           ListTile(
+              title: Text(
+                'Welcome to MotoReMinder!',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+              subtitle: Text(
+                'Keep Your Maintenance in Check!\n',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+            ), 
+             ListTile(
+              leading: Icon(Icons.list),
+              title: Text(
+                  'Once you have added your car, you will see it displayed on the car page with the nickname you have given it. If you do not see your newly added car, restart the applicaiton.'),
             ),
             ListTile(
               leading: Icon(Icons.car_repair),
-              title: Text('To add a car tap the icon on the bottom right named new car with the icon shown on the left.'),
+              title: Text(
+                  'To add a car tap the icon on the bottom right named new car with the icon shown on the left.'),
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 8.0),
-                child: Row(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Expanded(
-                      flex: 0,
-                      child: Text('\u2022', 
-                      textAlign: TextAlign.right, 
-                      style: TextStyle(fontSize: 20)
-                      ),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 0,
+                          child: Text('\u2022', textAlign: TextAlign.right),
+                        ),
+                        SizedBox(
+                            width:
+                                8.0), // You can adjust this value as per your preference
+                        Expanded(
+                          flex: 9,
+                          child: Text(
+                            'This will take you to the new/edit car page where you can enter all the information about your car.',
+                            style: TextStyle(
+                              color: Colors.white, // Change this to your desired color
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(width: 8.0), // You can adjust this value as per your preference
-                    Expanded(
-                      flex: 9,
-                      child: Text('This will take you to a page where you will be asked to enter all the information about your car.', 
-                      style: TextStyle(
-                        color: Colors.white
+                    SizedBox(
+                        height:
+                            8.0), // Add some space between the bullet points
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 0,
+                          child: Text('\u2022', textAlign: TextAlign.right),
                         ),
+                        SizedBox(
+                            width:
+                                8.0), // You can adjust this value as per your preference
+                        Expanded(
+                          flex: 9,
+                          child: Text(
+                            'Among the information to be filled, you will be asked to give the car a nickname. Nicknames are required to differnate between other cars you may add.',
+                            style: TextStyle(
+                              color: Colors.white, // Change this to your desired color
+                            ),
+                          ),
                         ),
+                      ],
+                    ),
+                    SizedBox(
+                        height:
+                            8.0), // Add some space between the bullet points
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          flex: 0,
+                          child: Text('\u2022', textAlign: TextAlign.right),
+                        ),
+                        SizedBox(
+                            width:
+                                8.0), // You can adjust this value as per your preference
+                        Expanded(
+                          flex: 9,
+                          child: Text(
+                            "While filling out your car's maintenance, be sure to refer to your car's owners manual for the correct maintenance intervals.",
+                            style: TextStyle(
+                              color: Colors.white, // Change this to your desired color
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
             ),
             ListTile(
-              leading: Icon(Icons.edit),
-              title: Text('Enter all the information that you can and hit submit at the bottom of the screen.'),
-            ),
-            ListTile(
               leading: Icon(Icons.list),
-              title: Text('To get to the check list tap on the car you would like to see.'),
+              title: Text(
+                  'Once you have added your car, you will see it displayed on the car page with the nickname you have given it. If you do not see your newly added car, restart the applicaiton.'),
             ),
           ],
         ),
