@@ -125,7 +125,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
   Widget build(BuildContext context) {
   return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue, // Change to your desired color
+        //backgroundColor: Colors.grey, // Change to your desired color
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_rounded,

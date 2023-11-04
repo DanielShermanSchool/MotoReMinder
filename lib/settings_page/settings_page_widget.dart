@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class SettingsPageWidget extends StatefulWidget {
+  final ValueChanged<bool> onThemeChanged;  
+
+  const SettingsPageWidget({Key? key, required this.onThemeChanged}) : super(key: key);
+
   @override
   _SettingsPageWidgetState createState() => _SettingsPageWidgetState();
 }
@@ -13,7 +18,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal,
+        title: Text('Settings'),
+        //backgroundColor: Colors.grey,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_rounded,
@@ -36,26 +42,36 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   _notificationsEnabled = value;
                 });
               },
-              secondary: const Icon(Icons.lightbulb_outline),
+              //secondary: const Icon(Icons.lightbulb_outline),
             ),
-            SwitchListTile(
+           /* SwitchListTile(
               title: const Text('Dark Mode'),
               value: _darkModeEnabled,
               onChanged: (bool value) {
                 setState(() {
                   _darkModeEnabled = value;
-               if (_darkModeEnabled) {
-  // Enable dark mode
-  Theme.of(context).copyWith(brightness: Brightness.dark);
-} else {
-  // Enable light mode
-  Theme.of(context).copyWith(brightness: Brightness.light);
-
-                  }
                 });
+                widget.onThemeChanged(_darkModeEnabled);
+                if (_darkModeEnabled) {
+                  // Enable dark mode
+                  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+                    statusBarColor: Colors.black,
+                    statusBarIconBrightness: Brightness.light,
+                    systemNavigationBarColor: Colors.black,
+                    systemNavigationBarIconBrightness: Brightness.light,
+                  ));
+                } else {
+                  // Disable dark mode
+                  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+                    statusBarColor: Colors.white,
+                    statusBarIconBrightness: Brightness.dark,
+                    systemNavigationBarColor: Colors.white,
+                    systemNavigationBarIconBrightness: Brightness.dark,
+                  ));
+                }
               },
-              secondary: const Icon(Icons.lightbulb_outline),
-            ),
+              //secondary: const Icon(Icons.lightbulb_outline),
+            ),*/
           ],
         ),
       ),

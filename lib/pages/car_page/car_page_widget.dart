@@ -96,7 +96,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                 if (value == 2) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SettingsPageWidget()),
+                    MaterialPageRoute(builder: (context) => SettingsPageWidget(onThemeChanged: (bool value) {  },)),
                   );
                 }
               },
