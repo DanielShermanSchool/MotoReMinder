@@ -7,17 +7,11 @@
 
 ###  MotoReMinder is a handy tool for car owners that helps you remember when it's time for vehicle maintenance based on how much you've driven your car.
 
-  
-
-MotoReMinder also works with cars using OBD-II scanners. If you have one, you can link it to the app, and it will automatically track your mileage. When it's time for maintenance, MotoReMinder will send you helpful notifications to keep your car in great shape.
 
   
 
 ###  Have a car and want to keep track?
 
-Certainly, I can help you simplify your installation instructions for users who may not be familiar with computers. Here's a more user-friendly version:
-
-  
 
 **For Windows:**
 
