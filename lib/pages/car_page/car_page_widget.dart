@@ -1,5 +1,6 @@
 import 'package:moto_re_minder/edit_page/edit_page_widget.dart';
 import 'package:moto_re_minder/car_object.dart';
+import 'package:moto_re_minder/index.dart';
 import 'package:moto_re_minder/pages/checklist_page/checklist_page.dart';
 import 'package:moto_re_minder/settings_page/settings_page_widget.dart';
 import 'package:path_provider/path_provider.dart';
@@ -73,17 +74,35 @@ class _CarPageWidgetState extends State<CarPageWidget> {
       appBar: AppBar( //title at the top
         centerTitle: true,
         title: Text('Welcome to MotoReMinder!'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.more_vert), // Vertical dots icon
-            onPressed: () {
-              // Navigate to the Settings Page
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SettingsPageWidget(),
-              ));
-            },
-          ),
-        ],
+         actions: <Widget>[
+            PopupMenuButton<int>(
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  value: 1,
+                  child: Text("Help Page"),
+                ),
+                PopupMenuItem(
+                  value: 2,
+                  child: Text("Settings Page"),
+                ),
+              ],
+              onSelected: (value) {
+                // if (value == 1) {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(builder: (context) => HelpPage()),
+                //   );
+                //} else 
+                if (value == 2) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SettingsPageWidget(onThemeChanged: (bool value) {  },)),
+                  );
+                }
+              },
+    ),
+  ],
+
       ),
       body: Container(
         decoration: BoxDecoration(
