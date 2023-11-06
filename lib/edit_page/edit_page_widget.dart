@@ -19,7 +19,13 @@ class EditPageWidget extends StatefulWidget {
 
 class _EditPageWidgetState extends State<EditPageWidget> {
   late EditPageModel _model;
-  File? _pickedImage;
+  File? _pickedImageFile;
+  ImageProvider? _pickedImageProvider;
+  // Initialize the car variable with default values or get it from widget arguments
+  //Car car = Car(null, 0, 0, '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  //0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+  ImageProvider<Object>? get imagePath => null;
 
   @override
   void initState() {
@@ -118,29 +124,77 @@ class _EditPageWidgetState extends State<EditPageWidget> {
   void dispose() {
     super.dispose();
   }
+/*
+  Future<String?> _pickImage(ImageSource source) async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.getImage(source: source);
+    String my_image = "null";
 
-void _pickImage(ImageSource source) async {
-  final picker = ImagePicker();
-  final pickedImage = await picker.getImage(source: source);
+    if (pickedImage != null) {
+      setState(() {
+        _pickedImage = File(pickedImage.path);
+        String my_image = pickedImage.toString();
+        return my_image;
+      });
 
-  if (pickedImage != null) {
-    setState(() {
-      _pickedImage = File(pickedImage.path);
-    });
+      //generate picture uri
+      //maybe even return URI as return type instead of void
+      //so like String _pickImage returns string containing URI
+      //and add that to the car constructor call within submit button
+      //so that the image is just part of the safe itself
 
-    //generate picture uri
-    //maybe even return URI as return type instead of void
-    //so like String _pickImage returns string containing URI
-    //and add that to the car constructor call within submit button
-    //so that the image is just part of the safe itself
-
-    // // Call saveToFile function with the selected image file
-    // saveToFile(widget.car!.nickname + ".mrm", car, _pickedImage);
-  } else {
-    print('No image selected.');
+      // // Call saveToFile function with the selected image file
+      // saveToFile(widget.car!.nickname + ".mrm", car, _pickedImage);
+    } else {
+      print('No image selected.');
+      return null;
+    }
+    return my_image;
   }
-}
+*/
 
+  ///*
+  Future<String?> _pickImage(ImageSource source) async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.getImage(source: source);
+
+    if (pickedImage != null) {
+      setState(() {
+        _pickedImageFile = File(pickedImage.path);
+        _pickedImageProvider = FileImage(_pickedImageFile!);
+      });
+
+      // Return the path of the selected image
+      return pickedImage.path;
+    } else {
+      print('No image selected.');
+      return null;
+    }
+  }
+//*/
+
+/*
+  Future<void> _pickImage(ImageSource source) async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.getImage(source: source);
+
+    if (pickedImage != null) {
+      setState(() {
+        _pickedImage = File(pickedImage.path);
+      });
+
+       // Get the application documents directory path
+    final directory = await getApplicationDocumentsDirectory();
+    final imagePath = directory.path + '/images/${widget.car?.nickname}.jpg';
+
+
+      // Call saveToFile function with the selected image file
+
+    } else {
+      print('No image selected.');
+    }
+  }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -1148,7 +1202,7 @@ void _pickImage(ImageSource source) async {
                     });
 //Declaration of the car object, which allows this to actuall work.
                     Car car = Car(
-                      _pickImage(source) ?? null,
+                      _pickedImageProvider,
                       _savedmileage,
                       _savedyear,
                       _savedmake,
@@ -1191,7 +1245,7 @@ void _pickImage(ImageSource source) async {
                       _savedSuspensionInspection,
                     );
 
-                    saveToFile(car.nickname + ".mrm", car,  _pickedImage);
+                    saveToFile(car.nickname + ".mrm", car);
 
                     //This in theory should automatically switch to car with the new car; but something seems off.
                     Navigator.of(context).push(
@@ -1240,11 +1294,12 @@ void _pickImage(ImageSource source) async {
           );
         },
         tooltip: 'Pick Image',
+        label: Text('add picture'),
         child: Icon(Icons.add_a_photo),
       ),
     );
   }
-
+/*
   void saveToFile(String fileName, Car car, File? imageFile) async {
     final directory = await getApplicationDocumentsDirectory();
     final path = directory.path;
@@ -1268,5 +1323,22 @@ void _pickImage(ImageSource source) async {
     }
 
     print('Car details saved to: ${file.path}');
+  }
+}
+
+*/
+
+  //Basic save function.
+  void saveToFile(String fileName, Car car) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final path = directory.path;
+    final file = File('$path/cars/$fileName');
+
+    // Make sure the directory exists
+    await file.parent.create(recursive: true);
+
+    file.writeAsStringSync(car.toString());
+
+    print('Saved to ${file.path}');
   }
 }
