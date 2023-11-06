@@ -21,9 +21,6 @@ class _EditPageWidgetState extends State<EditPageWidget> {
   late EditPageModel _model;
   File? _pickedImageFile;
   ImageProvider? _pickedImageProvider;
-  // Initialize the car variable with default values or get it from widget arguments
-  //Car car = Car(null, 0, 0, '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  //0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
   ImageProvider<Object>? get imagePath => null;
 
@@ -124,36 +121,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
   void dispose() {
     super.dispose();
   }
-/*
-  Future<String?> _pickImage(ImageSource source) async {
-    final picker = ImagePicker();
-    final pickedImage = await picker.getImage(source: source);
-    String my_image = "null";
 
-    if (pickedImage != null) {
-      setState(() {
-        _pickedImage = File(pickedImage.path);
-        String my_image = pickedImage.toString();
-        return my_image;
-      });
-
-      //generate picture uri
-      //maybe even return URI as return type instead of void
-      //so like String _pickImage returns string containing URI
-      //and add that to the car constructor call within submit button
-      //so that the image is just part of the safe itself
-
-      // // Call saveToFile function with the selected image file
-      // saveToFile(widget.car!.nickname + ".mrm", car, _pickedImage);
-    } else {
-      print('No image selected.');
-      return null;
-    }
-    return my_image;
-  }
-*/
-
-  ///*
   Future<String?> _pickImage(ImageSource source) async {
     final picker = ImagePicker();
     final pickedImage = await picker.getImage(source: source);
@@ -171,31 +139,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
       return null;
     }
   }
-//*/
-
-/*
-  Future<void> _pickImage(ImageSource source) async {
-    final picker = ImagePicker();
-    final pickedImage = await picker.getImage(source: source);
-
-    if (pickedImage != null) {
-      setState(() {
-        _pickedImage = File(pickedImage.path);
-      });
-
-       // Get the application documents directory path
-    final directory = await getApplicationDocumentsDirectory();
-    final imagePath = directory.path + '/images/${widget.car?.nickname}.jpg';
-
-
-      // Call saveToFile function with the selected image file
-
-    } else {
-      print('No image selected.');
-    }
-  }
-  */
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -1263,7 +1207,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           // Show options for image selection (gallery or camera)
           showModalBottomSheet(
@@ -1294,39 +1238,12 @@ class _EditPageWidgetState extends State<EditPageWidget> {
           );
         },
         tooltip: 'Pick Image',
-        label: Text('add picture'),
-        child: Icon(Icons.add_a_photo),
+        label: Text('Add Picture'),
+        icon: Icon(Icons.add_a_photo),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
   }
-/*
-  void saveToFile(String fileName, Car car, File? imageFile) async {
-    final directory = await getApplicationDocumentsDirectory();
-    final path = directory.path;
-    final file = File('$path/cars/$fileName');
-
-    // Make sure the directory exists
-    await file.parent.create(recursive: true);
-
-    // Convert car object to JSON string
-    String carJson = car.toString();
-
-    // Save car details to the file
-    file.writeAsStringSync(carJson);
-
-    // Save image file (if available)
-    if (imageFile != null) {
-      final imageFileName = fileName.replaceAll('.mrm', '.jpg');
-      final imageFilePath = '$path/images/$imageFileName';
-      final imageFileSaved = await imageFile.copy(imageFilePath);
-      print('Image saved to: ${imageFileSaved.path}');
-    }
-
-    print('Car details saved to: ${file.path}');
-  }
-}
-
-*/
 
   //Basic save function.
   void saveToFile(String fileName, Car car) async {
