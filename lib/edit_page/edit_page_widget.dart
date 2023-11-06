@@ -769,7 +769,7 @@ Car car = Car(
 saveToFile(car.nickname + ".mrm", car);
 
       //This in theory should automatically switch to car with the new car; but something seems off.
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context){
+      await Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context){
         return CarPageWidget();
         }
       )
