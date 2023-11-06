@@ -69,7 +69,7 @@ class HelpPage extends StatelessWidget {
                         Expanded(
                           flex: 9,
                           child: Text(
-                            'Among the information to be filled, you will be asked to give the car a nickname. Nicknames are required to differnate between other cars you may add.',
+                            'Among the information to be filled, you will be asked to give the car a nickname. Nicknames are required to differentiate between other cars you may add.',
                             style: TextStyle(
                               color: Colors.white, // Change this to your desired color
                             ),
@@ -115,7 +115,7 @@ class HelpPage extends StatelessWidget {
                         Expanded(
                           flex: 9,
                           child: Text(
-                            "If you are unsure or have no record of the last mileage at which you performed a certain maintenance, you can leave a zero in that box. You will be able to edit this later once your certain of the last changed mileage.",
+                            "If you are unsure or have no record of the last mileage at which you performed a certain maintenance, you can leave a zero in that box. You will be able to edit this later once you are certain of the last changed mileage.",
                             style: TextStyle(
                               color: Colors.white, // Change this to your desired color
                             ),
