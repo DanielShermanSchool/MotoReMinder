@@ -1,16 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class HelpPage extends StatelessWidget {
+class HelpPage extends StatefulWidget {
+  @override
+  _HelpPageState createState() => _HelpPageState();
+}
+
+class _HelpPageState extends State<HelpPage> {
+  bool? _seen = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCheckbox();
+  }
+
+  _loadCheckbox() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _seen = (prefs.getBool('seen') ?? true);
+    });
+  }
+
+  _onRememberMeChanged(bool? newValue) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _seen = newValue;
+      prefs.setBool('seen', _seen!);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About MotoReMinder'),
+        title: Text('Help Page'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-           ListTile(
+      body: Column(
+        children: <Widget>[
+          ListTile(
               title: Text(
                 'Welcome to MotoReMinder!',
                 textAlign: TextAlign.center,
@@ -171,7 +199,7 @@ class HelpPage extends StatelessWidget {
                         Expanded(
                           flex: 9,
                           child: Text(
-                            'Double taping the icon of your car will allow you to edit the intevrals and last changed mileage of your car.',
+                            'Tap and hold the icon of your car will allow you to edit the intevrals and last changed mileage of your car.',
                             style: TextStyle(
                               color: Colors.white, // Change this to your desired color
                             ),
@@ -183,8 +211,12 @@ class HelpPage extends StatelessWidget {
                 ),
             ),
             ),
-          ],
-        ),
+          CheckboxListTile(
+            title: Text('Do not show again'),
+            value: _seen,
+            onChanged: _onRememberMeChanged,
+          ),
+        ],
       ),
     );
   }
