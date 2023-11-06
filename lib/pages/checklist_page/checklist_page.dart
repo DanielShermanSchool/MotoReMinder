@@ -21,7 +21,7 @@ class ChecklistPage extends StatelessWidget {
             onPressed: () {
               // Navigate to the Settings Page
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SettingsPageWidget(),
+                builder: (context) => SettingsPageWidget(onThemeChanged: (bool value) {  },),
               ));
             },
           ),
