@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moto_re_minder/pages/car_page/car_page_widget.dart';
 import 'package:moto_re_minder/pages/help_page/help_page.dart';
-import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -20,44 +19,16 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: SplashScreen(),
-    );
-  }
-}
-
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-
-  @override
-  void initState() {
-    super.initState();
-    checkFirstSeen();
-  }
-
-  Future checkFirstSeen() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool _seen = (prefs.getBool('seen') ?? false);
-
-    if (_seen) {
-      Navigator.of(context).pushReplacement(
-        new MaterialPageRoute(builder: (context) => HelpPage())
-      );
-    } else {
-      await prefs.setBool('seen', true);
-      Navigator.of(context).pushReplacement(
-        new MaterialPageRoute(builder: (context) => CarPageWidget())
-      );
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: CircularProgressIndicator()),
+      home: FutureBuilder(
+        future: SharedPreferences.getInstance(),
+        builder: (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
+          if (!snapshot.hasData) {
+            return CircularProgressIndicator();
+          }
+          var showHelpPage = snapshot.data!.getBool('showHelpPage') ?? true;
+          return showHelpPage ? HelpPage() : CarPageWidget();
+        },
+      ),
     );
   }
 }

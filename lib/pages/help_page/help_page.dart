@@ -1,34 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:moto_re_minder/pages/car_page/car_page_widget.dart';
 class HelpPage extends StatefulWidget {
   @override
   _HelpPageState createState() => _HelpPageState();
 }
 
 class _HelpPageState extends State<HelpPage> {
-  bool? _seen = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadCheckbox();
-  }
-
-  _loadCheckbox() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _seen = (prefs.getBool('seen') ?? true);
-    });
-  }
-
-  _onRememberMeChanged(bool? newValue) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _seen = newValue;
-      prefs.setBool('seen', _seen!);
-    });
-  }
+  bool _showHelpPage = false;
 
   @override
   Widget build(BuildContext context) {
@@ -211,11 +190,26 @@ class _HelpPageState extends State<HelpPage> {
                 ),
             ),
             ),
-          CheckboxListTile(
-            title: Text('Do not show again'),
-            value: _seen,
-            onChanged: _onRememberMeChanged,
-          ),
+            CheckboxListTile(
+              title: Text('Do not show this page again'),
+              value: _showHelpPage,
+              onChanged: (bool? value) async {
+                setState(() {
+                  _showHelpPage = value!;
+                });
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                await prefs.setBool('showHelpPage', !_showHelpPage);
+                if (!_showHelpPage) {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CarPageWidget()));
+                }
+              },
+            ),
+            ElevatedButton(
+              child: Text('Continue to Home Page'),
+              onPressed: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CarPageWidget()));
+              },
+            ),
         ],
       ),
     );
