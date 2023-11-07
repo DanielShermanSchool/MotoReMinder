@@ -3,9 +3,8 @@ import 'package:moto_re_minder/pages/car_page/car_page_widget.dart';
 import 'package:moto_re_minder/pages/help_page/help_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 void main() async {
- runApp(MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,12 +20,13 @@ class MyApp extends StatelessWidget {
       ),
       home: FutureBuilder(
         future: SharedPreferences.getInstance(),
-        builder: (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
+        builder:
+            (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
           if (!snapshot.hasData) {
             return CircularProgressIndicator();
           }
           var showHelpPage = snapshot.data!.getBool('showHelpPage') ?? true;
-          return showHelpPage ? HelpPage() : CarPageWidget();
+          return showHelpPage ? CarPageWidget() : HelpPage();
         },
       ),
     );
