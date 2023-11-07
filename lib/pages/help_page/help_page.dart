@@ -213,7 +213,7 @@ class _HelpPageState extends State<HelpPage> {
             ),
           ),
           CheckboxListTile(
-            title: Text('Do not show this page again'),
+            title: Text('Do not show this page on start'),
             value: _hideHelpPage,
             onChanged: (bool? value) async {
               setState(() {
