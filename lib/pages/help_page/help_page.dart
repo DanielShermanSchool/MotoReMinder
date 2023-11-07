@@ -8,7 +8,7 @@ class HelpPage extends StatefulWidget {
 }
 
 class _HelpPageState extends State<HelpPage> {
-  bool _showHelpPage = false;
+  bool _hideHelpPage = false;
 
   @override
   void initState() {
@@ -19,13 +19,13 @@ class _HelpPageState extends State<HelpPage> {
   _loadHelpPagePreference() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      _showHelpPage = prefs.getBool('showHelpPage') ?? false;
+      _hideHelpPage = prefs.getBool('hideHelpPage') ?? false;
     });
   }
 
   _saveHelpPagePreference() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('showHelpPage', _showHelpPage);
+    await prefs.setBool('hideHelpPage', _hideHelpPage);
   }
 
   @override
@@ -214,10 +214,10 @@ class _HelpPageState extends State<HelpPage> {
           ),
           CheckboxListTile(
             title: Text('Do not show this page again'),
-            value: _showHelpPage,
+            value: _hideHelpPage,
             onChanged: (bool? value) async {
               setState(() {
-                _showHelpPage = value!;
+                _hideHelpPage = value!;
               });
               _saveHelpPagePreference();
             },
@@ -226,7 +226,7 @@ class _HelpPageState extends State<HelpPage> {
             child: Text('Continue to MotoReMinder'),
             onPressed: () async {
               SharedPreferences prefs = await SharedPreferences.getInstance();
-              await prefs.setBool('showHelpPage', _showHelpPage);
+              await prefs.setBool('hideHelpPage', _hideHelpPage);
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => CarPageWidget()));
             },

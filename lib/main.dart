@@ -25,8 +25,8 @@ class MyApp extends StatelessWidget {
           if (!snapshot.hasData) {
             return CircularProgressIndicator();
           }
-          var showHelpPage = snapshot.data!.getBool('showHelpPage') ?? true;
-          return showHelpPage ? CarPageWidget() : HelpPage();
+          var hideHelpPage = snapshot.data!.getBool('hideHelpPage') ?? true;
+          return hideHelpPage ? CarPageWidget() : HelpPage();
         },
       ),
     );
