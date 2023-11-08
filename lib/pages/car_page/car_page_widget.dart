@@ -1,6 +1,9 @@
 import 'package:moto_re_minder/edit_page/edit_page_widget.dart';
 import 'package:moto_re_minder/car_object.dart';
+import 'package:moto_re_minder/index.dart';
 import 'package:moto_re_minder/pages/checklist_page/checklist_page.dart';
+import 'package:moto_re_minder/pages/help_page/help_page.dart';
+import 'package:moto_re_minder/settings_page/settings_page_widget.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'package:flutter/material.dart';
@@ -30,6 +33,13 @@ class _CarPageWidgetState extends State<CarPageWidget> {
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
+      if (_currentIndex == 0) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => HelpPage()),
+        );
+      }
+      // Handle other index values if needed
       if (_currentIndex == 1) {
         Navigator.push(
           context,
@@ -70,9 +80,37 @@ class _CarPageWidgetState extends State<CarPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar( //title at the top
-        //center text
         centerTitle: true,
         title: Text('Welcome to MotoReMinder!'),
+         actions: <Widget>[
+            PopupMenuButton<int>(
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  value: 1,
+                  child: Text("Help Page"),
+                ),
+                PopupMenuItem(
+                  value: 2,
+                  child: Text("Settings Page"),
+                ),
+              ],
+              onSelected: (value) {
+                // if (value == 1) {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(builder: (context) => HelpPage()),
+                //   );
+                //} else 
+                if (value == 2) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SettingsPageWidget(onThemeChanged: (bool value) {  },)),
+                  );
+                }
+              },
+    ),
+  ],
+
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -107,6 +145,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                     color: Colors.blueAccent,
                     borderRadius: BorderRadius.circular(10.0),
                     image: DecorationImage(
+
                       //image: AssetImage('assets/images/appIcon.png'),
                       image: car.imageProvider ?? AssetImage('assets/images/appIcon.png'), // provide a default image in case car.picture is null
                       fit: BoxFit.cover,
