@@ -12,8 +12,19 @@ class SettingsPageWidget extends StatefulWidget {
 }
 
 class _SettingsPageWidgetState extends State<SettingsPageWidget> {
+
   bool _notificationsEnabled = true;
   bool _darkModeEnabled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    SharedPreferences.getInstance().then((prefs) {
+      setState(() {
+        _darkModeEnabled = prefs.getBool('isDarkModeEnabled') ?? false;
+    });
+  });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -75,15 +86,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   ));
                 }
                 // Save the chosen dark mode setting
-                  @override
-                  void initState() {
-                  super.initState();
-                  SharedPreferences.getInstance().then((prefs) {
-                  setState(() {
-                  _darkModeEnabled = prefs.getBool('isDarkModeEnabled') ?? false;
-    });
-  });
-}
+                  
                 
 
               },
