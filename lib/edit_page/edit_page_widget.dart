@@ -10,8 +10,9 @@ import 'package:path_provider/path_provider.dart';
 
 class EditPageWidget extends StatefulWidget {
   final Car? car; //optional car object if you're editing a car
+  final ValueChanged<bool> onThemeChanged;
 
-  EditPageWidget({this.car});
+  EditPageWidget({this.car, required this.onThemeChanged});
 
   @override
   _EditPageWidgetState createState() => _EditPageWidgetState();
@@ -137,7 +138,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
 Navigator.of(context).push(
   MaterialPageRoute(
     builder: (BuildContext context) {
-      return CarPageWidget();
+      return CarPageWidget(onThemeChanged: widget.onThemeChanged);
     },
   ),
 );
@@ -186,7 +187,7 @@ Navigator.of(context).push(
        Navigator.of(context).push(
       MaterialPageRoute(
         builder: (BuildContext context) {
-          return CarPageWidget();
+          return CarPageWidget(onThemeChanged: widget.onThemeChanged);
         },
       ),
     );
@@ -770,7 +771,7 @@ saveToFile(car.nickname + ".mrm", car);
 
       //This in theory should automatically switch to car with the new car; but something seems off.
       await Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context){
-        return CarPageWidget();
+        return CarPageWidget(onThemeChanged: widget.onThemeChanged);
         }
       )
       );

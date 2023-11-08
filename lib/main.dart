@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
         brightness: Brightness.dark,
       ),
       themeMode: _darkModeEnabled ? ThemeMode.dark : ThemeMode.light,
-      home: CarPageWidget(),
+      home: CarPageWidget(onThemeChanged: _onThemeChanged),
     );
   }
 }
