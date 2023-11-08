@@ -134,7 +134,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ChecklistPage(car: car)),
+                    MaterialPageRoute(builder: (context) => ChecklistPage(car: car, onThemeChanged: widget.onThemeChanged,)),
                   );
                 },
                 onLongPress: () { //hold to edit car

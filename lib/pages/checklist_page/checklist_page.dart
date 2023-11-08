@@ -6,8 +6,9 @@ export 'home_page_model.dart';
 
 class ChecklistPage extends StatelessWidget {
   final Car car;
+  final ValueChanged<bool> onThemeChanged;
 
-  const ChecklistPage({required this.car});
+  const ChecklistPage({required this.car, required this.onThemeChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class ChecklistPage extends StatelessWidget {
             onPressed: () {
               // Navigate to the Settings Page
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SettingsPageWidget(onThemeChanged: (bool value) {  },),
+                builder: (context) => SettingsPageWidget(onThemeChanged: onThemeChanged),
               ));
             },
           ),
@@ -39,6 +40,7 @@ class ChecklistPage extends StatelessWidget {
                   SizedBox(
                     height: 30, // Adjust this value to change the height of the progress bar
                     child: LinearProgressIndicator(value: car.oilChangeProgress.toDouble(),
+                                                    //this is what makes it dynamically color changing
                                                     valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.oilChangeProgress)),
                                                     backgroundColor: Color.fromARGB(193, 0, 0, 0),)
                   ),
@@ -246,6 +248,7 @@ class ChecklistPage extends StatelessWidget {
     );
   }
 
+//this is used to define when the colors change
   Color getProgressColor(num remaining) {
   if (remaining < 0.25 ) {
     return Colors.red;
