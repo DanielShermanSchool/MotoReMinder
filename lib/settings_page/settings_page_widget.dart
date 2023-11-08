@@ -14,7 +14,7 @@ class SettingsPageWidget extends StatefulWidget {
 class _SettingsPageWidgetState extends State<SettingsPageWidget> {
 
   bool _notificationsEnabled = true;
-  bool _darkModeEnabled = true;
+  bool _darkModeEnabled = false;
 
   @override
   void initState() {
