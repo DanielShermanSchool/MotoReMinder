@@ -75,9 +75,7 @@ class _HelpPageState extends State<HelpPage> {
                         flex: 9,
                         child: Text(
                           'This will take you to the new/edit car page where you can enter all the information about your car.',
-                          style: TextStyle(
-                            color: Colors
-                                .white, // Change this to your desired color
+                          style: TextStyle( // Change this to your desired color
                           ),
                         ),
                       ),
@@ -98,9 +96,7 @@ class _HelpPageState extends State<HelpPage> {
                         flex: 9,
                         child: Text(
                           'Among the information to be filled, you will be asked to give the car a nickname. Nicknames are required to differentiate between other cars you may add.',
-                          style: TextStyle(
-                            color: Colors
-                                .white, // Change this to your desired color
+                          style: TextStyle( // Change this to your desired color
                           ),
                         ),
                       ),
@@ -121,9 +117,7 @@ class _HelpPageState extends State<HelpPage> {
                         flex: 9,
                         child: Text(
                           "While filling out your car's maintenance intervals, be sure to refer to your car's owners manual for the correct maintenance intervals.",
-                          style: TextStyle(
-                            color: Colors
-                                .white, // Change this to your desired color
+                          style: TextStyle( // Change this to your desired color
                           ),
                         ),
                       ),
@@ -144,9 +138,7 @@ class _HelpPageState extends State<HelpPage> {
                         flex: 9,
                         child: Text(
                           "If you are unsure or have no record of the last mileage at which you performed a certain maintenance, you can leave a zero in that box. You will be able to edit this later once you are certain of the last changed mileage.",
-                          style: TextStyle(
-                            color: Colors
-                                .white, // Change this to your desired color
+                          style: TextStyle( // Change this to your desired color
                           ),
                         ),
                       ),
@@ -178,9 +170,7 @@ class _HelpPageState extends State<HelpPage> {
                         flex: 9,
                         child: Text(
                           'Taping the icon of your car will show you the progress bars detailing how many miles are left until you need to perform a maintenance task.',
-                          style: TextStyle(
-                            color: Colors
-                                .white, // Change this to your desired color
+                          style: TextStyle( // Change this to your desired color
                           ),
                         ),
                       ),
@@ -200,9 +190,7 @@ class _HelpPageState extends State<HelpPage> {
                         flex: 9,
                         child: Text(
                           'Tap and hold the icon of your car will allow you to edit the intevrals and last changed mileage of your car.',
-                          style: TextStyle(
-                            color: Colors
-                                .white, // Change this to your desired color
+                          style: TextStyle( // Change this to your desired color
                           ),
                         ),
                       ),
@@ -228,7 +216,7 @@ class _HelpPageState extends State<HelpPage> {
               SharedPreferences prefs = await SharedPreferences.getInstance();
               await prefs.setBool('hideHelpPage', _hideHelpPage);
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => CarPageWidget()));
+                  MaterialPageRoute(builder: (context) => CarPageWidget(onThemeChanged: (bool value) { false; },)));
             },
           ),
         ],
