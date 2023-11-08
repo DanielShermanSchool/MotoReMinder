@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsPageWidget extends StatefulWidget {
   final ValueChanged<bool> onThemeChanged;  
@@ -44,14 +45,16 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
               },
               //secondary: const Icon(Icons.lightbulb_outline),
             ),
-           /* SwitchListTile(
+            SwitchListTile(
               title: const Text('Dark Mode'),
               value: _darkModeEnabled,
-              onChanged: (bool value) {
-                setState(() {
-                  _darkModeEnabled = value;
-                });
-                widget.onThemeChanged(_darkModeEnabled);
+              onChanged: (bool value) async {
+              setState(() {
+              _darkModeEnabled = value;
+                  });
+              widget.onThemeChanged(_darkModeEnabled);
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool('isDarkModeEnabled', _darkModeEnabled);
                 if (_darkModeEnabled) {
                   // Enable dark mode
                   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -69,9 +72,21 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                     systemNavigationBarIconBrightness: Brightness.dark,
                   ));
                 }
+                // Save the chosen dark mode setting
+                  @override
+                  void initState() {
+                  super.initState();
+                  SharedPreferences.getInstance().then((prefs) {
+                  setState(() {
+                  _darkModeEnabled = prefs.getBool('isDarkModeEnabled') ?? false;
+    });
+  });
+}
+                
+
               },
               //secondary: const Icon(Icons.lightbulb_outline),
-            ),*/
+            ),
           ],
         ),
       ),
