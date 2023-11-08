@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -56,16 +57,6 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('notificationsEnabled', value);
   }
-
-  @override
-  void initState() {
-    super.initState();
-    SharedPreferences.getInstance().then((prefs) {
-      setState(() {
-        _darkModeEnabled = prefs.getBool('isDarkModeEnabled') ?? false;
-    });
-  });
-}
 
   @override
   Widget build(BuildContext context) {
