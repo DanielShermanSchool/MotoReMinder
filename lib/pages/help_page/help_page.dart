@@ -9,7 +9,6 @@ class HelpPage extends StatefulWidget {
 
 class _HelpPageState extends State<HelpPage> {
   bool _hideHelpPage = false;
-  
 
   @override
   void initState() {

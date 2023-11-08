@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import
+
 import 'package:moto_re_minder/edit_page/edit_page_widget.dart';
 import 'package:moto_re_minder/car_object.dart';
 import 'package:moto_re_minder/index.dart';
@@ -15,7 +17,8 @@ import 'dart:io';
 
 class CarPageWidget extends StatefulWidget {
   final Car? car;
-  CarPageWidget({this.car});
+  final ValueChanged<bool> onThemeChanged;
+  CarPageWidget({this.car, required this.onThemeChanged});
 
   @override
   _CarPageWidgetState createState() => _CarPageWidgetState();
@@ -43,7 +46,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
       if (_currentIndex == 1) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => EditPageWidget()),
+          MaterialPageRoute(builder: (context) => EditPageWidget(onThemeChanged: widget.onThemeChanged)),
         );
       }
       // Handle other index values if needed
@@ -104,7 +107,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                 if (value == 2) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SettingsPageWidget(onThemeChanged: (bool value) {  },)),
+                    MaterialPageRoute(builder: (context) => SettingsPageWidget(onThemeChanged: widget.onThemeChanged)),
                   );
                 }
               },
@@ -131,13 +134,13 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ChecklistPage(car: car)),
+                    MaterialPageRoute(builder: (context) => ChecklistPage(car: car, onThemeChanged: widget.onThemeChanged,)),
                   );
                 },
                 onLongPress: () { //hold to edit car
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => EditPageWidget(car: car)),
+                      MaterialPageRoute(builder: (context) => EditPageWidget(car: car, onThemeChanged: widget.onThemeChanged,)),
                     );      },
                 child: Container(
                   margin: EdgeInsets.all(10.0),
@@ -145,8 +148,9 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                     color: Colors.blueAccent,
                     borderRadius: BorderRadius.circular(10.0),
                     image: DecorationImage(
-                      image: AssetImage('assets/images/anCar.png'),
-                      //image: car.imageProvider ?? AssetImage('assets/images/appIcon.png'), // provide a default image in case car.picture is null
+
+                      //image: AssetImage('assets/images/appIcon.png'),
+                      image: car.imageProvider ?? AssetImage('assets/images/appIcon.png'), // provide a default image in case car.picture is null
                       fit: BoxFit.cover,
                     ),
                   ),

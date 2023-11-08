@@ -58,6 +58,16 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    SharedPreferences.getInstance().then((prefs) {
+      setState(() {
+        _darkModeEnabled = prefs.getBool('isDarkModeEnabled') ?? false;
+    });
+  });
+}
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -73,6 +83,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
           },
         ),
       ),
+      // Notifications toggle button
       body: Container(
         child: Column(
           children: [
@@ -88,7 +99,43 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   }
                 });
               },
-            )
+              //secondary: const Icon(Icons.lightbulb_outline),
+            ),
+            // Dark mode toggle button 
+            SwitchListTile(
+              title: const Text('Dark Mode'),
+              value: _darkModeEnabled,
+              onChanged: (bool value) async {
+              setState(() {
+              _darkModeEnabled = value;
+                  });
+              widget.onThemeChanged(_darkModeEnabled);
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool('isDarkModeEnabled', _darkModeEnabled);
+                if (_darkModeEnabled) {
+                  // Enable dark mode
+                  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+                    statusBarColor: Colors.black,
+                    statusBarIconBrightness: Brightness.light,
+                    systemNavigationBarColor: Colors.black,
+                    systemNavigationBarIconBrightness: Brightness.light,
+                  ));
+                } else {
+                  // Disable dark mode
+                  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+                    statusBarColor: Colors.white,
+                    statusBarIconBrightness: Brightness.dark,
+                    systemNavigationBarColor: Colors.white,
+                    systemNavigationBarIconBrightness: Brightness.dark,
+                  ));
+                }
+                // Save the chosen dark mode setting
+                  
+                
+
+              },
+              //secondary: const Icon(Icons.lightbulb_outline),
+            ),
           ],
         ),
       ),
