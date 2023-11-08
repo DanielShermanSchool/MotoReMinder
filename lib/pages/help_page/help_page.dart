@@ -32,7 +32,7 @@ class _HelpPageState extends State<HelpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Info'),
+        title: Text('Info Page'),
       ),
       body: SingleChildScrollView(
         child: Column(
