@@ -38,7 +38,8 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30, // Adjust this value to change the height of the progress bar
-                    child: LinearProgressIndicator(value: car.oilChangeProgress.toDouble()),
+                    child: LinearProgressIndicator(value: car.oilChangeProgress.toDouble(),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(math.max(0, (car.intervalEngineOilAndFilter)-(car.mileage - car.lastChangedEngineOilAndFilter))))),
                   ),
                   Center(
                     child: Text('${math.max(0, (car.intervalEngineOilAndFilter)-(car.mileage - car.lastChangedEngineOilAndFilter))} Miles Left'),
@@ -243,4 +244,15 @@ class ChecklistPage extends StatelessWidget {
       ),
     );
   }
+
+  Color getProgressColor(num remaining) {
+  if (remaining < 500 ) {
+    return Colors.red;
+  } else if (remaining < 1000) {
+    return Colors.yellow;
+  } else {
+    return Colors.green;
+  }
+}
+
 }
