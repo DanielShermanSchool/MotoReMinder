@@ -54,8 +54,11 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.tireRotationProgress.toDouble()),
-                  ),
+                    child: LinearProgressIndicator(value: car.tireRotationProgress.toDouble(),                                                    //this is what makes it dynamically color changing
+                                                   // 
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.tireRotationProgress)),
+                                                    backgroundColor: Color.fromARGB(193, 0, 0, 0),)),
+                  
                   Center(
                     child: Text('${math.max(0, (car.intervalTireRotation)-(car.mileage - car.lastChangedTireRotation))} Miles Left'),
                   ),
@@ -66,8 +69,10 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.brakeInspectionProgress.toDouble()),
-                  ),
+                    child: LinearProgressIndicator(value: car.brakeInspectionProgress.toDouble(),
+                                                                      //this is what makes it dynamically color changing
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.oilChangeProgress)),
+                                                    backgroundColor: Color.fromARGB(193, 0, 0, 0),)),
                   Center(
                     child: Text('${math.max(0, (car.intervalBrakeInspection)-(car.mileage - car.lastChangedBrakeInspection))} Miles Left'),
                   ),
