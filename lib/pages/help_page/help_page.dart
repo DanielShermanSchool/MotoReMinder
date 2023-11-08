@@ -228,7 +228,7 @@ class _HelpPageState extends State<HelpPage> {
               SharedPreferences prefs = await SharedPreferences.getInstance();
               await prefs.setBool('hideHelpPage', _hideHelpPage);
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => CarPageWidget()));
+                  MaterialPageRoute(builder: (context) => CarPageWidget(onThemeChanged: (bool value) {  },)));
             },
           ),
         ],

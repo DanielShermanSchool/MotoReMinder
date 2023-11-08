@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
             return CircularProgressIndicator();
           }
           var hideHelpPage = snapshot.data!.getBool('hideHelpPage') ?? true;
-          return hideHelpPage ? CarPageWidget() : HelpPage();
+          return hideHelpPage ? CarPageWidget(onThemeChanged: (bool value) { _onThemeChanged(value); },) : HelpPage();
         },
       ),
     );
