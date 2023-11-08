@@ -32,6 +32,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
           },
         ),
       ),
+      // Notifications toggle button
       body: Container(
         child: Column(
           children: [
@@ -45,6 +46,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
               },
               //secondary: const Icon(Icons.lightbulb_outline),
             ),
+            // Dark mode toggle button 
             SwitchListTile(
               title: const Text('Dark Mode'),
               value: _darkModeEnabled,
