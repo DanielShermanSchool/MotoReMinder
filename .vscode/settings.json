@@ -1,5 +1,6 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "java.configuration.updateBuildConfiguration": "automatic",
-    "dotnet.defaultSolution": "disable"
+    "dotnet.defaultSolution": "disable",
+    "cmake.sourceDirectory": "C:/Users/spx98/OneDrive/Documents/GitHub/MotoReMinder/android/flutter/dev/benchmarks/complex_layout/windows"
 }
