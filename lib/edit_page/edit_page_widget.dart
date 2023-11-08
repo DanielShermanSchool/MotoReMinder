@@ -7,6 +7,7 @@ import 'package:moto_re_minder/edit_page/edit_page_model.dart';
 import 'package:moto_re_minder/index.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:image_picker/image_picker.dart';
 
 class EditPageWidget extends StatefulWidget {
   final Car? car; //optional car object if you're editing a car
@@ -20,7 +21,11 @@ class EditPageWidget extends StatefulWidget {
 
 class _EditPageWidgetState extends State<EditPageWidget> {
 
-   late EditPageModel _model;
+  late EditPageModel _model;
+  File? _pickedImageFile;
+  ImageProvider? _pickedImageProvider;
+
+  ImageProvider<Object>? get imagePath => null;
 
   @override
   void initState() {
@@ -119,6 +124,24 @@ class _EditPageWidgetState extends State<EditPageWidget> {
   void dispose() {
 
     super.dispose();
+  }
+
+  Future<String?> _pickImage(ImageSource source) async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.getImage(source: source);
+
+    if (pickedImage != null) {
+      setState(() {
+        _pickedImageFile = File(pickedImage.path);
+        _pickedImageProvider = FileImage(_pickedImageFile!);
+      });
+
+      // Return the path of the selected image
+      return pickedImage.path;
+    } else {
+      print('No image selected.');
+      return null;
+    }
   }
 
   @override
@@ -722,9 +745,10 @@ Padding(padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
   _savedtirechanged = num.tryParse(_model.tiresChanged!.text) ?? 0;
   _savedSuspensionInspection = num.tryParse(_model.lastSuspensionInspection!.text) ?? 0;
 });
+
 //Declaration of the car object, which allows this to actuall work.
 Car car = Car(
-  null,
+  _pickedImageProvider,
   _savedmileage,
   _savedyear,
   _savedmake,
@@ -781,13 +805,50 @@ saveToFile(car.nickname + ".mrm", car);
       style: TextStyle(fontSize: 15.0),
     ),
   ),
+  
 ),
+
             ],
             
           ),
         ),
         
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          // Show options for image selection (gallery or camera)
+          showModalBottomSheet(
+            context: context,
+            builder: (BuildContext context) {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ListTile(
+                    leading: Icon(Icons.photo_library),
+                    title: Text('Pick from Gallery'),
+                    onTap: () {
+                      _pickImage(ImageSource.gallery);
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.camera_alt),
+                    title: Text('Take a Photo'),
+                    onTap: () {
+                      _pickImage(ImageSource.camera);
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        },
+        tooltip: 'Pick Image',
+        label: Text('Add Picture'),
+        icon: Icon(Icons.add_a_photo),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       );
   }
   //Basic save function.
@@ -814,3 +875,4 @@ saveToFile(car.nickname + ".mrm", car);
 }
 
 
+}
