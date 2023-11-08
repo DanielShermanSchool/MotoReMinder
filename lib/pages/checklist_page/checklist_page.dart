@@ -71,7 +71,7 @@ class ChecklistPage extends StatelessWidget {
                     height: 30,
                     child: LinearProgressIndicator(value: car.brakeInspectionProgress.toDouble(),
                                                                       //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.oilChangeProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.brakeInspectionProgress)),
                                                     backgroundColor: Color.fromARGB(193, 0, 0, 0),)),
                   Center(
                     child: Text('${math.max(0, (car.intervalBrakeInspection)-(car.mileage - car.lastChangedBrakeInspection))} Miles Left'),
