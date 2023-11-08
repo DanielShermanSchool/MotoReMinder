@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'index.dart';
+import 'package:moto_re_minder/pages/car_page/car_page_widget.dart';
+import 'package:moto_re_minder/pages/help_page/help_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
- runApp(MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -38,7 +39,17 @@ class _MyAppState extends State<MyApp> {
         brightness: Brightness.dark,
       ),
       themeMode: _darkModeEnabled ? ThemeMode.dark : ThemeMode.light,
-      home: CarPageWidget(onThemeChanged: _onThemeChanged),
+      home: FutureBuilder(
+        future: SharedPreferences.getInstance(),
+        builder:
+            (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
+          if (!snapshot.hasData) {
+            return CircularProgressIndicator();
+          }
+          var hideHelpPage = snapshot.data!.getBool('hideHelpPage') ?? true;
+          return hideHelpPage ? CarPageWidget() : HelpPage();
+        },
+      ),
     );
   }
 }
