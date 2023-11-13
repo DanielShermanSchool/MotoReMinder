@@ -127,7 +127,7 @@ class _CarPageWidgetState extends State<CarPageWidget> {
           ),
         ),
         child: GridView.count( //grid of cars
-            crossAxisCount: 4, //number of cars per row
+            crossAxisCount: 2, //number of cars per row
             children: cars.map((car) { //for each car in the list of cars, make a button that can be clicked and navigates
             //to the checklist page, passing through the car you clicked on as an object to the checklist page
               return GestureDetector(
