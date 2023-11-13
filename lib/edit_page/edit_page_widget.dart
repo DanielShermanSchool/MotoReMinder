@@ -8,6 +8,7 @@ import 'package:moto_re_minder/index.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:image_picker/image_picker.dart';
+import 'dart:io' show Platform;
 
 class EditPageWidget extends StatefulWidget {
   final Car? car; //optional car object if you're editing a car
@@ -814,7 +815,7 @@ saveToFile(car.nickname + ".mrm", car);
         ),
         
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: Platform.isAndroid ? FloatingActionButton.extended(
         onPressed: () {
           // Show options for image selection (gallery or camera)
           showModalBottomSheet(
@@ -847,7 +848,7 @@ saveToFile(car.nickname + ".mrm", car);
         tooltip: 'Pick Image',
         label: Text('Add Picture'),
         icon: Icon(Icons.add_a_photo),
-      ),
+      ) : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       );
   }
