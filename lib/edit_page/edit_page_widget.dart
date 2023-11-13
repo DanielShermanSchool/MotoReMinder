@@ -144,6 +144,52 @@ class _EditPageWidgetState extends State<EditPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+
+    
+    _savedname = widget.car?.nickname ?? '';
+    _savedmileage = widget.car?.mileage ?? 0;
+    _savedmake = widget.car?.make ?? '';
+    _savedmodel = widget.car?.model ?? '';
+    _savedyear = widget.car?.year ?? 0;
+    _savedoilchanged = widget.car?.lastChangedEngineOilAndFilter ?? 0;
+    _savedoilinterval = widget.car?.intervalEngineOilAndFilter ?? 0;
+    _savedtransfluidchanged = widget.car?.lastChangedTransmissionFluid ?? 0;
+    _savedtransfluidinterval = widget.car?.intervalTransmissionFluid ?? 0;
+    _savedtransfilterchange = widget.car?.lastChangedTransmissionFilter ?? 0;
+    _savedtransfilterinterval = widget.car?.intervalTransFilter ?? 0;
+    _savedbrakeschanged = widget.car?.lastChangedBrakeFluid ?? 0;
+    _savedbrakesinterval = widget.car?.intervalBrakeFluid ?? 0;
+    _savedsparkschanged = widget.car?.lastChangedSparkPlugs ?? 0;
+    _savedsparksinterval = widget.car?.intervalSparkPlugs ?? 0;
+    _savedfuelfilterchanged = widget.car?.lastChangedFuelFilter ?? 0;
+    _savedfuelfilterinterval = widget.car?.intervalFuelFilter ?? 0;
+    _savedairfilterchanged = widget.car?.lastChangedAirFilter ?? 0;
+    _savedairfilterinterval = widget.car?.intervalAirFilter ?? 0;
+    _savedtirechanged = widget.car?.lastChangedTires ?? 0;
+    _savedtireinterval = widget.car?.intervalTires ?? 0;
+
+    _savedtrim = widget.car?.trim ?? '';
+    _savedtirerotationinterval = widget.car?.intervalTireRotation ?? 0;
+    _savedcoolantinterval = widget.car?.intervalEngineCoolant ?? 0;
+    _savedtimingbeltinterval = widget.car?.intervalTimingBeltChain ?? 0;
+    _savedwaterpumpinterval = widget.car?.intervalWaterPumpInspection ?? 0;
+    _saveddrivebeltinterval = widget.car?.intervalDriveBeltInspection ?? 0;
+    _savedbrakefluidinterval = widget.car?.intervalBrakeFluid ?? 0;
+    _savedcabinairfilterinterval = widget.car?.intervalCabinAirFilter ?? 0;
+    _savedfuelpumpinterval = widget.car?.intervalFuelPump ?? 0;
+    _savedSuspensionInspectionInterval = widget.car?.intervalSuspensionInspection ?? 0;
+
+    _savedtirerotationchanged = widget.car?.lastChangedTireRotation ?? 0;
+    _savedcoolantchanged = widget.car?.lastChangedEngineCoolant ?? 0;
+    _savedtimingbeltchanged = widget.car?.lastChangedTimingBeltChain ?? 0;
+    _savedwaterpumpchanged = widget.car?.lastChangedWaterPumpInspection ?? 0;
+    _saveddrivebeltchanged = widget.car?.lastChangedDriveBeltInspection ?? 0;
+    _savedbrakefluidchanged = widget.car?.lastChangedBrakeFluid ?? 0;
+    _savedcabinairfilterchanged = widget.car?.lastChangedCabinAirFilter ?? 0;
+    _savedfuelpumpchanged = widget.car?.lastChangedFuelPump ?? 0;
+    _savedSuspensionInspection = widget.car?.lastSuspensionInspection ?? 0;
+
+
     return Scaffold(
       appBar: AppBar(
         //backgroundColor: Colors.grey, // Change to your desired color
@@ -347,7 +393,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedmileage = int.tryParse(value) ?? 0;
+                          _savedmileage = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -372,7 +418,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedoilinterval = int.tryParse(value) ?? 5000;
+                          _savedoilinterval = num.tryParse(value) ?? 5000;
                         });
                       },
                       inputFormatters: [
@@ -395,7 +441,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtransfluidinterval = int.tryParse(value) ?? 30000;
+                          _savedtransfluidinterval = num.tryParse(value) ?? 30000;
                         });
                       },
                       inputFormatters: [
@@ -418,7 +464,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtransfilterinterval = int.tryParse(value) ?? 30000;
+                          _savedtransfilterinterval = num.tryParse(value) ?? 30000;
                         });
                       },
                       inputFormatters: [
@@ -441,7 +487,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedbrakefluidinterval = int.tryParse(value) ?? 50000;
+                          _savedbrakefluidinterval = num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -464,7 +510,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedbrakesinterval = int.tryParse(value) ?? 50000;
+                          _savedbrakesinterval = num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -487,7 +533,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedsparksinterval = int.tryParse(value) ?? 100000;
+                          _savedsparksinterval = num.tryParse(value) ?? 100000;
                         });
                       },
                       inputFormatters: [
@@ -510,7 +556,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedfuelfilterinterval = int.tryParse(value) ?? 50000;
+                          _savedfuelfilterinterval = num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -533,7 +579,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedairfilterinterval = int.tryParse(value) ?? 50000;
+                          _savedairfilterinterval = num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -556,7 +602,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedcabinairfilterinterval = int.tryParse(value) ?? 100000;
+                          _savedcabinairfilterinterval = num.tryParse(value) ?? 100000;
                         });
                       },
                       inputFormatters: [
@@ -579,7 +625,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtimingbeltinterval = int.tryParse(value) ?? 100000;
+                          _savedtimingbeltinterval = num.tryParse(value) ?? 100000;
                         });
                       },
                       inputFormatters: [
@@ -602,7 +648,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _saveddrivebeltinterval = int.tryParse(value) ?? 50000;
+                          _saveddrivebeltinterval = num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -625,7 +671,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedwaterpumpinterval = int.tryParse(value) ?? 50000;
+                          _savedwaterpumpinterval = num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -648,7 +694,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedfuelpumpinterval = int.tryParse(value) ?? 50000;
+                          _savedfuelpumpinterval = num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -671,7 +717,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedcoolantinterval = int.tryParse(value) ?? 50000;
+                          _savedcoolantinterval = num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -694,7 +740,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedSuspensionInspectionInterval = int.tryParse(value) ?? 50000;
+                          _savedSuspensionInspectionInterval = num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -717,7 +763,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtirerotationinterval = int.tryParse(value) ?? 5000;
+                          _savedtirerotationinterval = num.tryParse(value) ?? 5000;
                         });
                       },
                       inputFormatters: [
@@ -741,7 +787,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtireinterval = int.tryParse(value) ?? 30000;
+                          _savedtireinterval = num.tryParse(value) ?? 30000;
                         });
                       },
                       inputFormatters: [
@@ -765,7 +811,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedoilchanged = int.tryParse(value) ?? 0;
+                          _savedoilchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -787,7 +833,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtransfluidchanged = int.tryParse(value) ?? 0;
+                          _savedtransfluidchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -809,7 +855,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtransfilterchange = int.tryParse(value) ?? 0;
+                          _savedtransfilterchange = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -831,7 +877,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedbrakefluidchanged = int.tryParse(value) ?? 0;
+                          _savedbrakefluidchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -853,7 +899,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedbrakeschanged = int.tryParse(value) ?? 0;
+                          _savedbrakeschanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -875,7 +921,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedsparkschanged = int.tryParse(value) ?? 0;
+                          _savedsparkschanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -897,7 +943,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedfuelfilterchanged = int.tryParse(value) ?? 0;
+                          _savedfuelfilterchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -919,7 +965,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedairfilterchanged = int.tryParse(value) ?? 0;
+                          _savedairfilterchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -941,7 +987,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedcabinairfilterchanged = int.tryParse(value) ?? 0;
+                          _savedcabinairfilterchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -963,7 +1009,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtimingbeltchanged = int.tryParse(value) ?? 0;
+                          _savedtimingbeltchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -986,7 +1032,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _saveddrivebeltchanged = int.tryParse(value) ?? 0;
+                          _saveddrivebeltchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -1009,7 +1055,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedwaterpumpchanged = int.tryParse(value) ?? 0;
+                          _savedwaterpumpchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -1031,7 +1077,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedfuelpumpchanged = int.tryParse(value) ?? 0;
+                          _savedfuelpumpchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -1053,7 +1099,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedcoolantchanged = int.tryParse(value) ?? 0;
+                          _savedcoolantchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -1075,7 +1121,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedSuspensionInspection = int.tryParse(value) ?? 0;
+                          _savedSuspensionInspection = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -1097,7 +1143,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtirerotationchanged = int.tryParse(value) ?? 0;
+                          _savedtirerotationchanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -1119,7 +1165,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtirechanged = int.tryParse(value) ?? 0;
+                          _savedtirechanged = num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
