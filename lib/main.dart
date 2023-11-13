@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'MotoReMinder',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        primarySwatch: Colors.indigo,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
