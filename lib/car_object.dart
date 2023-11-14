@@ -373,7 +373,7 @@ class Car { //start of car class, class scope variables (car attributes)
     List<String> carList = carString.split(', ');
 
     return Car(
-        carList[0] != null ? FileImage(File(carList[0])) : null,
+        carList[0].isNotEmpty ? FileImage(File(carList[0])) : null,
         num.parse(carList[1]),
         int.parse(carList[2]),
         carList[3],

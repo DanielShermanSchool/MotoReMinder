@@ -20,7 +20,7 @@ class EditPageWidget extends StatefulWidget {
 }
 
 class _EditPageWidgetState extends State<EditPageWidget> {
-  late EditPageModel _model;
+  //late EditPageModel _model;
   File? _pickedImageFile;
   ImageProvider? _pickedImageProvider;
 
@@ -29,95 +29,51 @@ class _EditPageWidgetState extends State<EditPageWidget> {
   @override
   void initState() {
     super.initState();
-    _model = new EditPageModel();
-
-    _model.carName ??= TextEditingController();
-    _model.carMake ??= TextEditingController();
-    _model.carModel ??= TextEditingController();
-    _model.carYear ??= TextEditingController();
-    _model.carTrim ??= TextEditingController();
-    _model.carMileage ??= TextEditingController();
-
-    _model.oilChanged ??= TextEditingController();
-    _model.oilInterval ??= TextEditingController();
-    _model.transChanged ??= TextEditingController();
-    _model.transInterval ??= TextEditingController();
-    _model.transFilterChanged ??= TextEditingController();
-    _model.transFilterInterval ??= TextEditingController();
-    _model.brakesChanged ??= TextEditingController();
-    _model.brakesInterval ??= TextEditingController();
-    _model.sparksChanged ??= TextEditingController();
-    _model.sparksInterval ??= TextEditingController();
-    _model.ffilterChanged ??= TextEditingController();
-    _model.ffilterInterval ??= TextEditingController();
-    _model.afilterChanged ??= TextEditingController();
-    _model.afilterInterval ??= TextEditingController();
-    _model.tiresChanged ??= TextEditingController();
-    _model.tiresInterval ??= TextEditingController();
-
-    _model.tireRotationInterval ??= TextEditingController();
-    _model.coolantInterval ??= TextEditingController();
-    _model.timingBeltInterval ??= TextEditingController();
-    _model.waterPumpInterval ??= TextEditingController();
-    _model.driveBeltInterval ??= TextEditingController();
-    _model.brakeFluidInterval ??= TextEditingController();
-    _model.cabinAirFilterInterval ??= TextEditingController();
-    _model.fuelPumpInterval ??= TextEditingController();
-
-    _model.tireRotationChanged ??= TextEditingController();
-    _model.coolantChanged ??= TextEditingController();
-    _model.timingBeltChanged ??= TextEditingController();
-    _model.waterPumpChanged ??= TextEditingController();
-    _model.driveBeltChanged ??= TextEditingController();
-    _model.brakeFluidChanged ??= TextEditingController();
-    _model.cabinAirFilterChanged ??= TextEditingController();
-    _model.fuelPumpChanged ??= TextEditingController();
-    _model.lastSuspensionInspection ??= TextEditingController();
-    _model.suspensionInspectionInterval ??= TextEditingController();
+    
   }
 
-  String _savedname = '';
-  num _savedmileage = 0;
-  String _savedmake = '';
-  String _savedmodel = '';
-  int _savedyear = 0;
-  num _savedoilchanged = 0;
-  num _savedoilinterval = 0;
-  num _savedtransfluidchanged = 0;
-  num _savedtransfluidinterval = 0;
-  num _savedtransfilterchange = 0;
-  num _savedtransfilterinterval = 0;
-  num _savedbrakeschanged = 0;
-  num _savedbrakesinterval = 0;
-  num _savedsparkschanged = 0;
-  num _savedsparksinterval = 0;
-  num _savedfuelfilterchanged = 0;
-  num _savedfuelfilterinterval = 0;
-  num _savedairfilterchanged = 0;
-  num _savedairfilterinterval = 0;
-  num _savedtirechanged = 0;
-  num _savedtireinterval = 0;
+  late String _savedname;
+  late num _savedmileage;
+  late String _savedmake;
+  late String _savedmodel;
+  late int _savedyear;
+  late num _savedoilchanged;
+  late num _savedoilinterval;
+  late num _savedtransfluidchanged;
+  late num _savedtransfluidinterval;
+  late num _savedtransfilterchange;
+  late num _savedtransfilterinterval;
+  late num _savedbrakeschanged;
+  late num _savedbrakesinterval;
+  late num _savedsparkschanged;
+  late num _savedsparksinterval;
+  late num _savedfuelfilterchanged;
+  late num _savedfuelfilterinterval;
+  late num _savedairfilterchanged;
+  late num _savedairfilterinterval;
+  late num _savedtirechanged;
+  late num _savedtireinterval;
 
-  String _savedtrim = '';
-  num _savedtirerotationinterval = 0;
-  num _savedcoolantinterval = 0;
-  num _savedtimingbeltinterval = 0;
-  num _savedwaterpumpinterval = 0;
-  num _saveddrivebeltinterval = 0;
-  num _savedbrakefluidinterval = 0;
-  num _savedcabinairfilterinterval = 0;
-  num _savedfuelpumpinterval = 0;
-  num _savedSuspensionInspectionInterval = 0;
+  late String _savedtrim;
+  late num _savedtirerotationinterval;
+  late num _savedcoolantinterval;
+  late num _savedtimingbeltinterval;
+  late num _savedwaterpumpinterval;
+  late num _saveddrivebeltinterval;
+  late num _savedbrakefluidinterval;
+  late num _savedcabinairfilterinterval;
+  late num _savedfuelpumpinterval;
+  late num _savedSuspensionInspectionInterval;
 
-  num _savedtirerotationchanged = 0;
-  num _savedcoolantchanged = 0;
-  num _savedtimingbeltchanged = 0;
-  num _savedwaterpumpchanged = 0;
-  num _saveddrivebeltchanged = 0;
-  num _savedbrakefluidchanged = 0;
-  num _savedcabinairfilterchanged = 0;
-  num _savedfuelpumpchanged = 0;
-  num _savedSuspensionInspection = 0;
+  late num _savedtirerotationchanged;
+  late num _savedcoolantchanged;
+  late num _savedtimingbeltchanged;
+  late num _savedwaterpumpchanged;
+  late num _saveddrivebeltchanged;
+  late num _savedbrakefluidchanged;
+  late num _savedcabinairfilterchanged;
+  late num _savedfuelpumpchanged;
+  late num _savedSuspensionInspection;
 
   @override
   void dispose() {
