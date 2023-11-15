@@ -4,7 +4,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsPageWidget extends StatefulWidget {
-  final ValueChanged<bool> onThemeChanged;  
+  final ValueChanged<bool> onThemeChanged;
 
   const SettingsPageWidget({Key? key, required this.onThemeChanged}) : super(key: key);
 
@@ -15,22 +15,23 @@ class SettingsPageWidget extends StatefulWidget {
 class _SettingsPageWidgetState extends State<SettingsPageWidget> {
   bool _notificationsEnabled = false;
   bool _darkModeEnabled = false;
-  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
 
   @override
   void initState() {
     super.initState();
     initializeNotifications();
     loadNotificationPreference();
+    loadDarkModePreference();
   }
 
-  // Initialize notifications asynchronously
   Future<void> initializeNotifications() async {
-    var initializationSettingsAndroid = AndroidInitializationSettings('appicon1'); //Shows the icon on the notification
-    var initializationSettings = InitializationSettings(android: initializationSettingsAndroid); //Sets the initialization settings for android
-    
+    var initializationSettingsAndroid = AndroidInitializationSettings('appicon1');
+    var initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
+
     try {
-      await flutterLocalNotificationsPlugin.initialize(initializationSettings); //Basic test to make sure it works
+      await flutterLocalNotificationsPlugin.initialize(initializationSettings);
     } catch (e) {
       print("Failed to initialize notifications: $e");
     }
@@ -39,11 +40,11 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
   Future<void> _showNotification() async {
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
         'MotoReMinder', 'Reminder!',
-        importance: Importance.max, priority: Priority.high, showWhen: false); //Notification perameters
+        importance: Importance.max, priority: Priority.high, showWhen: false);
     var platformChannelSpecifics = NotificationDetails(android: androidPlatformChannelSpecifics);
     await flutterLocalNotificationsPlugin.show(
         0, 'Remember!', 'Don\'t forget to update your car info!', platformChannelSpecifics,
-        payload: 'item x'); //Notification and what it's supposed to show.
+        payload: 'item x');
   }
 
   Future<void> loadNotificationPreference() async {
@@ -56,6 +57,34 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
   Future<void> saveNotificationPreference(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('notificationsEnabled', value);
+  }
+
+  Future<void> loadDarkModePreference() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _darkModeEnabled = prefs.getBool('isDarkModeEnabled') ?? false;
+      widget.onThemeChanged(_darkModeEnabled);
+      if (_darkModeEnabled) {
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+          statusBarColor: Colors.black,
+          statusBarIconBrightness: Brightness.light,
+          systemNavigationBarColor: Colors.black,
+          systemNavigationBarIconBrightness: Brightness.light,
+        ));
+      } else {
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+          statusBarIconBrightness: Brightness.dark,
+          systemNavigationBarColor: Colors.white,
+          systemNavigationBarIconBrightness: Brightness.dark,
+        ));
+      }
+    });
+  }
+
+  Future<void> saveDarkModePreference(bool value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isDarkModeEnabled', value);
   }
 
   @override
@@ -74,7 +103,6 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
           },
         ),
       ),
-      // Notifications toggle button
       body: Container(
         child: Column(
           children: [
@@ -90,21 +118,17 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   }
                 });
               },
-              //secondary: const Icon(Icons.lightbulb_outline),
             ),
-            // Dark mode toggle button 
             SwitchListTile(
               title: const Text('Dark Mode'),
               value: _darkModeEnabled,
               onChanged: (bool value) async {
-              setState(() {
-              _darkModeEnabled = value;
-                  });
-              widget.onThemeChanged(_darkModeEnabled);
-              SharedPreferences prefs = await SharedPreferences.getInstance();
-              await prefs.setBool('isDarkModeEnabled', _darkModeEnabled);
+                setState(() {
+                  _darkModeEnabled = value;
+                });
+                widget.onThemeChanged(_darkModeEnabled);
+                await saveDarkModePreference(_darkModeEnabled);
                 if (_darkModeEnabled) {
-                  // Enable dark mode
                   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
                     statusBarColor: Colors.black,
                     statusBarIconBrightness: Brightness.light,
@@ -112,7 +136,6 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                     systemNavigationBarIconBrightness: Brightness.light,
                   ));
                 } else {
-                  // Disable dark mode
                   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
                     statusBarColor: Colors.white,
                     statusBarIconBrightness: Brightness.dark,
@@ -120,12 +143,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                     systemNavigationBarIconBrightness: Brightness.dark,
                   ));
                 }
-                // Save the chosen dark mode setting
-                  
-                
-
               },
-              //secondary: const Icon(Icons.lightbulb_outline),
             ),
           ],
         ),
