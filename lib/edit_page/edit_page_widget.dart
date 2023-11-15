@@ -29,7 +29,6 @@ class _EditPageWidgetState extends State<EditPageWidget> {
   @override
   void initState() {
     super.initState();
-    
   }
 
   late String _savedname;
@@ -75,11 +74,6 @@ class _EditPageWidgetState extends State<EditPageWidget> {
   late num _savedfuelpumpchanged;
   late num _savedSuspensionInspection;
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   Future<String?> _pickImage(ImageSource source) async {
     final picker = ImagePicker();
     final pickedImage = await picker.getImage(source: source);
@@ -100,41 +94,40 @@ class _EditPageWidgetState extends State<EditPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-
-    
     _savedname = widget.car?.nickname ?? '';
     _savedmileage = widget.car?.mileage ?? 0;
     _savedmake = widget.car?.make ?? '';
     _savedmodel = widget.car?.model ?? '';
-    _savedyear = widget.car?.year ?? 0;
-    _savedoilchanged = widget.car?.lastChangedEngineOilAndFilter ?? 0;
-    _savedoilinterval = widget.car?.intervalEngineOilAndFilter ?? 0;
-    _savedtransfluidchanged = widget.car?.lastChangedTransmissionFluid ?? 0;
-    _savedtransfluidinterval = widget.car?.intervalTransmissionFluid ?? 0;
-    _savedtransfilterchange = widget.car?.lastChangedTransmissionFilter ?? 0;
-    _savedtransfilterinterval = widget.car?.intervalTransFilter ?? 0;
-    _savedbrakeschanged = widget.car?.lastChangedBrakeFluid ?? 0;
-    _savedbrakesinterval = widget.car?.intervalBrakeFluid ?? 0;
-    _savedsparkschanged = widget.car?.lastChangedSparkPlugs ?? 0;
-    _savedsparksinterval = widget.car?.intervalSparkPlugs ?? 0;
-    _savedfuelfilterchanged = widget.car?.lastChangedFuelFilter ?? 0;
-    _savedfuelfilterinterval = widget.car?.intervalFuelFilter ?? 0;
-    _savedairfilterchanged = widget.car?.lastChangedAirFilter ?? 0;
-    _savedairfilterinterval = widget.car?.intervalAirFilter ?? 0;
-    _savedtirechanged = widget.car?.lastChangedTires ?? 0;
-    _savedtireinterval = widget.car?.intervalTires ?? 0;
-
     _savedtrim = widget.car?.trim ?? '';
-    _savedtirerotationinterval = widget.car?.intervalTireRotation ?? 0;
-    _savedcoolantinterval = widget.car?.intervalEngineCoolant ?? 0;
-    _savedtimingbeltinterval = widget.car?.intervalTimingBeltChain ?? 0;
-    _savedwaterpumpinterval = widget.car?.intervalWaterPumpInspection ?? 0;
-    _saveddrivebeltinterval = widget.car?.intervalDriveBeltInspection ?? 0;
-    _savedbrakefluidinterval = widget.car?.intervalBrakeFluid ?? 0;
-    _savedcabinairfilterinterval = widget.car?.intervalCabinAirFilter ?? 0;
-    _savedfuelpumpinterval = widget.car?.intervalFuelPump ?? 0;
-    _savedSuspensionInspectionInterval = widget.car?.intervalSuspensionInspection ?? 0;
+    _savedyear = widget.car?.year ?? 0;
 
+    _savedoilinterval = widget.car?.intervalEngineOilAndFilter ?? 5000;
+    _savedtransfluidinterval = widget.car?.intervalTransmissionFluid ?? 30000;
+    _savedtransfilterinterval = widget.car?.intervalTransFilter ?? 30000;
+    _savedbrakesinterval = widget.car?.intervalBrakeInspection ?? 50000;
+    _savedsparksinterval = widget.car?.intervalSparkPlugs ?? 100000;
+    _savedfuelfilterinterval = widget.car?.intervalFuelFilter ?? 50000;
+    _savedairfilterinterval = widget.car?.intervalAirFilter ?? 50000;
+    _savedtireinterval = widget.car?.intervalTires ?? 30000;
+    _savedtirerotationinterval = widget.car?.intervalTireRotation ?? 5000;
+    _savedcoolantinterval = widget.car?.intervalEngineCoolant ?? 50000;
+    _savedtimingbeltinterval = widget.car?.intervalTimingBeltChain ?? 100000;
+    _savedwaterpumpinterval = widget.car?.intervalWaterPumpInspection ?? 50000;
+    _saveddrivebeltinterval = widget.car?.intervalDriveBeltInspection ?? 50000;
+    _savedbrakefluidinterval = widget.car?.intervalBrakeFluid ?? 50000;
+    _savedcabinairfilterinterval = widget.car?.intervalCabinAirFilter ?? 100000;
+    _savedfuelpumpinterval = widget.car?.intervalFuelPump ?? 50000;
+    _savedSuspensionInspectionInterval =
+        widget.car?.intervalSuspensionInspection ?? 50000;
+
+    _savedtirechanged = widget.car?.lastChangedTires ?? 0;
+    _savedairfilterchanged = widget.car?.lastChangedAirFilter ?? 0;
+    _savedfuelfilterchanged = widget.car?.lastChangedFuelFilter ?? 0;
+    _savedsparkschanged = widget.car?.lastChangedSparkPlugs ?? 0;
+    _savedbrakeschanged = widget.car?.lastChangedBrakeInspection ?? 0;
+    _savedtransfilterchange = widget.car?.lastChangedTransmissionFilter ?? 0;
+    _savedtransfluidchanged = widget.car?.lastChangedTransmissionFluid ?? 0;
+    _savedoilchanged = widget.car?.lastChangedEngineOilAndFilter ?? 0;
     _savedtirerotationchanged = widget.car?.lastChangedTireRotation ?? 0;
     _savedcoolantchanged = widget.car?.lastChangedEngineCoolant ?? 0;
     _savedtimingbeltchanged = widget.car?.lastChangedTimingBeltChain ?? 0;
@@ -144,7 +137,6 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     _savedcabinairfilterchanged = widget.car?.lastChangedCabinAirFilter ?? 0;
     _savedfuelpumpchanged = widget.car?.lastChangedFuelPump ?? 0;
     _savedSuspensionInspection = widget.car?.lastSuspensionInspection ?? 0;
-
 
     return Scaffold(
       appBar: AppBar(
@@ -397,7 +389,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtransfluidinterval = num.tryParse(value) ?? 30000;
+                          _savedtransfluidinterval =
+                              num.tryParse(value) ?? 30000;
                         });
                       },
                       inputFormatters: [
@@ -420,7 +413,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtransfilterinterval = num.tryParse(value) ?? 30000;
+                          _savedtransfilterinterval =
+                              num.tryParse(value) ?? 30000;
                         });
                       },
                       inputFormatters: [
@@ -443,7 +437,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedbrakefluidinterval = num.tryParse(value) ?? 50000;
+                          _savedbrakefluidinterval =
+                              num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -512,7 +507,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedfuelfilterinterval = num.tryParse(value) ?? 50000;
+                          _savedfuelfilterinterval =
+                              num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -535,7 +531,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedairfilterinterval = num.tryParse(value) ?? 50000;
+                          _savedairfilterinterval =
+                              num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -558,7 +555,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedcabinairfilterinterval = num.tryParse(value) ?? 100000;
+                          _savedcabinairfilterinterval =
+                              num.tryParse(value) ?? 100000;
                         });
                       },
                       inputFormatters: [
@@ -581,7 +579,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtimingbeltinterval = num.tryParse(value) ?? 100000;
+                          _savedtimingbeltinterval =
+                              num.tryParse(value) ?? 100000;
                         });
                       },
                       inputFormatters: [
@@ -604,7 +603,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _saveddrivebeltinterval = num.tryParse(value) ?? 50000;
+                          _saveddrivebeltinterval =
+                              num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -627,7 +627,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedwaterpumpinterval = num.tryParse(value) ?? 50000;
+                          _savedwaterpumpinterval =
+                              num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -696,7 +697,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedSuspensionInspectionInterval = num.tryParse(value) ?? 50000;
+                          _savedSuspensionInspectionInterval =
+                              num.tryParse(value) ?? 50000;
                         });
                       },
                       inputFormatters: [
@@ -719,7 +721,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedtirerotationinterval = num.tryParse(value) ?? 5000;
+                          _savedtirerotationinterval =
+                              num.tryParse(value) ?? 5000;
                         });
                       },
                       inputFormatters: [
@@ -943,7 +946,8 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                       style: TextStyle(fontSize: 18.0), //the size of the text
                       onChanged: (value) {
                         setState(() {
-                          _savedcabinairfilterchanged = num.tryParse(value) ?? 0;
+                          _savedcabinairfilterchanged =
+                              num.tryParse(value) ?? 0;
                         });
                       },
                       inputFormatters: [
@@ -1133,8 +1137,11 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                 alignment: Alignment(0.83, -0.78),
                 child: ElevatedButton(
                   onPressed: () async {
+                    if (_savedname == null || _savedname == "") {
+                      _savedname = generateRandomNumber();
+                    }
                     //Declaration of the car object, which allows this to actuall work.
-                    Car myCar = Car(
+                    Car newCar = Car(
                         _pickedImageProvider,
                         _savedmileage,
                         _savedyear,
@@ -1177,7 +1184,7 @@ class _EditPageWidgetState extends State<EditPageWidget> {
                         _savedSuspensionInspection,
                         _savedtirechanged);
 
-                    saveToFile(myCar.nickname + ".mrm", myCar);
+                    saveToFile(newCar.nickname + ".mrm", newCar);
 
                     //This in theory should automatically switch to car with the new car; but something seems off.
                     await Navigator.of(context).pushReplacement(
