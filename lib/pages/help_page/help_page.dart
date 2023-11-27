@@ -38,10 +38,21 @@ class _HelpPageState extends State<HelpPage> {
         child: Column(
           children: <Widget>[
             ListTile(
-              title: Text(
-                'Welcome to MotoReMinder!',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('assets/images/appIcon.png',
+                      height: 24, width: 24),
+                  SizedBox(width: 8),
+                  Text(
+                    'Welcome to MotoReMinder!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 8),
+                  Image.asset('assets/images/appIcon.png',
+                      height: 24, width: 24),
+                ],
               ),
               subtitle: Text(
                 'Keep Your Maintenance in Check!\n',
@@ -81,7 +92,8 @@ class _HelpPageState extends State<HelpPage> {
                       ],
                     ),
                     SizedBox(
-                        height: 8.0), // Add some space between the bullet points
+                        height:
+                            8.0), // Add some space between the bullet points
                     Row(
                       children: <Widget>[
                         Expanded(
@@ -100,7 +112,8 @@ class _HelpPageState extends State<HelpPage> {
                       ],
                     ),
                     SizedBox(
-                        height: 8.0), // Add some space between the bullet points
+                        height:
+                            8.0), // Add some space between the bullet points
                     Row(
                       children: <Widget>[
                         Expanded(
@@ -119,7 +132,8 @@ class _HelpPageState extends State<HelpPage> {
                       ],
                     ),
                     SizedBox(
-                        height: 8.0), // Add some space between the bullet points
+                        height:
+                            8.0), // Add some space between the bullet points
                     Row(
                       children: <Widget>[
                         Expanded(
@@ -204,12 +218,16 @@ class _HelpPageState extends State<HelpPage> {
               onPressed: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
                 await prefs.setBool('hideHelpPage', _hideHelpPage);
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => CarPageWidget(onThemeChanged: (bool value) {  },)));
-            },
-          ),
-        ],
-      ),
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CarPageWidget(
+                              onThemeChanged: (bool value) {},
+                            )));
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -12,13 +12,7 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-
-
- 
-  
-  
 class _MyAppState extends State<MyApp> {
-
   bool _darkModeEnabled = false;
 
   void _onThemeChanged(bool value) {
@@ -26,7 +20,6 @@ class _MyAppState extends State<MyApp> {
       _darkModeEnabled = value;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +39,14 @@ class _MyAppState extends State<MyApp> {
           if (!snapshot.hasData) {
             return CircularProgressIndicator();
           }
-          var hideHelpPage = snapshot.data!.getBool('hideHelpPage') ?? true;
-          return hideHelpPage ? CarPageWidget(onThemeChanged: (bool value) { _onThemeChanged(value); },) : HelpPage();
+          var hideHelpPage = snapshot.data!.getBool('hideHelpPage') ?? false;
+          return hideHelpPage
+              ? CarPageWidget(
+                  onThemeChanged: (bool value) {
+                    _onThemeChanged(value);
+                  },
+                )
+              : HelpPage();
         },
       ),
     );
