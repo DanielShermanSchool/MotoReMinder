@@ -17,7 +17,7 @@
 
   
 
-1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/1.0Windows/MotoReMinderV1.0.zip)
+1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/1.1Windows/MotoReMinderV1.1.zip)
 
 2.  After the download is complete, open the folder where the file was saved.
 
@@ -31,7 +31,7 @@
 
   
 
-1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/1.0Android/MotoReMinderV1.0.apk)
+1.  [Click Here for Latest Download!](https://github.com/DanielShermanSchool/MotoReMinder/releases/download/1.1Android/MotoReMinderV1.1.apk)
 
 2.  Once the download is finished, tap on the APK file.
 
@@ -117,3 +117,14 @@ AS A ____
 I WANT ___
 
 SO THAT ___
+
+
+Primary Contributors:
+Anthony Mitcham
+Daniel Sherman
+Gage Laframboise
+Frederick Buker
+Miles Smith
+Github Copilot
+Bing Chat AI
+Jody Paul
