@@ -814,7 +814,7 @@ saveToFile(car.nickname + ".mrm", car);
         ),
         
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: Platform.isAndroid ? FloatingActionButton.extended(
         onPressed: () {
           // Show options for image selection (gallery or camera)
           showModalBottomSheet(
@@ -847,7 +847,7 @@ saveToFile(car.nickname + ".mrm", car);
         tooltip: 'Pick Image',
         label: Text('Add Picture'),
         icon: Icon(Icons.add_a_photo),
-      ),
+      ) : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       );
   }

@@ -27,36 +27,57 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
   }
 
   Future<void> initializeNotifications() async {
-    var initializationSettingsAndroid = AndroidInitializationSettings('appicon1');
-    var initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
 
+    var initializationSettingsAndroid = AndroidInitializationSettings('appicon1'); //Should set the icon to the notification; something is off
+    var initializationSettings = InitializationSettings(android: initializationSettingsAndroid); //Initialization settings. here is where you add IOS as well
+//This just makes sure the initializations work
     try {
-      await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+      await flutterLocalNotificationsPlugin.initialize(initializationSettings); 
     } catch (e) {
       print("Failed to initialize notifications: $e");
     }
   }
-
+  //This sets the actual notification to show.
   Future<void> _showNotification() async {
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
         'MotoReMinder', 'Reminder!',
-        importance: Importance.max, priority: Priority.high, showWhen: false);
-    var platformChannelSpecifics = NotificationDetails(android: androidPlatformChannelSpecifics);
-    await flutterLocalNotificationsPlugin.show(
-        0, 'Remember!', 'Don\'t forget to update your car info!', platformChannelSpecifics,
-        payload: 'item x');
-  }
 
+        importance: Importance.max, priority: Priority.high, showWhen: true);
+    var platformChannelSpecifics = NotificationDetails(android: androidPlatformChannelSpecifics);
+    //This is the notification data itself.
+      0, 'Remember!', 'Don\'t forget to update your car info!', platformChannelSpecifics,
+      payload: 'item x',
+    );
+  }
+  //This shared preference should make sure notifications are remembered
   Future<void> loadNotificationPreference() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       _notificationsEnabled = prefs.getBool('notificationsEnabled') ?? false;
     });
-  }
 
+    // Check if a month has passed since notifications were enabled
+    if (_notificationsEnabled) {
+      int lastNotificationTimestamp = prefs.getInt('lastNotificationTimestamp') ?? 0;
+      int currentTimestamp = DateTime.now().millisecondsSinceEpoch;
+
+      if (currentTimestamp - lastNotificationTimestamp > 30 * 24 * 60 * 60 * 1000) {
+        // More than a month has passed, show the notification
+        _showNotification();
+        // Update the last notification timestamp
+        prefs.setInt('lastNotificationTimestamp', currentTimestamp);
+      }
+    }
+  }
+  //This saves the notification saved preference.
   Future<void> saveNotificationPreference(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('notificationsEnabled', value);
+
+    // If notifications are enabled, store the current timestamp
+    if (value) {
+      prefs.setInt('lastNotificationTimestamp', DateTime.now().millisecondsSinceEpoch);
+    }
   }
 
   Future<void> loadDarkModePreference() async {
@@ -113,9 +134,6 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                 setState(() {
                   _notificationsEnabled = value;
                   saveNotificationPreference(value);
-                  if (_notificationsEnabled) {
-                    _showNotification();
-                  }
                 });
               },
             ),
@@ -127,7 +145,8 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
                   _darkModeEnabled = value;
                 });
                 widget.onThemeChanged(_darkModeEnabled);
-                await saveDarkModePreference(_darkModeEnabled);
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                await prefs.setBool('isDarkModeEnabled', _darkModeEnabled);
                 if (_darkModeEnabled) {
                   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
                     statusBarColor: Colors.black,

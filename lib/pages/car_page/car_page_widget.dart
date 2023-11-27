@@ -13,8 +13,6 @@ import 'car_page_model.dart';
 export 'car_page_model.dart';
 import 'dart:io';
 
-
-
 class CarPageWidget extends StatefulWidget {
   final Car? car;
   final ValueChanged<bool> onThemeChanged;
@@ -24,14 +22,13 @@ class CarPageWidget extends StatefulWidget {
   _CarPageWidgetState createState() => _CarPageWidgetState();
 }
 
-
 class _CarPageWidgetState extends State<CarPageWidget> {
   CarPageModel model = CarPageModel();
 
   // List of cars
   List<Car> cars = [];
 
-    int _currentIndex = 0; // Index of the selected bottom navigation item
+  int _currentIndex = 0; // Index of the selected bottom navigation item
 
   void _onItemTapped(int index) {
     setState(() {
@@ -46,7 +43,9 @@ class _CarPageWidgetState extends State<CarPageWidget> {
       if (_currentIndex == 1) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => EditPageWidget(onThemeChanged: widget.onThemeChanged)),
+          MaterialPageRoute(
+              builder: (context) =>
+                  EditPageWidget(onThemeChanged: widget.onThemeChanged)),
         );
       }
       // Handle other index values if needed
@@ -54,7 +53,8 @@ class _CarPageWidgetState extends State<CarPageWidget> {
   }
 
   @override
-  void initState() { //runs when the page is first loaded
+  void initState() {
+    //runs when the page is first loaded
     super.initState();
     loadCars();
   }
@@ -82,38 +82,40 @@ class _CarPageWidgetState extends State<CarPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( //title at the top
+      appBar: AppBar(
+        //title at the top
         centerTitle: true,
         title: Text('Welcome to MotoReMinder!'),
-         actions: <Widget>[
-            PopupMenuButton<int>(
-              itemBuilder: (context) => [
-                PopupMenuItem(
-                  value: 1,
-                  child: Text("Help Page"),
-                ),
-                PopupMenuItem(
-                  value: 2,
-                  child: Text("Settings Page"),
-                ),
-              ],
-              onSelected: (value) {
-                // if (value == 1) {
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(builder: (context) => HelpPage()),
-                //   );
-                //} else 
-                if (value == 2) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SettingsPageWidget(onThemeChanged: widget.onThemeChanged)),
-                  );
-                }
-              },
-    ),
-  ],
-
+        actions: <Widget>[
+          PopupMenuButton<int>(
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 1,
+                child: Text("Help Page"),
+              ),
+              PopupMenuItem(
+                value: 2,
+                child: Text("Settings Page"),
+              ),
+            ],
+            onSelected: (value) {
+              // if (value == 1) {
+              //   Navigator.push(
+              //     context,
+              //     MaterialPageRoute(builder: (context) => HelpPage()),
+              //   );
+              //} else
+              if (value == 2) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => SettingsPageWidget(
+                          onThemeChanged: widget.onThemeChanged)),
+                );
+              }
+            },
+          ),
+        ],
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -126,49 +128,65 @@ class _CarPageWidgetState extends State<CarPageWidget> {
             fit: BoxFit.cover,
           ),
         ),
-        child: GridView.count( //grid of cars
-            crossAxisCount: 4, //number of cars per row
-            children: cars.map((car) { //for each car in the list of cars, make a button that can be clicked and navigates
+        child: GridView.count(
+          //grid of cars
+          crossAxisCount: 2, //number of cars per row
+          children: cars.map((car) {
+            //for each car in the list of cars, make a button that can be clicked and navigates
             //to the checklist page, passing through the car you clicked on as an object to the checklist page
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ChecklistPage(car: car, onThemeChanged: widget.onThemeChanged,)),
-                  );
-                },
-                onLongPress: () { //hold to edit car
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => EditPageWidget(car: car, onThemeChanged: widget.onThemeChanged,)),
-                    );      },
-                child: Container(
-                  margin: EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    color: Colors.blueAccent,
-                    borderRadius: BorderRadius.circular(10.0),
-                    image: DecorationImage(
-
-                      //image: AssetImage('assets/images/appIcon.png'),
-                      image: car.imageProvider ?? AssetImage('assets/images/appIcon.png'), // provide a default image in case car.picture is null
-                      fit: BoxFit.cover,
-                    ),
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ChecklistPage(
+                            car: car,
+                            onThemeChanged: widget.onThemeChanged,
+                          )),
+                );
+              },
+              onLongPress: () {
+                //hold to edit car
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => EditPageWidget(
+                            car: car,
+                            onThemeChanged: widget.onThemeChanged,
+                          )),
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: Colors.blueAccent,
+                  borderRadius: BorderRadius.circular(10.0),
+                  image: DecorationImage(
+                    //image: AssetImage('assets/images/appIcon.png'),
+                    image: car.imageProvider ??
+                        AssetImage(
+                            'assets/images/appIcon.png'), // provide a default image in case car.picture is null
+                    fit: BoxFit.cover,
                   ),
-                  child: Center(child: Text(car.nickname, style: TextStyle(color: const Color.fromARGB(255, 255, 255, 255), 
-                                                                          backgroundColor: Color.fromARGB(78, 0, 0, 0),
-                                                                          fontSize: 32))),
                 ),
-              );
-            }).toList(),
-          ),
+                child: Center(
+                    child: Text(car.nickname,
+                        style: TextStyle(
+                            color: const Color.fromARGB(255, 255, 255, 255),
+                            backgroundColor: Color.fromARGB(78, 0, 0, 0),
+                            fontSize: 32))),
+              ),
+            );
+          }).toList(),
         ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.question_mark),
-            label: 'Help',
+            icon: Icon(Icons.info),
+            label: 'Info',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.car_repair),
@@ -180,4 +198,3 @@ class _CarPageWidgetState extends State<CarPageWidget> {
     );
   }
 }
-
