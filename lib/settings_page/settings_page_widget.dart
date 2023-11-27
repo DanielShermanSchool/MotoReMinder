@@ -45,7 +45,7 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
         importance: Importance.max, priority: Priority.high, showWhen: true);
     var platformChannelSpecifics = NotificationDetails(android: androidPlatformChannelSpecifics);
     //This is the notification data itself.
-      0, 'Remember!', 'Don\'t forget to update your car info!', platformChannelSpecifics,
+      await flutterLocalNotificationsPlugin.show(0, 'Remember!', 'Don\'t forget to update your car info!', platformChannelSpecifics,
       payload: 'item x',
     );
   }
