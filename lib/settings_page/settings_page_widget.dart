@@ -15,16 +15,19 @@ class SettingsPageWidget extends StatefulWidget {
 class _SettingsPageWidgetState extends State<SettingsPageWidget> {
   bool _notificationsEnabled = false;
   bool _darkModeEnabled = false;
-  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
 
   @override
   void initState() {
     super.initState();
     initializeNotifications();
     loadNotificationPreference();
+    loadDarkModePreference();
   }
 
   Future<void> initializeNotifications() async {
+
     var initializationSettingsAndroid = AndroidInitializationSettings('appicon1'); //Should set the icon to the notification; something is off
     var initializationSettings = InitializationSettings(android: initializationSettingsAndroid); //Initialization settings. here is where you add IOS as well
 //This just makes sure the initializations work
@@ -38,10 +41,10 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
   Future<void> _showNotification() async {
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
         'MotoReMinder', 'Reminder!',
+
         importance: Importance.max, priority: Priority.high, showWhen: true);
     var platformChannelSpecifics = NotificationDetails(android: androidPlatformChannelSpecifics);
     //This is the notification data itself.
-    await flutterLocalNotificationsPlugin.show(
       0, 'Remember!', 'Don\'t forget to update your car info!', platformChannelSpecifics,
       payload: 'item x',
     );
@@ -75,6 +78,34 @@ class _SettingsPageWidgetState extends State<SettingsPageWidget> {
     if (value) {
       prefs.setInt('lastNotificationTimestamp', DateTime.now().millisecondsSinceEpoch);
     }
+  }
+
+  Future<void> loadDarkModePreference() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _darkModeEnabled = prefs.getBool('isDarkModeEnabled') ?? false;
+      widget.onThemeChanged(_darkModeEnabled);
+      if (_darkModeEnabled) {
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+          statusBarColor: Colors.black,
+          statusBarIconBrightness: Brightness.light,
+          systemNavigationBarColor: Colors.black,
+          systemNavigationBarIconBrightness: Brightness.light,
+        ));
+      } else {
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+          statusBarIconBrightness: Brightness.dark,
+          systemNavigationBarColor: Colors.white,
+          systemNavigationBarIconBrightness: Brightness.dark,
+        ));
+      }
+    });
+  }
+
+  Future<void> saveDarkModePreference(bool value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isDarkModeEnabled', value);
   }
 
   @override
