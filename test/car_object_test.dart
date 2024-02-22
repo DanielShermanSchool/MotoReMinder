@@ -1,10 +1,6 @@
-import 'dart:ffi';
-import 'dart:math';
 
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:moto_re_minder/car_object.dart';
-import 'package:moto_re_minder/progress_object.dart';
 
 final int _MILEAGE = 120000;
 final int _INTERVAL_ENGING_OIL_AND_FILTER = 20000;
