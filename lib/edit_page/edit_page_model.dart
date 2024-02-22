@@ -1,7 +1,7 @@
-import '/flutter_flow/flutter_flow_util.dart';
+//import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 
-class EditPageModel extends FlutterFlowModel {
+class EditPageModel{
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -123,12 +123,6 @@ class EditPageModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? lastSuspensionInspectionValidator;
   TextEditingController? suspensionInspectionInterval;
   String? Function(BuildContext, String?)? suspensionInspectionIntervalValidator;
-  
-
-
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
 
   @override
   void initState(BuildContext context) {}

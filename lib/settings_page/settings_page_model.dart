@@ -1,7 +1,7 @@
-import '/flutter_flow/flutter_flow_util.dart';
+//import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 
-class SettingsPageModel extends FlutterFlowModel {
+class SettingsPageModel{
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
