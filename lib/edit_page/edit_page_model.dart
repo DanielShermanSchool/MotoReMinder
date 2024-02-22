@@ -124,10 +124,8 @@ class EditPageModel{
   TextEditingController? suspensionInspectionInterval;
   String? Function(BuildContext, String?)? suspensionInspectionIntervalValidator;
 
-  @override
   void initState(BuildContext context) {}
 
-  @override
   void dispose() {
     unfocusNode.dispose();
     carName?.dispose();
