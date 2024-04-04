@@ -15,7 +15,7 @@ class ChecklistPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('${car.nickname} Checklist!'),
+        title: Text('${car.getAttribute('getAttribute')('nickname')} Checklist!'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.more_vert), // Vertical dots icon
@@ -39,13 +39,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30, // Adjust this value to change the height of the progress bar
-                    child: LinearProgressIndicator(value: car.oilChangeProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('oilChangeProgress').toDouble(),
                                                     //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.oilChangeProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('oilChangeProgress'))),
                                     
                   )),
                   Center(
-                    child: Text('${math.max(0, (car.intervalEngineOilAndFilter)-(car.mileage - car.lastChangedEngineOilAndFilter))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalEngineOilAndFilter'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedEngineOilAndFilter')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -55,13 +55,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.tireRotationProgress.toDouble(),                                                    //this is what makes it dynamically color changing
+                    child: LinearProgressIndicator(value: car.getAttribute('tireRotationProgress').toDouble(),                                                    //this is what makes it dynamically color changing
                                                    // 
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.tireRotationProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('tireRotationProgress'))),
                                                     )),
                   
                   Center(
-                    child: Text('${math.max(0, (car.intervalTireRotation)-(car.mileage - car.lastChangedTireRotation))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalTireRotation'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedTireRotation')))} Miles Left',
                     style: TextStyle(fontSize: 20))
                   ),
                 ],
@@ -71,12 +71,12 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.brakeInspectionProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('brakeInspectionProgress').toDouble(),
                                                                       //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.brakeInspectionProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('brakeInspectionProgress'))),
                                                     )),
                   Center(
-                    child: Text('${math.max(0, (car.intervalBrakeInspection)-(car.mileage - car.lastChangedBrakeInspection))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalBrakeInspection'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedBrakeInspection')))} Miles Left',
                     style:  TextStyle(fontSize: 20),),
                   ),
                 ],
@@ -86,13 +86,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.brakeFluidProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('brakeFluidProgress').toDouble(),
                                                                         //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.brakeFluidProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('brakeFluidProgress'))),
                                                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalBrakeFluid)-(car.mileage - car.lastChangedBrakeFluid))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalBrakeFluid'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedBrakeFluid')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -102,13 +102,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.engineCoolantChangeProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('engineCoolantChangeProgress').toDouble(),
                                                                         //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.engineCoolantChangeProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('engineCoolantChangeProgress'))),
                                                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalEngineCoolant)-(car.mileage - car.lastChangedEngineCoolant))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalEngineCoolant'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedEngineCoolant')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -118,13 +118,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.airFilterProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('airFilterProgress').toDouble(),
                                                                         //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.airFilterProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('airFilterProgress'))),
                                                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalAirFilter)-(car.mileage - car.lastChangedAirFilter))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalAirFilter'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedAirFilter')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -134,13 +134,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.sparkPlugProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('sparkPlugProgress').toDouble(),
                                                                         //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.sparkPlugProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('sparkPlugProgress'))),
                                                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalSparkPlugs)-(car.mileage - car.lastChangedSparkPlugs))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalSparkPlugs'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedSparkPlugs')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -150,13 +150,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.timingBeltChainProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('timingBeltChainProgress').toDouble(),
                                                                         //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.timingBeltChainProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('timingBeltChainProgress'))),
                                                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalTimingBeltChain)-(car.mileage - car.lastChangedTimingBeltChain))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalTimingBeltChain'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedTimingBeltChain')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -166,13 +166,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.waterPumpInspectionProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('waterPumpInspectionProgress').toDouble(),
                                                                         //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.waterPumpInspectionProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('waterPumpInspectionProgress'))),
                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalWaterPumpInspection)-(car.mileage - car.lastChangedWaterPumpInspection))} Miles Left', 
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalWaterPumpInspection'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedWaterPumpInspection')))} Miles Left', 
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -182,13 +182,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.driveBeltInspectionProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('driveBeltInspectionProgress').toDouble(),
                                                                         //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.driveBeltInspectionProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('driveBeltInspectionProgress'))),
                                                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalDriveBeltInspection)-(car.mileage - car.lastChangedDriveBeltInspection))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalDriveBeltInspection'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedDriveBeltInspection')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -198,13 +198,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.transmissionFluidProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('transmissionFluidProgress').toDouble(),
                                                                         //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.transmissionFluidProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('transmissionFluidProgress'))),
                                                 
                   )),
                   Center(
-                    child: Text('${math.max(0, (car.intervalTransmissionFluid)-(car.mileage - car.lastChangedTransmissionFluid))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalTransmissionFluid'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedTransmissionFluid')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -214,13 +214,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.transmissionFilterProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('transmissionFilterProgress').toDouble(),
                                                                         //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.transmissionFilterProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('transmissionFilterProgress'))),
                                                   
                   )),
                   Center(
-                    child: Text('${math.max(0, (car.intervalTransFilter)-(car.mileage - car.lastChangedTransmissionFilter))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalTransFilter'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedTransmissionFilter')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -230,13 +230,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.cabinAirFilterProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('cabinAirFilterProgress').toDouble(),
                                                                         //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.cabinAirFilterProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('cabinAirFilterProgress'))),
                                                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalCabinAirFilter)-(car.mileage - car.lastChangedCabinAirFilter))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalCabinAirFilter'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedCabinAirFilter')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -246,13 +246,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.fuelFilterProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('fuelFilterProgress').toDouble(),
                                                     //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.fuelFilterProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('fuelFilterProgress'))),
                                                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalFuelFilter)-(car.mileage - car.lastChangedFuelFilter))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalFuelFilter'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedFuelFilter')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -262,13 +262,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.fuelPumpProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('fuelPumpProgress').toDouble(),
                                                    //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.fuelPumpProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('fuelPumpProgress'))),
                                                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalFuelPump)-(car.mileage - car.lastChangedFuelPump))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalFuelPump'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedFuelPump')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -278,13 +278,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.suspensionInspectionProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('suspensionInspectionProgress').toDouble(),
                                                     //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.suspensionInspectionProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('suspensionInspectionProgress'))),
                                                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalSuspensionInspection)-(car.mileage - car.lastSuspensionInspection))} Miles Left', 
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalSuspensionInspection'))-(car.getAttribute('mileage') - car.getAttribute('lastSuspensionInspection')))} Miles Left', 
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
@@ -294,13 +294,13 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30,
-                    child: LinearProgressIndicator(value: car.changedTiresProgress.toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('changedTiresProgress').toDouble(),
                                                     //this is what makes it dynamically color changing
-                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.changedTiresProgress)),
+                                                    valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('changedTiresProgress'))),
                     )
                   ),
                   Center(
-                    child: Text('${math.max(0, (car.intervalTires)-(car.mileage - car.lastChangedTires))} Miles Left',
+                    child: Text('${math.max<int>(0, (car.getAttribute('intervalTires'))-(car.getAttribute('mileage') - car.getAttribute('lastChangedTires')))} Miles Left',
                     style: TextStyle(fontSize: 20)),
                   ),
                 ],
