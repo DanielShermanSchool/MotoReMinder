@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:moto_re_minder/car_object.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:xml/xml.dart' as xml;
 import 'dart:convert';
 
@@ -58,14 +61,22 @@ class _EditPageWidgetState extends State<EditPageWidget> {
     );
   }
 
-  void _submit() {
+  void _submit() async {
     if (_formKey.currentState!.validate()) {
       _controllers.forEach((attribute, controller) {
         _car.setAttribute(attribute, controller.text);
       });
       String jsonCar = jsonEncode(_car);
       print('Car JSON: $jsonCar');
-      // Do something with the JSON string
+      
+        // Get the path to the application's documents directory
+      final directory = await getApplicationDocumentsDirectory();
+
+      // Create a new file in the documents directory
+      final file = File('${directory.path}/car_${_car.getAttribute('nickname')}.json');
+
+      // Write the JSON string to the file
+      await file.writeAsString(jsonCar);
     }
   }
 }
