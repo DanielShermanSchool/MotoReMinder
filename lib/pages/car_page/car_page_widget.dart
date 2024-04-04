@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_import
 
+import 'dart:convert';
+
 import 'package:moto_re_minder/edit_page/edit_page_widget.dart';
 import 'package:moto_re_minder/car_object.dart';
 import 'package:moto_re_minder/index.dart';
@@ -45,7 +47,8 @@ class _CarPageWidgetState extends State<CarPageWidget> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  EditPageWidget(onThemeChanged: widget.onThemeChanged)),
+                  EditPageWidget(onThemeChanged: widget.onThemeChanged, car: Car()),
+          )
         );
       }
       // Handle other index values if needed
@@ -54,29 +57,24 @@ class _CarPageWidgetState extends State<CarPageWidget> {
 
   @override
   void initState() {
-    //runs when the page is first loaded
     super.initState();
-    loadCars();
+    _loadCarsFromJsonFiles();
   }
 
-  Future<void> loadCars() async {
-    // Get the path to the directory where the text files are located
+  Future<void> _loadCarsFromJsonFiles() async {
     final directory = await getApplicationDocumentsDirectory();
-    final path = directory.path;
-    final carsDirectory = Directory('$path/cars');
+    final files = directory.listSync();
+    final jsonFiles = files.where((file) => file.path.endsWith('.json'));
 
-    // Get all the files in the directory
-    final files = carsDirectory.listSync();
-
-    //for each car file, read the file and parse the contents into a car object
-    for (final file in files) {
+    for (final file in jsonFiles) {
       final fileContent = await File(file.path).readAsString();
-      final car = Car.parseCar(fileContent);
-      cars.add(car);
-    }
+      final jsonData = jsonDecode(fileContent);
+      final car = Car.fromJson(jsonData);
 
-    // Update the UI
-    setState(() {});
+      setState(() {
+        cars.add(car);
+      });
+    }
   }
 
   @override
@@ -163,14 +161,12 @@ class _CarPageWidgetState extends State<CarPageWidget> {
                   borderRadius: BorderRadius.circular(10.0),
                   image: DecorationImage(
                     //image: AssetImage('assets/images/appIcon.png'),
-                    image: car.imageProvider ??
-                        AssetImage(
-                            'assets/images/appIcon.png'), // provide a default image in case car.picture is null
+                    image: car.imageProvider, // provide a default image in case car.picture is null
                     fit: BoxFit.cover,
                   ),
                 ),
                 child: Center(
-                    child: Text(car.nickname,
+                    child: Text(car.getAttribute('nickname'),
                         style: TextStyle(
                             color: const Color.fromARGB(255, 255, 255, 255),
                             backgroundColor: Color.fromARGB(78, 0, 0, 0),

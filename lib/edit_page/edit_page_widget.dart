@@ -10,6 +10,10 @@ import 'dart:convert';
 import 'package:xml/xml.dart';
 
 class EditPageWidget extends StatefulWidget {
+  final ValueChanged<bool> onThemeChanged;
+
+  EditPageWidget({required this.onThemeChanged, required Car car});
+
   @override
   _EditPageWidgetState createState() => _EditPageWidgetState();
 }
