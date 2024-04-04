@@ -1,31 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:moto_re_minder/car_object.dart';
 import 'package:xml/xml.dart' as xml;
 import 'dart:convert';
 
 import 'package:xml/xml.dart';
-
-class Car {
-  Map<String, dynamic> attributes = {};
-
-  Car();
-
-  Car.fromJson(Map<String, dynamic> json) {
-    attributes = json;
-  }
-
-  Map<String, dynamic> toJson() {
-    return attributes;
-  }
-
-  setAttribute(String attribute, dynamic value) {
-    attributes[attribute] = value;
-  }
-
-  dynamic getAttribute(String attribute) {
-    return attributes[attribute];
-  }
-}
 
 class EditPageWidget extends StatefulWidget {
   @override
