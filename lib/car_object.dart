@@ -1,7 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/widgets.dart';
-import 'package:moto_re_minder/progress_object.dart';
 import 'package:xml/xml.dart';
 
 class Car {
