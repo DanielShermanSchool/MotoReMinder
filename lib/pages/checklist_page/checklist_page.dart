@@ -13,9 +13,9 @@ class ChecklistPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('${car.getAttribute('getAttribute')('nickname')} Checklist!'),
+    return Scaffold( 
+      appBar: AppBar( 
+        title: Text('${car.getAttribute('nickname')} Checklist!'), // Car nickname
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.more_vert), // Vertical dots icon
@@ -39,7 +39,7 @@ class ChecklistPage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(
                     height: 30, // Adjust this value to change the height of the progress bar
-                    child: LinearProgressIndicator(value: car.getAttribute('oilChangeProgress').toDouble(),
+                    child: LinearProgressIndicator(value: car.getAttribute('oilChangeProgress').toDouble(), 
                                                     //this is what makes it dynamically color changing
                                                     valueColor: AlwaysStoppedAnimation<Color>(getProgressColor(car.getAttribute('oilChangeProgress'))),
                                     
@@ -313,7 +313,7 @@ class ChecklistPage extends StatelessWidget {
   }
 
 //this is used to define when the colors change
-  Color getProgressColor(num remaining) {
+  Color getProgressColor(num remaining) { 
   if (remaining < 0.25 ) {
     return Colors.red;
   } else if (remaining < 0.51) {

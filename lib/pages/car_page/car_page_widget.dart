@@ -58,21 +58,21 @@ class _CarPageWidgetState extends State<CarPageWidget> {
   @override
   void initState() {
     super.initState();
-    _loadCarsFromJsonFiles();
+    _loadCarsFromJsonFiles(); // Load cars from JSON files
   }
 
-  Future<void> _loadCarsFromJsonFiles() async {
-    final directory = await getApplicationDocumentsDirectory();
-    final files = directory.listSync();
-    final jsonFiles = files.where((file) => file.path.endsWith('.json'));
+  Future<void> _loadCarsFromJsonFiles() async { // Load cars from JSON files
+    final directory = await getApplicationDocumentsDirectory(); // Get application documents directory
+    final files = directory.listSync(); // Get list of files in the application documents directory
+    final jsonFiles = files.where((file) => file.path.endsWith('.json')); // Filter JSON files
 
-    for (final file in jsonFiles) {
-      final fileContent = await File(file.path).readAsString();
-      final jsonData = jsonDecode(fileContent);
-      final car = Car.fromJson(jsonData);
+    for (final file in jsonFiles) { // Parse JSON files
+      final fileContent = await File(file.path).readAsString(); // Read file content
+      final jsonData = jsonDecode(fileContent); // Decode JSON data
+      final car = Car.fromJson(jsonData); // Create car object from JSON data
 
-      setState(() {
-        cars.add(car);
+      setState(() { // Update state with new car object
+        cars.add(car); // Add car object to the list of cars
       });
     }
   }
