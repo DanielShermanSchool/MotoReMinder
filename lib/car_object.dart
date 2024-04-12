@@ -15,9 +15,15 @@ class Car {
     final file = File('assets/car_attributes.xml');
     final document = XmlDocument.parse(await file.readAsString());
 
-    for (var element in document.findAllElements('Car').first.children.whereType<XmlElement>()) { // Parse XML attributes
-      attributes[element.name.toString()] = element.value;
+    var carElements = document.findAllElements('Car');
+if (carElements.isNotEmpty) {
+    for (var element in carElements.first.children.whereType<XmlElement>()) {
+        attributes[element.name.toString()] = element.value;
     }
+} else {
+    print('No Car elements found');
+}
+
 
     // Assuming the first attribute in the XML is the image provider
     String firstAttributeName = document.findAllElements('Car').first.children.whereType<XmlElement>().first.name.toString();
