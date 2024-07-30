@@ -12,25 +12,41 @@ class Car {
   }
 
   void loadFromXml() async {
-    final file = File('assets/car_attributes.xml');
-    final document = XmlDocument.parse(await file.readAsString());
+    try {
+      final file = File('assets/car_attributes.xml');
+      if (!await file.exists()) {
+        print('XML file not found');
+        return;
+      }
 
-    var carElements = document.findAllElements('Car');
-if (carElements.isNotEmpty) {
-    for (var element in carElements.first.children.whereType<XmlElement>()) {
-        attributes[element.name.toString()] = element.value;
+      final fileContent = await file.readAsString();
+      print('XML file content: $fileContent');
+
+      final document = XmlDocument.parse(fileContent);
+      var carElements = document.findAllElements('car');
+
+      if (carElements.isEmpty) {
+        print('No Car elements found');
+        return;
+      }
+
+      for (var element in carElements.first.children.whereType<XmlElement>()) {
+        attributes[element.name.toString()] = element.text;
+      }
+
+      print('car attributes loaded: $attributes');
+      // Assuming the first attribute in the XML is the image provider
+      String firstAttributeName = document.findAllElements('car').first.children.whereType<XmlElement>().first.name.toString();
+      String firstAttributeValue = attributes[firstAttributeName];
+
+      // Assuming the attribute value is a path to an asset image
+      imageProvider = AssetImage(firstAttributeValue);
+    } catch (e) {
+      print('Error loading XML: $e');
     }
-} else {
-    print('No Car elements found');
-}
 
 
-    // Assuming the first attribute in the XML is the image provider
-    String firstAttributeName = document.findAllElements('Car').first.children.whereType<XmlElement>().first.name.toString();
-    String firstAttributeValue = attributes[firstAttributeName];
-
-    // Assuming the attribute value is a path to an asset image
-    imageProvider = AssetImage(firstAttributeValue);
+    
   }
 
   String toJson() { // Convert car object to JSON string
