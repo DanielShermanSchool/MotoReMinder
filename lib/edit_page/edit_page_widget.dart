@@ -21,20 +21,34 @@ class EditPageWidget extends StatefulWidget {
 class _EditPageWidgetState extends State<EditPageWidget> {
   final _formKey = GlobalKey<FormState>(); // Form key
   Map<String, TextEditingController> _controllers = {}; // Map to store text controllers
+  bool _isLoading = true; // Loading flag
   Car _car = Car(); // Car object
 
   @override
   void initState() { // Load XML attributes
     super.initState(); 
-    _loadXml(); 
+    _loadAttributes(); 
   }
 
-  void _loadXml() async { // Load XML attributes
-    String xmlString = await rootBundle.loadString('assets/car_attributes.xml'); // Load XML file
-    var document = XmlDocument.parse(xmlString); // Parse XML document
-    document.findAllElements('attribute').forEach((element) { // Parse XML attributes
-      _controllers[element.text] = TextEditingController(); // Create text controller for each attribute
-    });
+  Future<void> _loadAttributes() async { // Load car attributes from XML
+    try {
+      String xmlString = await rootBundle.loadString('assets/car_attributes.xml');
+      var document = XmlDocument.parse(xmlString);
+      var carElement = document.findAllElements('car').first;
+
+      carElement.children.where((node) => node is XmlElement).forEach((element) {
+        String attributeName = (element as XmlElement).name.toString();
+        String attributeValue = element.text;
+        _controllers[attributeName] = TextEditingController(text: attributeValue);
+        _car.setAttribute(attributeName, attributeValue);
+      });
+
+      setState(() {
+        _isLoading = false;
+      });
+    } catch (e) {
+      print('Error loading XML: $e');
+    }
   }
 
   @override
@@ -43,21 +57,23 @@ class _EditPageWidgetState extends State<EditPageWidget> {
       appBar: AppBar(
         title: Text('Edit Car Attributes'),
       ),
-      body: Form( // Form to edit car attributes
-        key: _formKey,
-        child: ListView.builder( // List view to display text fields
-          itemCount: _controllers.length,
-          itemBuilder: (context, index) {
-            var attribute = _controllers.keys.elementAt(index);
-            return TextFormField(
-              controller: _controllers[attribute],
-              decoration: InputDecoration(
-                labelText: attribute,
+      body: _isLoading
+          ? Center(child: CircularProgressIndicator())
+          : Form(
+              key: _formKey,
+              child: ListView.builder(
+                itemCount: _controllers.length,
+                itemBuilder: (context, index) {
+                  var attribute = _controllers.keys.elementAt(index);
+                  return TextFormField(
+                    controller: _controllers[attribute],
+                    decoration: InputDecoration(
+                      labelText: attribute,
+                    ),
+                  );
+                },
               ),
-            );
-          },
-        ),
-      ),
+            ),
       floatingActionButton: FloatingActionButton(
         onPressed: _submit,
         child: Icon(Icons.check),
